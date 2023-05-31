@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const mission = createSlice({
-  name: 'mission',
+export const missions = createSlice({
+  name: 'missions',
   initialState: {
-    missions: [],
+    missionItems: [],
     error: null
   },
   reducers: {
-    setMissions: (store, action) => {
-      store.missions = action.payload
+    setMissionItems: (store, action) => {
+      store.missionItems = action.payload
     },
     setError: (store, action) => {
       store.error = action.payload
