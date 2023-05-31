@@ -8,6 +8,7 @@ export const user = createSlice({
     email: null,
     userId: null,
     accessToken: null,
+    score: null,
     error: null
   },
   reducers: {
@@ -25,6 +26,9 @@ export const user = createSlice({
     },
     setAccessToken: (store, action) => {
       store.accessToken = action.payload
+    },
+    setScore: (store, action) => {
+      store.score = action.payload
     },
     setError: (store, action) => {
       store.error = action.payload
