@@ -30,6 +30,9 @@ export const user = createSlice({
     setScore: (store, action) => {
       store.score = action.payload
     },
+    setScoreHistory: (store, action) => {
+      store.scoreHistory = action.payload
+    },
     setError: (store, action) => {
       store.error = action.payload
     }

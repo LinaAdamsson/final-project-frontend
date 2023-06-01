@@ -1,9 +1,10 @@
 import React from 'react'
-import TestFetch from 'components/TestFetch'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { user } from 'reducers/user'
 import { missions } from 'reducers/missions'
 import { Provider } from 'react-redux'
+import RegisterForm from 'components/RegisterForm'
+import LoginForm from 'components/LoginForm'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -14,7 +15,8 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <TestFetch />
+      <RegisterForm />
+      <LoginForm />
     </Provider>
   )
 }
