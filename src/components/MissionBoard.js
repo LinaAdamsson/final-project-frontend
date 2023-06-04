@@ -28,12 +28,13 @@ const MissionBoard = () => {
         }
       })
       .catch((error) => console.log(error))
-  })
+  }, [accessToken, dispatch])
+  console.log(accessToken)
   return (
     <>
       {missionItems.map((mission) => {
         return (
-          <section>
+          <section key={mission.id}>
             <p>{mission.title}</p>
             <p>{mission.description}</p>
             <p>{mission.points}</p>

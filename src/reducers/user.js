@@ -25,7 +25,7 @@ export const user = createSlice({
       store.userId = action.payload
     },
     setAccessToken: (store, action) => {
-      store.accessToken = action.payload
+      store.accessToken = action.payload;
     },
     setScore: (store, action) => {
       store.score = action.payload
