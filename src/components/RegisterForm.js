@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
-const Register = styled.form`
-  background-color: blue;
-`
+// const Register = styled.form`
+//   background-color: blue;
+// `
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -48,42 +48,42 @@ const RegisterForm = () => {
       })
   }
   return (
-    <Register>
-      <div className="userpass-box">
-        <form onSubmit={onFormSubmit}>
-          <label htmlFor="firstName">First name
-            <input
-              type="text"
-              id="firstName"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)} />
-          </label>
-          <label htmlFor="lastName">Last name
-            <input
-              type="text"
-              id="lastName"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)} />
-          </label>
-          <label htmlFor="lastName">Email
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)} />
-          </label>
-          <label htmlFor="password">Password
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)} />
-          </label>
-          <button type="submit">Submit</button>
-          <p>{error}</p>
-        </form>
-      </div>
-    </Register>
+    // <Register>
+    <div className="userpass-box">
+      <form onSubmit={onFormSubmit}>
+        <label htmlFor="firstName">First name
+          <input
+            type="text"
+            id="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)} />
+        </label>
+        <label htmlFor="lastName">Last name
+          <input
+            type="text"
+            id="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)} />
+        </label>
+        <label htmlFor="lastName">Email
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)} />
+        </label>
+        <label htmlFor="password">Password
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} />
+        </label>
+        <button type="submit">Submit</button>
+        <p>{error}</p>
+      </form>
+    </div>
+  // </Register>
   )
 }
 

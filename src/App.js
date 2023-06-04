@@ -5,6 +5,7 @@ import { missions } from 'reducers/missions'
 import { Provider } from 'react-redux'
 import RegisterForm from 'components/RegisterForm'
 import LoginForm from 'components/LoginForm'
+import Loader from 'components/Loader'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -15,6 +16,7 @@ export const App = () => {
 
   return (
     <Provider store={store}>
+      <Loader />
       <RegisterForm />
       <LoginForm />
     </Provider>
