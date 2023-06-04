@@ -1,11 +1,14 @@
 import React from 'react'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { user } from 'reducers/user'
 import { missions } from 'reducers/missions'
 import { Provider } from 'react-redux'
 import RegisterForm from 'components/RegisterForm'
 import LoginForm from 'components/LoginForm'
-import Loader from 'components/Loader'
+import NotFound from 'components/NotFound';
+import { Main } from 'components/Main';
+// import Loader from 'components/Loader'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -16,9 +19,16 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <Loader />
-      <RegisterForm />
-      <LoginForm />
+      <BrowserRouter>
+        <Routes>
+          {/* <Loader /> */}
+          <Route path="/login" element={<LoginForm />}> </Route>
+          <Route path="/register" element={<RegisterForm />}> </Route>
+          <Route path="/" element={<Main />}> </Route>
+          <Route path="*" element={<NotFound />}> </Route>
+
+        </Routes>
+      </BrowserRouter>
     </Provider>
   )
 }

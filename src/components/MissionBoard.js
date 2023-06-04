@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { missions } from 'reducers/missions';
 import { API_URL } from 'utils/urls';
 
-const TestFetch = () => {
+const MissionBoard = () => {
   const dispatch = useDispatch();
   const missionItems = useSelector((store) => store.missions.missionItems);
   const accessToken = useSelector((store) => store.user.accessToken);
@@ -26,13 +26,14 @@ const TestFetch = () => {
           dispatch(missions.actions.setMissionItems([]));
           dispatch(missions.actions.setError(data.response));
         }
-      });
-  }, [])
+      })
+      .catch((error) => console.log(error))
+  })
   return (
     <>
       {missionItems.map((mission) => {
         return (
-          <section key={mission._id}>
+          <section>
             <p>{mission.title}</p>
             <p>{mission.description}</p>
             <p>{mission.points}</p>
@@ -43,4 +44,4 @@ const TestFetch = () => {
   )
 }
 
-export default TestFetch
+export default MissionBoard
