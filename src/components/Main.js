@@ -5,7 +5,7 @@ import { user } from 'reducers/user';
 import { missions } from 'reducers/missions';
 import MissionBoard from './MissionBoard';
 
-export const Main = () => {
+const Main = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const accessToken = useSelector((store) => store.user.accessToken);
@@ -31,3 +31,5 @@ export const Main = () => {
     </>
   )
 }
+
+export default Main

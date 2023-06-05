@@ -6,7 +6,7 @@ import { user } from 'reducers/user'
 import { missions } from 'reducers/missions'
 import LoginForm from 'components/LoginForm'
 import NotFound from 'components/NotFound';
-import { Main } from 'components/Main';
+import Main from 'components/Main';
 import RegisterForm from 'components/RegisterForm';
 // import Loader from 'components/Loader'
 
