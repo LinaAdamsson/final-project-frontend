@@ -10,13 +10,13 @@ const Main = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    // If the user don't have an accesstoken they get directed to the login page
-    if (!accessToken) {
-      navigate('/login')
-    }
-  }, [accessToken, navigate]);
-  console.log(accessToken)
+  // useEffect(() => {
+  //   // If the user don't have an accesstoken they get directed to the login page
+  //   if (!accessToken) {
+  //     navigate('/login')
+  //   }
+  // }, [accessToken, navigate]);
+  // console.log(accessToken)
 
   const onLogoutButtonClick = () => {
     dispatch(user.actions.setAccessToken(null));

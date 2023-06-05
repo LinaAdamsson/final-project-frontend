@@ -7,6 +7,7 @@ const MissionBoard = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   const missionItems = useSelector((store) => store.missions.missionItems);
+
   // Fetch missions
   useEffect(() => {
     const options = {
@@ -19,12 +20,12 @@ const MissionBoard = () => {
     fetch(API_URL('missions'), options)
       .then((res) => res.json())
       .then((data) => {
-        if (data.success) {
-          dispatch(missions.actions.setMissionItems(data.response));
+        if (data) {
+          dispatch(missions.actions.setMissionItems(data));
           dispatch(missions.actions.setError(null));
         } else {
           dispatch(missions.actions.setMissionItems([]));
-          dispatch(missions.actions.setError(data.response));
+          dispatch(missions.actions.setError(data));
         }
       })
       .catch((error) => console.log(error))
