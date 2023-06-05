@@ -5,8 +5,8 @@ import { API_URL } from 'utils/urls';
 
 const MissionBoard = () => {
   const dispatch = useDispatch();
-  const missionItems = useSelector((store) => store.missions.missionItems);
   const accessToken = useSelector((store) => store.user.accessToken);
+  const missionItems = useSelector((store) => store.missions.missionItems);
   // Fetch missions
   useEffect(() => {
     const options = {
@@ -30,6 +30,7 @@ const MissionBoard = () => {
       .catch((error) => console.log(error))
   }, [accessToken, dispatch])
   console.log(accessToken)
+  console.log(missionItems)
   return (
     <>
       {missionItems.map((mission) => {

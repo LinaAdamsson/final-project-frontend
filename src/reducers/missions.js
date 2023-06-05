@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Redux = global state management
+
 export const missions = createSlice({
   name: 'missions',
   initialState: {
     missionItems: [],
-    error: null
+    error: false
   },
   reducers: {
     setMissionItems: (store, action) => {

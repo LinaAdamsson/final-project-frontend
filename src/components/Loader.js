@@ -7,7 +7,7 @@ export const Loader = () => {
       <Player
         autoplay
         loop
-        src="https://lottiefiles.com/65125-happy-earth-bouncing" />
+        src="https://assets9.lottiefiles.com/private_files/lf30_rgtaqeww.json" />
     </div>
   )
 }

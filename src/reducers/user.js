@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Redux = global state management
+
 export const user = createSlice({
   name: 'user',
   initialState: {

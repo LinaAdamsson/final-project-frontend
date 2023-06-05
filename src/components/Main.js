@@ -6,16 +6,17 @@ import { missions } from 'reducers/missions';
 import MissionBoard from './MissionBoard';
 
 const Main = () => {
+  const accessToken = useSelector((store) => store.user.accessToken);
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const accessToken = useSelector((store) => store.user.accessToken);
 
-  // useEffect(() => {
-  //   if (!accessToken) {
-  //     navigate('/login')
-  //   }
-  // }, [accessToken, navigate]);
-  // console.log(accessToken)
+  useEffect(() => {
+    // If the user don't have an accesstoken they get directed to the login page
+    if (!accessToken) {
+      navigate('/login')
+    }
+  }, [accessToken, navigate]);
+  console.log(accessToken)
 
   const onLogoutButtonClick = () => {
     dispatch(user.actions.setAccessToken(null));
@@ -24,6 +25,7 @@ const Main = () => {
     dispatch(user.actions.setError(null));
     dispatch(missions.actions.setMissionItems([]));
   }
+
   return (
     <>
       <button type="button" onClick={onLogoutButtonClick}>Logout</button>
