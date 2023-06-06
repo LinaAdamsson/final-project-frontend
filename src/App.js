@@ -8,7 +8,6 @@ import LoginForm from 'components/LoginForm'
 import NotFound from 'components/NotFound';
 import Main from 'components/Main';
 import RegisterForm from 'components/RegisterForm';
-// import Loader from 'components/Loader'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -19,7 +18,6 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      {/* <Loader /> */}
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<LoginForm />}> </Route>
