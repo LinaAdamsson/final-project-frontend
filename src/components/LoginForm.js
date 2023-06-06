@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 
@@ -7,7 +8,15 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const error = useSelector((store) => store.user.error)
+  const accessToken = useSelector((store) => store.user.accessToken)
+
+  useEffect(() => {
+    if (accessToken) {
+      navigate('/')
+    }
+  }, [accessToken, navigate])
 
   const onFormSubmit = (event) => {
     event.preventDefault();
