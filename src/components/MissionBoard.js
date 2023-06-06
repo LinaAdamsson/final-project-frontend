@@ -14,7 +14,8 @@ const MissionBoard = () => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: accessToken
+        Authorization: 'accessToken'
+
       }
     }
     fetch(API_URL('missions'), options)
