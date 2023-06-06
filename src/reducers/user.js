@@ -35,7 +35,7 @@ export const user = createSlice({
     },
     setTotalScore: (store, action) => {
       store.score = action.payload
-    }
+    },
     // setScoreHistory: (store, action) => {
     //   store.scoreHistory = action.payload
     // },

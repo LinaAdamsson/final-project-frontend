@@ -14,7 +14,7 @@ const MissionBoard = () => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'accessToken'
+        Authorization: accessToken
 
       }
     }
@@ -37,6 +37,7 @@ const MissionBoard = () => {
     <>
       {missionItems.map((mission) => {
         return (
+          // Warning: Each child in a list should have a unique "key" prop
           <section key={mission.id}>
             <p>{mission.title}</p>
             <p>{mission.description}</p>
