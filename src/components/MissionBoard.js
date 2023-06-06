@@ -19,10 +19,10 @@ const MissionBoard = () => {
       }
     }
     fetch(API_URL('missions'), options)
-      .then((res) => res.json())
+      .then((response) => response.json())
       .then((data) => {
-        if (data) {
-          dispatch(missions.actions.setMissionItems(data));
+        if (data.success) {
+          dispatch(missions.actions.setMissionItems(data.response));
           dispatch(missions.actions.setError(null));
         } else {
           dispatch(missions.actions.setMissionItems([]));
