@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 
@@ -7,7 +8,16 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const error = useSelector((store) => store.user.error)
+  const accessToken = useSelector((store) => store.user.accessToken)
+  const userId = useSelector((store) => store.user.userId)
+
+  useEffect(() => {
+    if (accessToken) {
+      navigate('/')
+    }
+  }, [accessToken, navigate])
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -25,9 +35,10 @@ const LoginForm = () => {
         console.log(data)
         if (data.success) {
           dispatch(user.actions.setEmail(data.response.email));
-          dispatch(user.actions.setUserId(data.response.userId));
+          dispatch(user.actions.setUserId(data.response.id));
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           dispatch(user.actions.setError(null));
+          console.log('User id:', userId)
         } else {
           dispatch(user.actions.setEmail(null));
           dispatch(user.actions.setUserId(null));
