@@ -10,8 +10,12 @@ export const user = createSlice({
     email: null,
     userId: null,
     accessToken: null,
-    dailyScore: null,
-    totalScore: null,
+    dailyScore: [],
+    // dailyScore: {
+    //   response: null,
+    //   message: null
+    // },
+    totalScore: [],
     error: null
   },
   reducers: {
