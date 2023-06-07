@@ -12,6 +12,7 @@ import DailyScore from './DailyScore';
 const MissionBoard = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true)
+  const [flip, setFlip] = useState(false)
   const accessToken = useSelector((store) => store.user.accessToken);
   const missionItems = useSelector((store) => store.missions.missionItems);
 
@@ -89,14 +90,17 @@ const MissionBoard = () => {
         <>
           {missionItems.map((mission) => {
             return (
-              <MissionCardWrapper>
-                <MissionCardContainer key={mission._id}>
+              <MissionCardWrapper className={`card ${flip ? 'flip' : ''}`}>
+                <MissionCardContainer
+                  key={mission._id}
+                  onClick={() => setFlip(!flip)}>
                   <p>{mission.title}</p>
                   <input
                     type="checkbox"
                     // eslint-disable-next-line no-underscore-dangle
                     onChange={() => collectPoints(mission._id)} />
-                  <MissionCardContainerBack>
+                  <MissionCardContainerBack
+                    onClick={() => setFlip(!flip)}>
                     <p>{mission.description}</p>
                     <p>{mission.points}</p>
                   </MissionCardContainerBack>
