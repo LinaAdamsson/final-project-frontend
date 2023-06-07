@@ -1,9 +1,11 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { Loader } from './Loader';
+import DailyScore from './DailyScore';
 
 const MissionBoard = () => {
   const dispatch = useDispatch();
@@ -12,9 +14,9 @@ const MissionBoard = () => {
   const missionItems = useSelector((store) => store.missions.missionItems);
 
   // Test
-  useEffect(() => {
-    console.log('MissionBoard re-rendered');
-  });
+  // useEffect(() => {
+  //   console.log('MissionBoard re-rendered');
+  // });
 
   // Fetch missions
   useEffect(() => {
@@ -26,6 +28,7 @@ const MissionBoard = () => {
 
       }
     }
+    setLoading(true)
     fetch(API_URL('missions'), options)
       .then((response) => response.json())
       .then((data) => {
@@ -51,6 +54,7 @@ const MissionBoard = () => {
         'Authorization': accessToken
       }
     }
+    setLoading(true)
     fetch(API_URL(`missions/collect-points/${missionId}`), options)
       .then((response) => response.json())
       .then((data) => {
@@ -77,20 +81,27 @@ const MissionBoard = () => {
 
   return (
     <>
-      {missionItems.map((mission) => {
-        return (
-          // eslint-disable-next-line no-underscore-dangle
-          <section key={mission._id}>
-            <p>{mission.title}</p>
-            <p>{mission.description}</p>
-            <p>{mission.points}</p>
-            <input
-              type="checkbox"
-              // eslint-disable-next-line no-underscore-dangle
-              onChange={() => collectPoints(mission._id)} />
-          </section>
-        )
-      })}
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          {missionItems.map((mission) => {
+            return (
+            // eslint-disable-next-line no-underscore-dangle
+              <section key={mission._id}>
+                <p>{mission.title}</p>
+                <p>{mission.description}</p>
+                <p>{mission.points}</p>
+                <input
+                  type="checkbox"
+                  // eslint-disable-next-line no-underscore-dangle
+                  onChange={() => collectPoints(mission._id)} />
+              </section>
+            )
+          })}
+          <DailyScore />
+        </>
+      )}
     </>
   )
 }
