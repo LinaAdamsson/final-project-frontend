@@ -1,8 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const NotFound = () => {
-  return (
+  const navigate = useNavigate();
+  const onHomeButtonClick = () => {
+    navigate('/');
+    return (
     <>
       <p>
         <Link to="/login">GO TO LOGIN</Link>
@@ -10,9 +13,11 @@ const NotFound = () => {
       <p>
         <Link to="/">GO TO MAIN</Link>
       </p>
-      <p>Sorry, nothing here...</p>
+      <p className="notFound">Sorry, nothing here...</p>
+      <button className="homeBtn" type="button" onClick={onHomeButtonClick}>Return to Home Page</button>
     </>
-  );
+    )
+  }
 }
 
-export default NotFound;
+export default NotFound
