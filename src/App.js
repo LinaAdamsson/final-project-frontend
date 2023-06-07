@@ -23,6 +23,7 @@ export const App = () => {
           <Route path="/login" element={<LoginForm />}> </Route>
           <Route path="/register" element={<RegisterForm />}> </Route>
           <Route path="/" element={<Main />}> </Route>
+          <Route path="/404" element={<NotFound />}> </Route>
           <Route path="*" element={<NotFound />}> </Route>
         </Routes>
       </BrowserRouter>
