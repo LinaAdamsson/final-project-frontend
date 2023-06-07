@@ -92,13 +92,13 @@ const MissionBoard = () => {
               <MissionCardWrapper>
                 <MissionCardContainer key={mission._id}>
                   <p>{mission.title}</p>
+                  <input
+                    type="checkbox"
+                    // eslint-disable-next-line no-underscore-dangle
+                    onChange={() => collectPoints(mission._id)} />
                   <MissionCardContainerBack>
                     <p>{mission.description}</p>
                     <p>{mission.points}</p>
-                    <input
-                      type="checkbox"
-                      // eslint-disable-next-line no-underscore-dangle
-                      onChange={() => collectPoints(mission._id)} />
                   </MissionCardContainerBack>
                 </MissionCardContainer>
               </MissionCardWrapper>
