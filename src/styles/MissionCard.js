@@ -18,6 +18,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+text-align: center;
 background-color: #0A99FF;
 border-radius: 5%;
 transition: transform 0.8s;
