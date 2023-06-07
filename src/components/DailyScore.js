@@ -8,9 +8,9 @@ const DailyScore = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const accessToken = useSelector((store) => store.user.accessToken)
-  const dailyScoreData = useSelector((store) => store.user.dailyScore)
+  const dailyScore = useSelector((store) => store.user.dailyScore)
   const userId = useSelector((store) => store.user.userId)
-  // const todaysDate = new Date().toISOString().split('T')[0]
+  const todaysDate = new Date().toISOString().split('T')[0]
 
   useEffect(() => {
     if (!accessToken) {
@@ -24,8 +24,10 @@ const DailyScore = () => {
         }
       };
       fetch(API_URL(`users/${userId}/score/2023-06-06`), options)
+      // fetch(API_URL(`users/${userId}/score/${todaysDate}`), options)
         .then((res) => res.json())
         .then((data) => {
+          console.log('API Response:', data); // There is no API response, suggesting that the fetch is not executed
           if (data.success) {
             dispatch(user.actions.setDailyScore(data));
             dispatch(user.actions.setError(null));
@@ -36,18 +38,26 @@ const DailyScore = () => {
           }
         });
     }
-  }, [accessToken, dispatch, navigate, userId]);
+  }, [accessToken, dispatch, navigate, todaysDate, userId]);
 
-  console.log('Daily score data:', dailyScoreData)
-  // console.log('todays date:', todaysDate)
+  console.log('User id:', userId)
+  console.log('Daily score data:', dailyScore)
+  console.log('todays date:', todaysDate)
 
   return (
-    dailyScoreData ? (
-      <div>{dailyScoreData.message}</div>
-    ) : (
-      <div>No daily score available</div>
-    )
+    <>
+      <h1>{dailyScore.response}</h1>
+      <h2>{dailyScore.message}</h2>
+    </>
   );
+
+  // return (
+  //   dailyScore ? (
+  //     <div>{dailyScore.message}</div>
+  //   ) : (
+  //     <div>No daily score available</div>
+  //   )
+  // );
 }
 
 export default DailyScore
