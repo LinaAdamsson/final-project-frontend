@@ -1,53 +1,61 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
+import { Loader } from './Loader';
 
 const DailyScore = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken)
-  const dailyScore = useSelector((store) => store.user.dailyScore)
+  const score = useSelector((store) => store.user.score)
   const userId = useSelector((store) => store.user.userId)
   const todaysDate = new Date().toISOString().split('T')[0]
 
   useEffect(() => {
     if (!accessToken) {
       navigate('/login');
-    } else if (userId) { // Check if userId is available
+    } else if (accessToken) { // Check if userId is available
       const options = {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: accessToken
+          // eslint-disable-next-line quote-props
+          'Authorization': accessToken
         }
       };
-      fetch(API_URL(`users/${userId}/score/2023-06-06`), options)
-      // fetch(API_URL(`users/${userId}/score/${todaysDate}`), options)
+      // fetch(API_URL(`users/${userId}/score/2023-06-06`), options)
+      fetch(API_URL(`users/${userId}/score/${todaysDate}`), options)
         .then((res) => res.json())
         .then((data) => {
-          console.log('API Response:', data); // There is no API response, suggesting that the fetch is not executed
+          console.log('API Response:', data);
           if (data.success) {
-            dispatch(user.actions.setDailyScore(data));
+            dispatch(user.actions.setScore(data));
             dispatch(user.actions.setError(null));
           } else {
-            dispatch(user.actions.setDailyScore([]));
+            dispatch(user.actions.setScore([]));
             dispatch(user.actions.setError(data));
             console.log('Data from fetch:', data);
           }
-        });
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false))
     }
   }, [accessToken, dispatch, navigate, todaysDate, userId]);
 
   console.log('User id:', userId)
-  console.log('Daily score data:', dailyScore)
-  console.log('todays date:', todaysDate)
+  console.log('Daily score data:', score)
+  // console.log('todays date:', todaysDate)
 
+  if (loading) {
+    return <Loader />
+  }
   return (
     <>
-      <h1>{dailyScore.response}</h1>
-      <h2>{dailyScore.message}</h2>
+      <h1>{score.response}</h1>
+      <h2>{score.message}</h2>
     </>
   );
 

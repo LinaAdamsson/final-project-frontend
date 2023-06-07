@@ -11,6 +11,11 @@ const MissionBoard = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const missionItems = useSelector((store) => store.missions.missionItems);
 
+  // Test
+  useEffect(() => {
+    console.log('MissionBoard re-rendered');
+  });
+
   // Fetch missions
   useEffect(() => {
     const options = {
@@ -38,7 +43,7 @@ const MissionBoard = () => {
 
   // Collect points from missions
   const collectPoints = (missionId) => {
-    const points = {
+    const options = {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -46,25 +51,22 @@ const MissionBoard = () => {
         'Authorization': accessToken
       }
     }
-    fetch(API_URL(`missions/collect-points/${missionId}`), points)
+    fetch(API_URL(`missions/collect-points/${missionId}`), options)
       .then((response) => response.json())
       .then((data) => {
         console.log('data from patch request', data)
         if (data.success) {
-          // dispatch(user.actions.setUserId(data.response.id))
-          dispatch(user.actions.setDailyScore(data.response));
+          dispatch(user.actions.setScore(data.response));
+          // data.response i backenden är collectedMissionPoints som är ett objekt
           dispatch(missions.actions.setError(null));
         } else {
-          // dispatch(user.actions.setUserId(null))
-          dispatch(user.actions.setDailyScore(null));
+          dispatch(user.actions.setScore([]));
           dispatch(missions.actions.setError(data));
         }
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false))
   }
-  console.log(accessToken)
-  console.log(missionItems)
 
   // Create a function that takes the missionId as an argument
 
@@ -77,7 +79,6 @@ const MissionBoard = () => {
     <>
       {missionItems.map((mission) => {
         return (
-          // Warning: Each child in a list should have a unique "key" prop
           // eslint-disable-next-line no-underscore-dangle
           <section key={mission._id}>
             <p>{mission.title}</p>

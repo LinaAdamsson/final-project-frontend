@@ -35,7 +35,6 @@ const Main = () => {
 
   const onLogoutButtonClick = () => {
     dispatch(user.actions.setAccessToken(null));
-    localStorage.removeItem('accessToken');
     dispatch(user.actions.setEmail(null));
     dispatch(user.actions.setUserId(null));
     dispatch(user.actions.setError(null));
