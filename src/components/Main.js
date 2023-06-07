@@ -20,6 +20,20 @@ const Main = () => {
   }, [accessToken, navigate]);
   console.log(accessToken)
 
+  // useEffect(() => {
+  //   // Try to load access token from local storage on component mount
+  //   const storedAccessToken = localStorage.getItem('accessToken');
+  //   if (storedAccessToken) {
+  //     dispatch(user.actions.setAccessToken(storedAccessToken));
+  //   } else {
+  //     navigate('/login');
+  //   }
+  // }, [dispatch, navigate]);
+
+  // useEffect(() => {
+  //   localStorage.getItem('accessToken', accessToken);
+  // }, [accessToken]);
+
   const onLogoutButtonClick = () => {
     dispatch(user.actions.setAccessToken(null));
     dispatch(user.actions.setEmail(null));
