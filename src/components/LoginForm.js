@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
+import FormContainer from 'css/components/FormStyling';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -46,7 +47,8 @@ const LoginForm = () => {
       })
   }
   return (
-    <div>
+    <FormContainer>
+
       <form onSubmit={onFormSubmit}>
         <label htmlFor="lastName">Email
           <input
@@ -64,8 +66,8 @@ const LoginForm = () => {
         </label>
         <button type="submit">Submit</button>
         <p>{error}</p>
-      </form>
-    </div>
+        </form>
+    </FormContainer>
   )
 }
 
