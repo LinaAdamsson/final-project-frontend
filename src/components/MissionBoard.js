@@ -1,9 +1,11 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
+import { MissionCardContainer, MissionCardContainerBack, MissionCardWrapper } from 'styles/MissionCard';
 import { Loader } from './Loader';
 import DailyScore from './DailyScore';
 
@@ -87,16 +89,19 @@ const MissionBoard = () => {
         <>
           {missionItems.map((mission) => {
             return (
-            // eslint-disable-next-line no-underscore-dangle
-              <section key={mission._id}>
-                <p>{mission.title}</p>
-                <p>{mission.description}</p>
-                <p>{mission.points}</p>
-                <input
-                  type="checkbox"
-                  // eslint-disable-next-line no-underscore-dangle
-                  onChange={() => collectPoints(mission._id)} />
-              </section>
+              <MissionCardWrapper>
+                <MissionCardContainer key={mission._id}>
+                  <p>{mission.title}</p>
+                  <MissionCardContainerBack>
+                    <p>{mission.description}</p>
+                    <p>{mission.points}</p>
+                    <input
+                      type="checkbox"
+                      // eslint-disable-next-line no-underscore-dangle
+                      onChange={() => collectPoints(mission._id)} />
+                  </MissionCardContainerBack>
+                </MissionCardContainer>
+              </MissionCardWrapper>
             )
           })}
           <DailyScore />
