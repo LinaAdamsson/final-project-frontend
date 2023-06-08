@@ -27,6 +27,7 @@ const DailyScore = () => {
         }
       };
       // fetch(API_URL(`users/${userId}/score/2023-06-06`), options)
+      setLoading(true)
       fetch(API_URL(`users/${userId}/score/${todaysDate}`), options)
         .then((res) => res.json())
         .then((data) => {

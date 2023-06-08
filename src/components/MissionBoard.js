@@ -1,20 +1,38 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
+import { MissionCardContentFront, MissionCardContentBack, MissionCardWrapper, MissionCardContent } from 'styles/MissionCard';
 import { Loader } from './Loader';
+import DailyScore from './DailyScore';
 
 const MissionBoard = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true)
+  const [flip, setFlip] = useState(false)
   const accessToken = useSelector((store) => store.user.accessToken);
   const missionItems = useSelector((store) => store.missions.missionItems);
 
   // Test
-  useEffect(() => {
-    console.log('MissionBoard re-rendered');
-  });
+  // useEffect(() => {
+  //   console.log('MissionBoard re-rendered');
+  // });
+
+  // Randomize the objects in the array on login
+  const getRandomIndices = (max, count) => {
+    const indices = [];
+    const availableIndices = Array.from({ length: max }, (_, index) => index);
+    while (indices.length < count) {
+      const randomIndex = Math.floor(Math.random() * availableIndices.length);
+      const selectedIndex = availableIndices.splice(randomIndex, 1)[0];
+      indices.push(selectedIndex);
+    }
+    return indices;
+  }
 
   // Fetch missions
   useEffect(() => {
@@ -26,11 +44,18 @@ const MissionBoard = () => {
 
       }
     }
+    setLoading(true)
     fetch(API_URL('missions'), options)
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          dispatch(missions.actions.setMissionItems(data.response));
+          // Randomize and show 12 objects from the array
+          const allItems = data.response
+          const totalItems = allItems.length
+          const selectedIndices = getRandomIndices(totalItems, 12)
+          const selectedItems = selectedIndices.map((index) => allItems[index])
+
+          dispatch(missions.actions.setMissionItems(selectedItems));
           dispatch(missions.actions.setError(null));
         } else {
           dispatch(missions.actions.setMissionItems([]));
@@ -43,6 +68,7 @@ const MissionBoard = () => {
 
   // Collect points from missions
   const collectPoints = (missionId) => {
+    // missionId.preventDefault()
     const options = {
       method: 'PATCH',
       headers: {
@@ -51,6 +77,7 @@ const MissionBoard = () => {
         'Authorization': accessToken
       }
     }
+    setLoading(true)
     fetch(API_URL(`missions/collect-points/${missionId}`), options)
       .then((response) => response.json())
       .then((data) => {
@@ -75,22 +102,45 @@ const MissionBoard = () => {
     return <Loader />
   }
 
+  const cardFlipOnClick = () => {
+    setFlip(!flip);
+  };
+
   return (
     <>
-      {missionItems.map((mission) => {
-        return (
-          // eslint-disable-next-line no-underscore-dangle
-          <section key={mission._id}>
-            <p>{mission.title}</p>
-            <p>{mission.description}</p>
-            <p>{mission.points}</p>
-            <input
-              type="checkbox"
-              // eslint-disable-next-line no-underscore-dangle
-              onChange={() => collectPoints(mission._id)} />
-          </section>
-        )
-      })}
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          {missionItems.map((mission) => {
+            return (
+              <MissionCardWrapper
+                onClick={() => cardFlipOnClick(mission._id)}>
+                <MissionCardContent className={flip ? 'flip' : ''}>
+                  <MissionCardContentFront>
+                    <p>{mission.id}</p>
+                    <p>{mission.title}</p>
+                    <p>{mission.points}</p>
+                    {/* <input
+                    type="checkbox"
+                    // eslint-disable-next-line no-underscore-dangle
+                    onChange={() => collectPoints(mission._id)} /> */}
+                  </MissionCardContentFront>
+                  <MissionCardContentBack>
+                    <p>{mission.description}</p>
+                    <button
+                      type="button"
+                      onClick={() => collectPoints(mission._id)}>
+                      I've done it!
+                    </button>
+                  </MissionCardContentBack>
+                </MissionCardContent>
+              </MissionCardWrapper>
+            )
+          })}
+          <DailyScore />
+        </>
+      )}
     </>
   )
 }

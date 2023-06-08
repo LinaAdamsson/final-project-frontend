@@ -5,7 +5,8 @@ const NotFound = () => {
   const navigate = useNavigate();
   const onHomeButtonClick = () => {
     navigate('/');
-    return (
+  }
+  return (
     <>
       <p>
         <Link to="/login">GO TO LOGIN</Link>
@@ -16,8 +17,7 @@ const NotFound = () => {
       <p className="notFound">Sorry, nothing here...</p>
       <button className="homeBtn" type="button" onClick={onHomeButtonClick}>Return to Home Page</button>
     </>
-    )
-  }
+  )
 }
 
 export default NotFound
