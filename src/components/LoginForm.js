@@ -12,6 +12,7 @@ const LoginForm = () => {
   const navigate = useNavigate()
   const error = useSelector((store) => store.user.error)
   const accessToken = useSelector((store) => store.user.accessToken)
+  const userId = useSelector((store) => store.user.userId)
 
   useEffect(() => {
     if (accessToken) {
@@ -35,9 +36,10 @@ const LoginForm = () => {
         console.log(data)
         if (data.success) {
           dispatch(user.actions.setEmail(data.response.email));
-          dispatch(user.actions.setUserId(data.response.userId));
+          dispatch(user.actions.setUserId(data.response.id));
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           dispatch(user.actions.setError(null));
+          console.log('User id:', userId)
         } else {
           dispatch(user.actions.setEmail(null));
           dispatch(user.actions.setUserId(null));

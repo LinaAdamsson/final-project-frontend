@@ -34,7 +34,7 @@ const RegisterForm = () => {
           dispatch(user.actions.setFirstName(data.response.firstName));
           dispatch(user.actions.setLastName(data.response.lastName));
           dispatch(user.actions.setEmail(data.response.email));
-          dispatch(user.actions.setUserId(data.response.userId));
+          dispatch(user.actions.setUserId(data.response.id));
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           dispatch(user.actions.setError(null));
         } else {
