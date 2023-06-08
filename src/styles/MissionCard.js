@@ -1,18 +1,19 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 export const MissionCardWrapper = styled.div`
-width: 100vw;
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-margin: 20px;
-perspective: 1000px; /* Remove this if you don't want the 3D effect */
-
+width: 80%;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(2);
+justify-content: center;
 `
 
 export const MissionCardContent = styled.div`
  position: relative;
-  width: 25vw;
+ grid-column: span 1;
+ gap: 10px;
+ margin: 20px;
+  width: 40vw;
   height: 25vh;
   transform-style: preserve-3d;
   transition: transform 0.6s;
