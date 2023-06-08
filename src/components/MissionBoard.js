@@ -53,7 +53,7 @@ const MissionBoard = () => {
           // Randomize and show 12 objects from the array
           const allItems = data.response
           const totalItems = allItems.length
-          const selectedIndices = getRandomIndices(totalItems, 3)
+          const selectedIndices = getRandomIndices(totalItems, 12)
           const selectedItems = selectedIndices.map((index) => allItems[index])
 
           dispatch(missions.actions.setMissionItems(selectedItems));
