@@ -29,7 +29,7 @@ const IntroPage = () => {
           <LoginForm onSuccess={handleLogin} />
           <p>
                 New user?{' '}
-            <button onClick={handleToggleForm}>Register</button>
+            <button type="button" onClick={handleToggleForm}>Register</button>
           </p>
         </>
       ) : (
@@ -38,7 +38,7 @@ const IntroPage = () => {
           <RegisterForm onSuccess={handleLogin} />
           <p>
                 Already have an account?
-            <button onClick={handleToggleForm}>Login here</button>
+            <button type="button" onClick={handleToggleForm}>Login here</button>
           </p>
         </>
       )}

@@ -48,7 +48,6 @@ const DailyScore = () => {
 
   console.log('User id:', userId)
   console.log('Daily score data:', score)
-  // console.log('todays date:', todaysDate)
 
   if (loading) {
     return <Loader />

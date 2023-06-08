@@ -40,7 +40,8 @@ const MissionBoard = () => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: accessToken
+        // eslint-disable-next-line quote-props, quotes
+        "Authorization": accessToken
 
       }
     }
@@ -52,7 +53,7 @@ const MissionBoard = () => {
           // Randomize and show 12 objects from the array
           const allItems = data.response
           const totalItems = allItems.length
-          const selectedIndices = getRandomIndices(totalItems, 12)
+          const selectedIndices = getRandomIndices(totalItems, 3)
           const selectedItems = selectedIndices.map((index) => allItems[index])
 
           dispatch(missions.actions.setMissionItems(selectedItems));
@@ -65,6 +66,8 @@ const MissionBoard = () => {
       .catch((error) => console.log(error))
       .finally(() => setLoading(false))
   }, [accessToken, dispatch])
+
+  console.log('Missions data', missionItems)
 
   // Collect points from missions
   const collectPoints = (missionId) => {

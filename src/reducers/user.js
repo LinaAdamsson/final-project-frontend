@@ -11,11 +11,6 @@ export const user = createSlice({
     userId: null,
     accessToken: null,
     score: [],
-    // dailyScore: [],
-    // dailyScore: {
-    //   response: null,
-    //   message: null
-    // },
     error: null
   },
   reducers: {
@@ -37,8 +32,8 @@ export const user = createSlice({
     setScore: (store, action) => {
       store.score = action.payload
     },
-    // setDailyScore: (store, action) => {
-    //   store.dailyScore = action.payload
+    // setTotalScore: (store, action) => {
+    //   store.totalScore = action.payload
     // },
     setError: (store, action) => {
       store.error = action.payload
