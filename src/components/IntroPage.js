@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import LoginForm from 'components/LoginForm';
 import RegisterForm from 'components/RegisterForm';
+import { IntroText } from 'styles/StartPage';
+import { Button } from 'styles/FormStyle';
 
 const IntroPage = () => {
   const [showLoginForm, setShowLoginForm] = useState(true);
@@ -23,22 +25,23 @@ const IntroPage = () => {
 
   return (
     <div>
+      <IntroText>
+      <h2>"Time to help the planet.."</h2>
+      </IntroText>
       {showLoginForm ? (
         <>
-          <h2>Login</h2>
           <LoginForm onSuccess={handleLogin} />
           <p>
                 New user?{' '}
-            <button type="button" onClick={handleToggleForm}>Register</button>
+            <Button type="button" onClick={handleToggleForm}>Register</Button>
           </p>
         </>
       ) : (
         <>
-          <h2>Register</h2>
           <RegisterForm onSuccess={handleLogin} />
           <p>
                 Already have an account?
-            <button type="button" onClick={handleToggleForm}>Login here</button>
+            <Button type="button" onClick={handleToggleForm}>Login here</Button>
           </p>
         </>
       )}
