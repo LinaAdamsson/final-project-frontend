@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
+import { DailyScorePointsCircle, DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScore';
 import { Loader } from './Loader';
 
 const DailyScore = () => {
@@ -46,26 +47,31 @@ const DailyScore = () => {
     }
   }, [accessToken, dispatch, navigate, todaysDate, userId]);
 
-  console.log('User id:', userId)
+  // console.log('User id:', userId)
   console.log('Daily score data:', score)
 
   if (loading) {
     return <Loader />
   }
   return (
-    <>
-      <h1>{score.response}</h1>
-      <h2>{score.message}</h2>
-    </>
+    score ? (
+      <DailyScoreWrapper>
+        <DailyScorePrompt>
+          Your total score today is:
+        </DailyScorePrompt>
+        <DailyScorePointsCircle>
+          <p>{score.response} p</p>
+        </DailyScorePointsCircle>
+      </DailyScoreWrapper>
+    ) : (
+      <DailyScoreWrapper>
+        <DailyScorePrompt>
+          <div>No daily score available</div>
+          <div>{score.message}</div>
+        </DailyScorePrompt>
+      </DailyScoreWrapper>
+    )
   );
-
-  // return (
-  //   dailyScore ? (
-  //     <div>{dailyScore.message}</div>
-  //   ) : (
-  //     <div>No daily score available</div>
-  //   )
-  // );
 }
 
 export default DailyScore
