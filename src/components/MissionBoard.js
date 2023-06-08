@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect, useState } from 'react';
@@ -5,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import { MissionCardContainer, MissionCardContainerBack, MissionCardWrapper } from 'styles/MissionCard';
+import { MissionCardContentFront, MissionCardContentBack, MissionCardWrapper, MissionCardContent } from 'styles/MissionCard';
 import { Loader } from './Loader';
 import DailyScore from './DailyScore';
 
@@ -67,6 +68,7 @@ const MissionBoard = () => {
 
   // Collect points from missions
   const collectPoints = (missionId) => {
+    // missionId.preventDefault()
     const options = {
       method: 'PATCH',
       headers: {
@@ -100,6 +102,10 @@ const MissionBoard = () => {
     return <Loader />
   }
 
+  const cardFlipOnClick = () => {
+    setFlip(!flip);
+  };
+
   return (
     <>
       {loading ? (
@@ -108,22 +114,27 @@ const MissionBoard = () => {
         <>
           {missionItems.map((mission) => {
             return (
-              <MissionCardWrapper className={`card ${flip ? 'flip' : ''}`}>
-                <MissionCardContainer
-                  key={mission._id}
-                  onClick={() => setFlip(!flip)}>
-                  <p>{mission.id}</p>
-                  <p>{mission.title}</p>
-                  <input
+              <MissionCardWrapper
+                onClick={() => cardFlipOnClick(mission._id)}>
+                <MissionCardContent className={flip ? 'flip' : ''}>
+                  <MissionCardContentFront>
+                    <p>{mission.id}</p>
+                    <p>{mission.title}</p>
+                    <p>{mission.points}</p>
+                    {/* <input
                     type="checkbox"
                     // eslint-disable-next-line no-underscore-dangle
-                    onChange={() => collectPoints(mission._id)} />
-                  <MissionCardContainerBack
-                    onClick={() => setFlip(!flip)}>
+                    onChange={() => collectPoints(mission._id)} /> */}
+                  </MissionCardContentFront>
+                  <MissionCardContentBack>
                     <p>{mission.description}</p>
-                    <p>{mission.points}</p>
-                  </MissionCardContainerBack>
-                </MissionCardContainer>
+                    <button
+                      type="button"
+                      onClick={() => collectPoints(mission._id)}>
+                      I've done it!
+                    </button>
+                  </MissionCardContentBack>
+                </MissionCardContent>
               </MissionCardWrapper>
             )
           })}
