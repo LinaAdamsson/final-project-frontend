@@ -21,6 +21,18 @@ const MissionBoard = () => {
   //   console.log('MissionBoard re-rendered');
   // });
 
+  // Randomize the objects in the array on login
+  const getRandomIndices = (max, count) => {
+    const indices = [];
+    const availableIndices = Array.from({ length: max }, (_, index) => index);
+    while (indices.length < count) {
+      const randomIndex = Math.floor(Math.random() * availableIndices.length);
+      const selectedIndex = availableIndices.splice(randomIndex, 1)[0];
+      indices.push(selectedIndex);
+    }
+    return indices;
+  }
+
   // Fetch missions
   useEffect(() => {
     const options = {
@@ -36,7 +48,13 @@ const MissionBoard = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          dispatch(missions.actions.setMissionItems(data.response));
+          // Randomize and show 12 objects from the array
+          const allItems = data.response
+          const totalItems = allItems.length
+          const selectedIndices = getRandomIndices(totalItems, 12)
+          const selectedItems = selectedIndices.map((index) => allItems[index])
+
+          dispatch(missions.actions.setMissionItems(selectedItems));
           dispatch(missions.actions.setError(null));
         } else {
           dispatch(missions.actions.setMissionItems([]));
@@ -94,6 +112,7 @@ const MissionBoard = () => {
                 <MissionCardContainer
                   key={mission._id}
                   onClick={() => setFlip(!flip)}>
+                  <p>{mission.id}</p>
                   <p>{mission.title}</p>
                   <input
                     type="checkbox"
