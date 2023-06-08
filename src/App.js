@@ -4,10 +4,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import { user } from 'reducers/user'
 import { missions } from 'reducers/missions'
-import LoginForm from 'components/LoginForm'
+// import LoginForm from 'components/LoginForm'
 import NotFound from 'components/NotFound';
 import Main from 'components/Main';
 import RegisterForm from 'components/RegisterForm';
+import IntroPage from 'components/IntroPage'
 
 export const App = () => {
   const reducer = combineReducers({
@@ -20,7 +21,7 @@ export const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<LoginForm />}> </Route>
+          <Route path="/login" element={<IntroPage />}> </Route>
           <Route path="/register" element={<RegisterForm />}> </Route>
           <Route path="/" element={<Main />}> </Route>
           <Route path="/404" element={<NotFound />}> </Route>

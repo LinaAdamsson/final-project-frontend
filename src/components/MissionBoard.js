@@ -118,7 +118,6 @@ const MissionBoard = () => {
                 onClick={() => cardFlipOnClick(mission._id)}>
                 <MissionCardContent className={flip ? 'flip' : ''}>
                   <MissionCardContentFront>
-                    <p>{mission.id}</p>
                     <p>{mission.title}</p>
                     <p>{mission.points}</p>
                     {/* <input
