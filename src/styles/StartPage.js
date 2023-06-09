@@ -5,7 +5,7 @@ display: flex;
 justify-content: center;
 margin: 200px 0 -210px 0;
 h2{
-font-size: 15px;
+font-size: 20px;
 color: white;
 }
 `
