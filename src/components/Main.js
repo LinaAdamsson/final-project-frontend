@@ -32,6 +32,10 @@ const Main = () => {
   //   }
   // }, [dispatch, navigate]);
 
+  const onMyPageButtonClick = () => {
+    navigate('/myuserpage')
+  }
+
   const onLogoutButtonClick = () => {
     // localStorage.removeItem('accessToken');
     dispatch(user.actions.setAccessToken(null));
@@ -50,6 +54,7 @@ const Main = () => {
     <>
       <MissionBoard />
       {/* <DailyScore /> */}
+      <Button type="button" onClick={onMyPageButtonClick}>Go to my page</Button>
       <Button type="button" onClick={onLogoutButtonClick}>Logout</Button>
     </>
   )

@@ -11,6 +11,7 @@ import { MissionCardBack, MissionCardFront, PopupModal, CloseButton } from 'styl
 import { Button } from 'styles/FormStyle';
 import { Loader } from './Loader';
 import DailyScore from './DailyScore';
+import TotalScore from './TotalScore';
 
 const MissionBoard = () => {
   const dispatch = useDispatch();
@@ -147,6 +148,7 @@ const MissionBoard = () => {
             )
           })}
           <DailyScore />
+          <TotalScore />
         </>
       )}
     </>
