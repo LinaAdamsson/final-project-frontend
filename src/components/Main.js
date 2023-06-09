@@ -4,9 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { user } from 'reducers/user';
 import { missions } from 'reducers/missions';
 import { Button } from 'styles/FormStyle';
+import { MainContainer } from 'styles/MainStyle';
 import MissionBoard from './MissionBoard';
 // import DailyScore from './DailyScore';
-// import { Loader } from './Loader'
 
 const Main = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
@@ -48,8 +48,10 @@ const Main = () => {
 
   return (
     <>
-      <MissionBoard />
-      {/* <DailyScore /> */}
+      <MainContainer>
+        <MissionBoard />
+        {/* <DailyScore /> */}
+      </MainContainer>
       <Button type="button" onClick={onLogoutButtonClick}>Logout</Button>
     </>
   )

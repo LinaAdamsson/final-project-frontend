@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Popup from 'reactjs-popup';
+import { useNavigate } from 'react-router-dom';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
@@ -14,6 +15,7 @@ import DailyScore from './DailyScore';
 
 const MissionBoard = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken);
   const missionItems = useSelector((store) => store.missions.missionItems);
@@ -37,36 +39,40 @@ const MissionBoard = () => {
 
   // Fetch missions
   useEffect(() => {
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        // eslint-disable-next-line quote-props, quotes
-        "Authorization": accessToken
+    if (!accessToken) {
+      navigate('/login');
+    } else if (accessToken) {
+      const options = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          // eslint-disable-next-line quote-props, quotes
+          "Authorization": accessToken
 
-      }
-    }
-    // setLoading(true)
-    fetch(API_URL('missions'), options)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          // Randomize and show 12 objects from the array
-          const allItems = data.response
-          const totalItems = allItems.length
-          const selectedIndices = getRandomIndices(totalItems, 12)
-          const selectedItems = selectedIndices.map((index) => allItems[index])
-
-          dispatch(missions.actions.setMissionItems(selectedItems));
-          dispatch(missions.actions.setError(null));
-        } else {
-          dispatch(missions.actions.setMissionItems([]));
-          dispatch(missions.actions.setError(data));
         }
-      })
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false))
-  }, [accessToken, dispatch])
+      }
+      // setLoading(true)
+      fetch(API_URL('missions'), options)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+          // Randomize and show 12 objects from the array
+            const allItems = data.response
+            const totalItems = allItems.length
+            const selectedIndices = getRandomIndices(totalItems, 12)
+            const selectedItems = selectedIndices.map((index) => allItems[index])
+
+            dispatch(missions.actions.setMissionItems(selectedItems));
+            dispatch(missions.actions.setError(null));
+          } else {
+            dispatch(missions.actions.setMissionItems([]));
+            dispatch(missions.actions.setError(data));
+          }
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false))
+    }
+  }, [accessToken, dispatch, navigate])
 
   console.log('Missions data', missionItems)
 
@@ -102,9 +108,6 @@ const MissionBoard = () => {
   // Create a function that takes the missionId as an argument
 
   // When someone clicks a mission you will have access to that specific id
-  if (loading) {
-    return <Loader />
-  }
 
   return (
     <>
