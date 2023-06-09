@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player'
 
 export const Loader = () => {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    }
+  }, [loading]);
+
   return (
-    // <p>Loading</p>
     <div className="loader-container">
       <Player
         autoplay
         loop
-        src="https://assets9.lottiefiles.com/private_files/lf30_rgtaqeww.json" />
+        src="https://assets9.lottiefiles.com/private_files/lf30_rgtaqeww.json"
+        style={{ height: '200px', width: '200px' }} />
+      <p className="loader-message">Hold on, page is loading</p>
     </div>
   )
 }
