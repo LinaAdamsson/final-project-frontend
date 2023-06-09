@@ -3,17 +3,18 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Popup from 'reactjs-popup';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import { MissionCardContentFront, MissionCardContentBack, MissionCardWrapper, MissionCardContent } from 'styles/MissionCard';
+import { MissionCardBack, MissionCardFront } from 'styles/MissionCard';
+import { Button } from 'styles/FormStyle';
 import { Loader } from './Loader';
 import DailyScore from './DailyScore';
 
 const MissionBoard = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true)
-  const [flip, setFlip] = useState(false)
   const accessToken = useSelector((store) => store.user.accessToken);
   const missionItems = useSelector((store) => store.missions.missionItems);
 
@@ -45,7 +46,7 @@ const MissionBoard = () => {
 
       }
     }
-    setLoading(true)
+    // setLoading(true)
     fetch(API_URL('missions'), options)
       .then((response) => response.json())
       .then((data) => {
@@ -105,10 +106,6 @@ const MissionBoard = () => {
     return <Loader />
   }
 
-  const cardFlipOnClick = () => {
-    setFlip(!flip);
-  };
-
   return (
     <>
       {loading ? (
@@ -117,27 +114,39 @@ const MissionBoard = () => {
         <>
           {missionItems.map((mission) => {
             return (
-              <MissionCardWrapper
-                onClick={() => cardFlipOnClick(mission._id)}>
-                <MissionCardContent className={flip ? 'flip' : ''}>
-                  <MissionCardContentFront>
-                    <p>{mission.title}</p>
-                    <p>{mission.points}</p>
-                    {/* <input
-                    type="checkbox"
-                    // eslint-disable-next-line no-underscore-dangle
-                    onChange={() => collectPoints(mission._id)} /> */}
-                  </MissionCardContentFront>
-                  <MissionCardContentBack>
-                    <p>{mission.description}</p>
-                    <button
-                      type="button"
-                      onClick={() => collectPoints(mission._id)}>
-                      I've done it!
-                    </button>
-                  </MissionCardContentBack>
-                </MissionCardContent>
-              </MissionCardWrapper>
+              // <MissionCardWrapper
+            // onClick={() => cardFlipOnClick(mission._id)}>
+            // <MissionCardContent className={flip ? 'flip' : ''}>
+              <Popup
+                trigger={
+                  <MissionCardFront
+                    type="button">
+                    {mission.title}
+                    <br />
+                    {mission.points}p
+                  </MissionCardFront>
+                }
+                modal
+                nested>
+
+                {(close) => (
+                  <>
+                    <Button type="button" className="close" onClick={close}>
+                    &times;
+                    </Button>
+                    <MissionCardBack>
+                      <p>{mission.description}</p>
+                      <Button
+                        type="button"
+                        onClick={() => collectPoints(mission._id)}>
+                        I've done it!
+                      </Button>
+                    </MissionCardBack>
+                  </>
+                )}
+              </Popup>
+              //   </MissionCardContent>
+              // </MissionCardWrapper>
             )
           })}
           <DailyScore />
