@@ -10,6 +10,12 @@ export const user = createSlice({
     email: null,
     userId: null,
     accessToken: null,
+    // Sätter vi score och totalScore som arrays här och dispatchar från DailyScore och
+    // TotalScore genom att i fetchen skriva dispatch(user.actions.setScore(data));
+    // data = hela objektet {}
+    // dvs {success: true, response: 87, message: 'Your total score today is 87 points'}
+    // Om vi däremot väljer att dispatch(user.actions.setScore(data.response) lagrar vi bara
+    // själva pointsen och då ska initialState vara 0
     score: [],
     totalScore: [],
     error: null

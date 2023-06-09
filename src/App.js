@@ -9,6 +9,7 @@ import NotFound from 'components/NotFound';
 import Main from 'components/Main';
 import RegisterForm from 'components/RegisterForm';
 import IntroPage from 'components/IntroPage'
+import UserPage from 'components/UserPage';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -24,6 +25,7 @@ export const App = () => {
           <Route path="/login" element={<IntroPage />}> </Route>
           <Route path="/register" element={<RegisterForm />}> </Route>
           <Route path="/" element={<Main />}> </Route>
+          <Route path="/myuserpage" element={<UserPage />}> </Route>
           <Route path="/404" element={<NotFound />}> </Route>
           <Route path="*" element={<NotFound />}> </Route>
         </Routes>
