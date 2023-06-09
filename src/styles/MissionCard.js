@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
-export const MissionBoardWrapper = styled.div`
-
+export const MissionCardContainer = styled.div`
+  height: 100vh;
 `
 
 export const MissionCardFront = styled.button`
@@ -18,9 +18,10 @@ export const MissionCardBack = styled.div`
   `
 
 export const PopupModal = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 300px;
   height: 300px;
   padding: 5%;
   border-radius: 5%;
@@ -30,10 +31,13 @@ export const PopupModal = styled.div`
 export const CloseButton = styled.button`
 width: 30px;
 height: 30px;
-align-items: flex-end;
 border-radius: 5px;
 border-style: none;
 background-color: rgb(40, 127, 219);
 color: white;
 margin-top: 10px;
+`
+
+export const MissionCardText = styled.p`
+  text-align: center;
 `
