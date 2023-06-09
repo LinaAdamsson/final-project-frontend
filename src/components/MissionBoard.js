@@ -8,6 +8,7 @@ import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { MissionCardBack, MissionCardFront } from 'styles/MissionCard';
+import { Button } from 'styles/FormStyle';
 import { Loader } from './Loader';
 import DailyScore from './DailyScore';
 
@@ -45,7 +46,7 @@ const MissionBoard = () => {
 
       }
     }
-    setLoading(true)
+    // setLoading(true)
     fetch(API_URL('missions'), options)
       .then((response) => response.json())
       .then((data) => {
@@ -122,23 +123,24 @@ const MissionBoard = () => {
                     type="button">
                     {mission.title}
                     <br />
-                    {mission.points}
+                    {mission.points}p
                   </MissionCardFront>
                 }
                 modal
                 nested>
+
                 {(close) => (
                   <>
-                    <button type="button" className="close" onClick={close}>
+                    <Button type="button" className="close" onClick={close}>
                     &times;
-                    </button>
+                    </Button>
                     <MissionCardBack>
                       <p>{mission.description}</p>
-                      <button
+                      <Button
                         type="button"
                         onClick={() => collectPoints(mission._id)}>
                         I've done it!
-                      </button>
+                      </Button>
                     </MissionCardBack>
                   </>
                 )}

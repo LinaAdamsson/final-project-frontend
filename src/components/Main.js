@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { user } from 'reducers/user';
 import { missions } from 'reducers/missions';
+import { Button } from 'styles/FormStyle';
 import MissionBoard from './MissionBoard';
 // import DailyScore from './DailyScore';
 // import { Loader } from './Loader'
@@ -31,24 +32,25 @@ const Main = () => {
   //   }
   // }, [dispatch, navigate]);
 
-  // useEffect(() => {
-  //   localStorage.getItem('accessToken', accessToken);
-  // }, [accessToken]);
-
   const onLogoutButtonClick = () => {
+    // localStorage.removeItem('accessToken');
     dispatch(user.actions.setAccessToken(null));
-    localStorage.removeItem('accessToken');
     dispatch(user.actions.setEmail(null));
     dispatch(user.actions.setUserId(null));
     dispatch(user.actions.setError(null));
     dispatch(missions.actions.setMissionItems([]));
+    navigate('/login')
   }
+
+  // useEffect(() => {
+  //   localStorage.setItem('accessToken', accessToken);
+  // }, [accessToken]);
 
   return (
     <>
       <MissionBoard />
       {/* <DailyScore /> */}
-      <button type="button" onClick={onLogoutButtonClick}>Logout</button>
+      <Button type="button" onClick={onLogoutButtonClick}>Logout</Button>
     </>
   )
 }
