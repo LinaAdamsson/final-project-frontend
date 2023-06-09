@@ -7,7 +7,7 @@ import Popup from 'reactjs-popup';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import { MissionCardBack, MissionCardFront } from 'styles/MissionCard';
+import { MissionCardBack, MissionCardFront, PopupModal, CloseButton } from 'styles/MissionCard';
 import { Button } from 'styles/FormStyle';
 import { Loader } from './Loader';
 import DailyScore from './DailyScore';
@@ -114,9 +114,6 @@ const MissionBoard = () => {
         <>
           {missionItems.map((mission) => {
             return (
-              // <MissionCardWrapper
-            // onClick={() => cardFlipOnClick(mission._id)}>
-            // <MissionCardContent className={flip ? 'flip' : ''}>
               <Popup
                 trigger={
                   <MissionCardFront
@@ -131,22 +128,22 @@ const MissionBoard = () => {
 
                 {(close) => (
                   <>
-                    <Button type="button" className="close" onClick={close}>
+                    <PopupModal>
+                      <CloseButton type="button" className="close" onClick={close}>
                     &times;
-                    </Button>
-                    <MissionCardBack>
-                      <p>{mission.description}</p>
-                      <Button
-                        type="button"
-                        onClick={() => collectPoints(mission._id)}>
+                      </CloseButton>
+                      <MissionCardBack>
+                        <p>{mission.description}</p>
+                        <Button
+                          type="button"
+                          onClick={() => collectPoints(mission._id)}>
                         I've done it!
-                      </Button>
-                    </MissionCardBack>
+                        </Button>
+                      </MissionCardBack>
+                    </PopupModal>
                   </>
                 )}
               </Popup>
-              //   </MissionCardContent>
-              // </MissionCardWrapper>
             )
           })}
           <DailyScore />
