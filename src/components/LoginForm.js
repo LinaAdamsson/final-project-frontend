@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import { FormWrapper, Button, InputForm } from 'styles/FormStyle';
+import { FormWrapper, Button, InputForm, InputLabel } from 'styles/FormStyle';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -52,22 +52,26 @@ const LoginForm = () => {
     <FormWrapper>
       <form onSubmit={onFormSubmit}>
         <InputForm>
-          <label htmlFor="lastName">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)} />
+          <InputLabel htmlFor="lastName">
+            Email
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} />
+          </InputLabel>
         </InputForm>
         <InputForm>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)} />
+          <InputLabel htmlFor="password">
+            Password
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} />
+          </InputLabel>
         </InputForm>
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Log in</Button>
         <p>{error}</p>
       </form>
     </FormWrapper>

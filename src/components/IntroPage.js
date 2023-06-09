@@ -26,7 +26,7 @@ const IntroPage = () => {
   return (
     <div>
       <IntroText>
-      <h2>"Time to help the planet.."</h2>
+        <h2>Time to help the planet...</h2>
       </IntroText>
       {showLoginForm ? (
         <>
@@ -41,7 +41,7 @@ const IntroPage = () => {
           <RegisterForm onSuccess={handleLogin} />
           <p>
                 Already have an account?
-            <Button type="button" onClick={handleToggleForm}>Login here</Button>
+            <Button type="button" onClick={handleToggleForm}>Log in here</Button>
           </p>
         </>
       )}

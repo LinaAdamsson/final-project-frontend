@@ -17,6 +17,11 @@ display: flex;
 flex-direction: column;
 `
 
+export const InputLabel = styled.label`
+display: flex;
+flex-direction: column;
+`
+
 export const Button = styled.button`
 width: 200px;
 height: 30px;

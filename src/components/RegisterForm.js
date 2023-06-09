@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import { FormWrapper, InputForm, Button } from 'styles/FormStyle';
+import { FormWrapper, InputForm, InputLabel, Button } from 'styles/FormStyle';
 // import styled from 'styled-components';
 
 // const Register = styled.form`
@@ -15,7 +16,15 @@ const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const accessToken = useSelector((store) => store.user.accessToken)
   const error = useSelector((store) => store.user.error)
+
+  useEffect(() => {
+    if (accessToken) {
+      navigate('/')
+    }
+  }, [accessToken, navigate])
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -53,36 +62,44 @@ const RegisterForm = () => {
     <FormWrapper>
       <form onSubmit={onFormSubmit}>
         <InputForm>
-        <label htmlFor="firstName">First name</label>
-          <input
-            type="text"
-            id="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)} />
-            </InputForm>
-            <InputForm>
-        <label htmlFor="lastName">Last name</label>
-          <input
-            type="text"
-            id="lastName"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)} />
+          <InputLabel htmlFor="firstName">
+            First name
+            <input
+              type="text"
+              id="firstName"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)} />
+          </InputLabel>
         </InputForm>
         <InputForm>
-        <label htmlFor="lastName">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)} />
+          <InputLabel htmlFor="lastName">
+            Last name
+            <input
+              type="text"
+              id="lastName"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)} />
+          </InputLabel>
         </InputForm>
         <InputForm>
-        <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)} />
+          <InputLabel htmlFor="email">
+            Email
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} />
+          </InputLabel>
+        </InputForm>
+        <InputForm>
+          <InputLabel htmlFor="password">
+            Password
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} />
+          </InputLabel>
         </InputForm>
         <Button type="submit">Submit</Button>
         <p>{error}</p>
