@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
+import { FormWrapper, InputForm, Button } from 'styles/FormStyle';
 // import styled from 'styled-components';
 
 // const Register = styled.form`
@@ -49,40 +50,44 @@ const RegisterForm = () => {
   }
   return (
     // <Register>
-    <div className="userpass-box">
+    <FormWrapper>
       <form onSubmit={onFormSubmit}>
-        <label htmlFor="firstName">First name
+        <InputForm>
+        <label htmlFor="firstName">First name</label>
           <input
             type="text"
             id="firstName"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)} />
-        </label>
-        <label htmlFor="lastName">Last name
+            </InputForm>
+            <InputForm>
+        <label htmlFor="lastName">Last name</label>
           <input
             type="text"
             id="lastName"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)} />
-        </label>
-        <label htmlFor="lastName">Email
+        </InputForm>
+        <InputForm>
+        <label htmlFor="lastName">Email</label>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <label htmlFor="password">Password
+        </InputForm>
+        <InputForm>
+        <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <button type="submit">Submit</button>
+        </InputForm>
+        <Button type="submit">Submit</Button>
         <p>{error}</p>
       </form>
-    </div>
+    </FormWrapper>
   // </Register>
   )
 }
