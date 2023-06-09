@@ -6,6 +6,8 @@ import { missions } from 'reducers/missions';
 import { Button } from 'styles/FormStyle';
 import { MainContainer } from 'styles/MainStyle';
 import MissionBoard from './MissionBoard';
+import DailyScore from './DailyScore';
+import TotalScore from './TotalScore';
 // import DailyScore from './DailyScore';
 
 const Main = () => {
@@ -55,6 +57,8 @@ const Main = () => {
       <MainContainer>
         <MissionBoard />
         {/* <DailyScore /> */}
+        <DailyScore />
+        <TotalScore />
       </MainContainer>
       <Button type="button" onClick={onMyPageButtonClick}>Go to my page</Button>
       <Button type="button" onClick={onLogoutButtonClick}>Logout</Button>

@@ -40,13 +40,12 @@ const UserPage = () => {
         .then((data) => {
           console.log('Data from user fetch', data)
           if (data.success) {
+            // Behöver vi dispatcha allt det här?
             dispatch(user.actions.setFirstName(data.response.firstName));
             dispatch(user.actions.setLastName(data.response.lastName));
             dispatch(user.actions.setEmail(data.response.email));
             dispatch(user.actions.setUserId(data.response.id));
             dispatch(user.actions.setAccessToken(data.response.accessToken));
-            // dispatch(user.actions.setScore(data.response));
-            // dispatch(user.actions.setTotalScore(data));
             dispatch(user.actions.setError(null));
           } else {
             dispatch(user.actions.setFirstName(null));
@@ -67,13 +66,15 @@ const UserPage = () => {
   return loading ? (
     <Loader />
   ) : (
-    <ul>
-      <li>{myUser.firstName}</li>
-      <li>{myUser.lastName}</li>
-      <li>{myUser.email}</li>
-      <li>{myUser.score.response}</li>
-      <li>{myUser.totalScore.response}</li>
-    </ul>
+    <>
+      <h2>My User</h2>
+      <ul>
+        <li>Your name: {myUser.firstName} {myUser.lastName}</li>
+        <li>Your email: {myUser.email}</li>
+        <li>Your score today: {myUser.dailyScore}</li>
+        <li>Your total score: {myUser.totalScore}</li>
+      </ul>
+    </>
   );
 }
 

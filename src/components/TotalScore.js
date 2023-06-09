@@ -29,10 +29,12 @@ const TotalScore = () => {
       fetch(API_URL(`users/${userId}/total-score`), options)
         .then((res) => res.json())
         .then((data) => {
-          console.log('API Response:', data);
+          // console.log('Fetch total score', data);
+          // console.log('Fetch total score response', data.response);
           if (data.success) {
-            dispatch(user.actions.setTotalScore(data));
+            dispatch(user.actions.setTotalScore(data.response));
             dispatch(user.actions.setError(null));
+            console.log('Total score:', totalScore)
           } else {
             dispatch(user.actions.setTotalScore([]));
             dispatch(user.actions.setError(data));
@@ -41,16 +43,13 @@ const TotalScore = () => {
         .catch((error) => console.log(error))
         .finally(() => setLoading(false))
     }
-  }, [accessToken, dispatch, navigate, userId]);
-
-  console.log('Total score data:', totalScore)
-
+  }, [accessToken, dispatch, navigate, totalScore, userId]);
   if (loading) {
     return <Loader />
   }
   return (
     totalScore ? (
-      <div> Your total score is {totalScore.response}</div>
+      <div> Your total score is {totalScore}</div>
     ) : (
       <div>No total score available. Have you completed any missions yet?</div>
     )

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-no-useless-fragment */
@@ -11,8 +12,8 @@ import { API_URL } from 'utils/urls';
 import { MissionCardBack, MissionCardFront, PopupModal, CloseButton } from 'styles/MissionCard';
 import { Button } from 'styles/FormStyle';
 import { Loader } from './Loader';
-import DailyScore from './DailyScore';
-import TotalScore from './TotalScore';
+// import DailyScore from './DailyScore';
+// import TotalScore from './TotalScore';
 
 const MissionBoard = () => {
   const dispatch = useDispatch();
@@ -75,8 +76,6 @@ const MissionBoard = () => {
     }
   }, [accessToken, dispatch, navigate])
 
-  console.log('Missions data', missionItems)
-
   // Collect points from missions
   const collectPoints = (missionId) => {
     // missionId.preventDefault()
@@ -92,13 +91,17 @@ const MissionBoard = () => {
     fetch(API_URL(`missions/collect-points/${missionId}`), options)
       .then((response) => response.json())
       .then((data) => {
-        console.log('data from patch request', data)
         if (data.success) {
-          dispatch(user.actions.setScore(data.response));
-          // data.response i backenden är collectedMissionPoints som är ett objekt
+          dispatch(user.actions.setDailyScore(data.response.points));
+          dispatch(user.actions.setTotalScore(data.response.points));
+          // Antingen väljer vi att alla dispatches till dailyScore och totalScore är data.response = bara points
+          // eller bara data för hela objekt
           dispatch(missions.actions.setError(null));
+          console.log('Collected points', data.response.points)
         } else {
-          dispatch(user.actions.setScore([]));
+          dispatch(user.actions.setDailyScore(0));
+          dispatch(user.actions.setTotalScore(0));
+          // ska vi sätta error till data.message för att se felmeddelandet från backenden?
           dispatch(missions.actions.setError(data));
         }
       })
@@ -118,7 +121,9 @@ const MissionBoard = () => {
         <>
           {missionItems.map((mission) => {
             return (
+              // Tror det behövs en mission key här
               <Popup
+                key={mission._id}
                 trigger={
                   <MissionCardFront
                     type="button">
@@ -150,8 +155,8 @@ const MissionBoard = () => {
               </Popup>
             )
           })}
-          <DailyScore />
-          <TotalScore />
+          {/* <DailyScore />
+          <TotalScore /> */}
         </>
       )}
     </>

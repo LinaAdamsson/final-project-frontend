@@ -11,14 +11,14 @@ const DailyScore = () => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken)
-  const score = useSelector((store) => store.user.score)
+  const dailyScore = useSelector((store) => store.user.dailyScore)
   const userId = useSelector((store) => store.user.userId)
   const todaysDate = new Date().toISOString().split('T')[0]
 
   useEffect(() => {
     if (!accessToken) {
       navigate('/login');
-    } else if (accessToken) { // Check if userId is available
+    } else if (accessToken) {
       const options = {
         method: 'GET',
         headers: {
@@ -32,42 +32,38 @@ const DailyScore = () => {
       fetch(API_URL(`users/${userId}/score/${todaysDate}`), options)
         .then((res) => res.json())
         .then((data) => {
-          console.log('API Response:', data);
           if (data.success) {
-            dispatch(user.actions.setScore(data));
+            dispatch(user.actions.setDailyScore(data.response));
             dispatch(user.actions.setError(null));
+            console.log('Daily score:', dailyScore);
           } else {
-            dispatch(user.actions.setScore([]));
+            dispatch(user.actions.setDailyScore([]));
             dispatch(user.actions.setError(data));
-            console.log('Data from fetch:', data);
           }
         })
         .catch((error) => console.log(error))
         .finally(() => setLoading(false))
     }
-  }, [accessToken, dispatch, navigate, todaysDate, userId]);
-
-  // console.log('User id:', userId)
-  console.log('Daily score data:', score)
+  }, [accessToken, dailyScore, dispatch, navigate, todaysDate, userId]);
 
   if (loading) {
     return <Loader />
   }
   return (
-    score ? (
+    dailyScore ? (
       <DailyScoreWrapper>
         <DailyScorePrompt>
-          Your total score today is:
+          Your daily score is:
         </DailyScorePrompt>
         <DailyScorePointsCircle>
-          <p>{score.response} p</p>
+          <p>{dailyScore}</p>
         </DailyScorePointsCircle>
       </DailyScoreWrapper>
     ) : (
       <DailyScoreWrapper>
         <DailyScorePrompt>
           <div>No daily score available</div>
-          <div>{score.message}</div>
+          <div>{dailyScore.message}</div>
         </DailyScorePrompt>
       </DailyScoreWrapper>
     )

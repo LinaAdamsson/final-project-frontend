@@ -16,8 +16,10 @@ export const user = createSlice({
     // dvs {success: true, response: 87, message: 'Your total score today is 87 points'}
     // Om vi däremot väljer att dispatch(user.actions.setScore(data.response) lagrar vi bara
     // själva pointsen och då ska initialState vara 0
-    score: [],
-    totalScore: [],
+    // dailyScore: [],
+    // totalScore: [],
+    dailyScore: 0,
+    totalScore: 0,
     error: null
   },
   reducers: {
@@ -36,8 +38,8 @@ export const user = createSlice({
     setAccessToken: (store, action) => {
       store.accessToken = action.payload;
     },
-    setScore: (store, action) => {
-      store.score = action.payload
+    setDailyScore: (store, action) => {
+      store.dailyScore = action.payload
     },
     setTotalScore: (store, action) => {
       store.totalScore = action.payload
