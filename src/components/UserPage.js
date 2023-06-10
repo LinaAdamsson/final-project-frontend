@@ -3,6 +3,7 @@ import { user } from 'reducers/user';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from 'utils/urls';
+import { Avatar } from 'styles/AvatarStyle';
 import { Loader } from './Loader';
 
 const UserPage = () => {
@@ -67,12 +68,13 @@ const UserPage = () => {
     <Loader />
   ) : (
     <>
-      <h2>My User</h2>
+      <Avatar src="https://lh3.googleusercontent.com/_0iKG-ssXTtP7Xei8wHoAQndbKvbr9lxtWw97-6AmN6lOFJ-vUj7U3B90JTCGXWOVOxx7XUYfX2RlyHKBh-DwcFgKMFS0rk6tECTrKAmTuypssGcGwd2_XbBcNK-2C4QxLJQ8z85Xg=w2400" alt="avatar" />
+      <h2>Super{myUser.firstName}</h2>
       <ul>
-        <li>Your name: {myUser.firstName} {myUser.lastName}</li>
-        <li>Your email: {myUser.email}</li>
-        <li>Your score today: {myUser.dailyScore}</li>
-        <li>Your total score: {myUser.totalScore}</li>
+        <li>Your real name: {myUser.firstName} {myUser.lastName}</li>
+        {/* <li>Your email: {myUser.email}</li> */}
+        <li>Hero points today: {myUser.dailyScore}</li>
+        <li>Total hero score: {myUser.totalScore}</li>
       </ul>
     </>
   );
