@@ -31,7 +31,7 @@ const IntroPage = () => {
       <Avatar src="https://lh3.googleusercontent.com/fd4G2VpauOVpTMbQrQPAuXDkSGSXhaFDMT3-gyAzFuJCP_sPOthfsiOUDPMWOgsbG2D764fIhCvfVPJpksHMqDLcE4BWKhPOhu8C8mTdT-PeR1y5hc3rLd4DXrgFVHXRQqpnIxrnRA=w2400" alt="avatar" />
       {/* <img src="https://lh3.googleusercontent.com/_sc4YA0LUVLjvaEo53xNsMzOliSzChCbFmcRQz1pLlxh6s8onKxf9fnXynT8V3YmXXp45ecPGZCiDJqsLq45zm2ioFhTfZtvenw99BFPinQvH4vytbpnOj7PxZU86F7vwUe5ALLoPQ=w2400" alt="avatar" /> */}
       <IntroText>
-        <h2>Time to help the planet...</h2>
+        <h2>TIME TO HELP THE PLANET</h2>
       </IntroText>
       {showLoginForm ? (
         <>
