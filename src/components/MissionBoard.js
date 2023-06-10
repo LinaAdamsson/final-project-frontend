@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-no-useless-fragment */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Popup from 'reactjs-popup';
 import { useNavigate } from 'react-router-dom';
@@ -11,16 +11,17 @@ import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { MissionCardBack, MissionCardFront, PopupModal, CloseButton } from 'styles/MissionCard';
 import { Button } from 'styles/FormStyle';
-import { Loader } from './Loader';
+// import { Loader } from './Loader';
 // import DailyScore from './DailyScore';
 // import TotalScore from './TotalScore';
 
 const MissionBoard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
-  const [loading, setLoading] = useState(true)
+  // const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken);
   const missionItems = useSelector((store) => store.missions.missionItems);
+  const error = useSelector((store) => store.user.error)
 
   // Test
   // useEffect(() => {
@@ -71,10 +72,10 @@ const MissionBoard = () => {
             dispatch(missions.actions.setError(data));
           }
         })
-        .catch((error) => console.log(error))
-        .finally(() => setLoading(false))
+        .catch((e) => console.log(e))
+        // .finally(() => setLoading(false))
     }
-  }, [accessToken, dispatch, navigate])
+  }, [accessToken, dispatch, navigate, error])
 
   // Collect points from missions
   const collectPoints = (missionId) => {
@@ -87,7 +88,7 @@ const MissionBoard = () => {
         'Authorization': accessToken
       }
     }
-    setLoading(true)
+    // setLoading(true)
     fetch(API_URL(`missions/collect-points/${missionId}`), options)
       .then((response) => response.json())
       .then((data) => {
@@ -105,8 +106,8 @@ const MissionBoard = () => {
           dispatch(missions.actions.setError(data));
         }
       })
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false))
+      .catch((e) => console.log(e))
+      // .finally(() => setLoading(false))
   }
 
   // Create a function that takes the missionId as an argument
@@ -114,52 +115,52 @@ const MissionBoard = () => {
   // When someone clicks a mission you will have access to that specific id
 
   return (
+    // <>
+    //   {loading ? (
+    //     <Loader />
+    //   ) : (
     <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          {missionItems.map((mission) => {
-            return (
-              // Tror det behövs en mission key här
-              <Popup
-                key={mission._id}
-                trigger={
-                  <MissionCardFront
-                    type="button">
-                    {mission.title}
-                    <br />
-                    {mission.points}p
-                  </MissionCardFront>
-                }
-                modal
-                nested>
+      {missionItems.map((mission) => {
+        return (
+        // Tror det behövs en mission key här
+          <Popup
+            key={mission._id}
+            trigger={
+              <MissionCardFront
+                type="button">
+                {mission.title}
+                <br />
+                {mission.points}p
+              </MissionCardFront>
+            }
+            modal
+            nested>
 
-                {(close) => (
-                  <>
-                    <PopupModal>
-                      <CloseButton type="button" className="close" onClick={close}>
+            {(close) => (
+              <>
+                <PopupModal>
+                  <CloseButton type="button" className="close" onClick={close}>
                     &times;
-                      </CloseButton>
-                      <MissionCardBack>
-                        <p>{mission.description}</p>
-                        <Button
-                          type="button"
-                          onClick={() => collectPoints(mission._id)}>
+                  </CloseButton>
+                  <MissionCardBack>
+                    <p>{mission.description}</p>
+                    <Button
+                      type="button"
+                      onClick={() => collectPoints(mission._id)}>
                         I've done it!
-                        </Button>
-                      </MissionCardBack>
-                    </PopupModal>
-                  </>
-                )}
-              </Popup>
-            )
-          })}
-          {/* <DailyScore />
+                    </Button>
+                  </MissionCardBack>
+                </PopupModal>
+              </>
+            )}
+          </Popup>
+        )
+      })}
+      {/* <DailyScore />
           <TotalScore /> */}
-        </>
-      )}
     </>
+    //   )}
+    // </>
   )
 }
 
