@@ -6,7 +6,7 @@ export const missions = createSlice({
   name: 'missions',
   initialState: {
     missionItems: [],
-    error: false
+    error: null
   },
   reducers: {
     setMissionItems: (store, action) => {

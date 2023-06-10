@@ -30,4 +30,8 @@ border-style: none;
 background-color: rgb(40, 127, 219);
 color: white;
 margin-top: 10px;
+
+:disabled {
+    background-color: rgba(40, 127, 219, 0.5)
+}
 `

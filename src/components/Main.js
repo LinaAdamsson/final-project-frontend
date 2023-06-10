@@ -39,7 +39,7 @@ const Main = () => {
   }
 
   const onLogoutButtonClick = () => {
-    // localStorage.removeItem('accessToken');
+    localStorage.removeItem('accessToken');
     dispatch(user.actions.setAccessToken(null));
     dispatch(user.actions.setEmail(null));
     dispatch(user.actions.setUserId(null));
@@ -56,7 +56,6 @@ const Main = () => {
     <>
       <MainContainer>
         <MissionBoard />
-        {/* <DailyScore /> */}
         <DailyScore />
         <TotalScore />
       </MainContainer>
