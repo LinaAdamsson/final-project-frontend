@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro';
 
 export const Planet = styled.img`
-  border-radius: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;

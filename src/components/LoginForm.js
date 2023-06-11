@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { FormWrapper, Button, InputForm, InputLabel } from 'styles/FormStyle';
+// import { Avatar } from 'styles/AvatarStyle';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -50,6 +51,7 @@ const LoginForm = () => {
   }
   return (
     <FormWrapper>
+      {/* <Avatar src="https://lh3.googleusercontent.com/_0iKG-ssXTtP7Xei8wHoAQndbKvbr9lxtWw97-6AmN6lOFJ-vUj7U3B90JTCGXWOVOxx7XUYfX2RlyHKBh-DwcFgKMFS0rk6tECTrKAmTuypssGcGwd2_XbBcNK-2C4QxLJQ8z85Xg=w2400" alt="avatar" /> */}
       <form onSubmit={onFormSubmit}>
         <InputForm>
           <InputLabel htmlFor="lastName">
