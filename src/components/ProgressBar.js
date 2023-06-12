@@ -1,27 +1,86 @@
-// import React from 'react';
-// import styled from 'styled-components';
-// import { useSelector } from 'react-redux';
+import React from 'react';
+// import { AnimatedProgressProvider } from 'components/AnimatedProgressProvider';
+import ChangingProgressProvider from 'components/ChangingProgressProvider';
 
-// export const ProgressBar = () => {
-//   const currentQuestion = useSelector(
-//     (state) => state.quiz.currentQuestionIndex
-//   );
-//   const correctPercent = (currentQuestion * 100) / 5;
-//   const percent = Number(correctPercent).toFixed();
+const ProgressBar = () => {
 
-// document.getElementsByClassName("progress-bar")[0].setAttribute("style", "width:50%");
-// document.getElementsByClassName("progress-bar").style.width = "50%";
+<Example label="Daily score">
+<ChangingProgressProvider values={[0, 100]}>
+  {percentage => (
+    <CircularProgressbar
+    value={percentage}
+    text={`${percentage} P`}
+    strokeWidth={5}
+    styles={buildStyles({
+      textSize: "30px",
+      textColor: "green",
+      pathColor: "orange",
+      trailColor: "transparent"
+    })}
+    />
+  )}
+</ChangingProgressProvider>
+</Example>
+}
 
-// const percent = 10;
-// document.querySelector(".progress-bar").style.width = percent + "%";
-// function increase(){
-//   percent = percent > 90 ? 10 : percent + 10;
-//   document.querySelector(".progress-bar").style.width = percent + "%";
-// }
+export default ProgressBar;
 
-// <div class="progress">
-//     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-//     </div>
+// <Example label="Daily score">
+// <ChangingProgressProvider values={[0, 100]}>
+//   {percentage => (
+//     <CircularProgressbar
+//     value={percentage}
+//     text={`${percentage} P`}
+//     strokeWidth={5}
+//     styles={buildStyles({
+//       textSize: "30px",
+//       textColor: "green",
+//       pathColor: "orange",
+//       trailColor: "transparent"
+//     })}
+//     />
+//   )}
+// </ChangingProgressProvider>
+// </Example>
+
+// <Example label="Daily score with image">
+// <CircularProgressbarWithChildren value={66}>
+//   {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
+//   <img
+//     style={{ width: 70, marginTop: -4 }}
+//     src="https://lh3.googleusercontent.com/U4ss0tLqB8G_bGeYhbAOewyGW25VrveeWXKsdHPzTGa_QD6rTlZcBHjQ1jH01MyvKsKn_c2YluGgLZaCsUgMWD1NaI8Zv1TV9U2mMHPvghWNljflFNu3xTqZ-4R0tawUvCpBGKTZ2A=w2400"
+//     alt="planet"
+//   />
+//   <div style={{ fontSize: 20, marginTop: -30 }}>
+//   {percentage}<strong> </strong>P
+//   </div>
+// </CircularProgressbarWithChildren>
+// </Example>
+
+// <Example label="Multiple concentric paths">
+// <CircularProgressbarWithChildren
+//   value={100}
+//   strokeWidth={3}
+//   styles={buildStyles({
+//     pathColor: "orange",
+//     trailColor: "transparent"
+//   })}
+// >
+//   {/*
+//     Width here needs to be (100 - 2 * strokeWidth)% 
+//     in order to fit exactly inside the outer progressbar.
+//   */}
+//   <div style={{ width: "84%" }}>
+//     <CircularProgressbar
+//       value={100}
+//       strokeWidth={3}
+//       styles={buildStyles({
+//         pathColor: "orange",
+//         trailColor: "transparent"
+//       })}
+//     />
+//   </div>
+// </CircularProgressbarWithChildren>
+// </Example>
 // </div>
-// <hr />
-// <button onclick="increase()">increase</button>
+// );
