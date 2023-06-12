@@ -6,11 +6,12 @@ export const MissionCardContainer = styled.div`
 
 export const MissionCardFront = styled.button`
     background-color: #0A99FF;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border: none;
     border-radius: 10px;
     margin: 10px;
+    color: white;
 `
 
 export const MissionCardBack = styled.div`

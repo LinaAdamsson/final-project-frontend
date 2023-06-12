@@ -55,7 +55,7 @@ const MissionBoard = () => {
           // Randomize and show 12 objects from the array - too many for the screen?
             const allItems = data.response
             const totalItems = allItems.length
-            const selectedIndices = getRandomIndices(totalItems, 10)
+            const selectedIndices = getRandomIndices(totalItems, 9)
             // const selectedIndices = getRandomIndices(totalItems, 12)
             const selectedItems = selectedIndices.map((index) => allItems[index])
 

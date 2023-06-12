@@ -4,10 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { user } from 'reducers/user';
 import { missions } from 'reducers/missions';
 import { Button } from 'styles/FormStyle';
-import { MainContainer } from 'styles/MainStyle';
+import { MainContainer, StyledIcon } from 'styles/MainStyle';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
+import { faUser, faChessBoard, faEarthEurope, faChartLine } from '@fortawesome/free-solid-svg-icons';
+/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; */
 import MissionBoard from './MissionBoard';
 import DailyScore from './DailyScore';
 import TotalScore from './TotalScore';
@@ -18,12 +20,12 @@ const Main = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   // const [loading, setLoading] = useState(true)
-  /* const dotIcons = [
-    <i className="fa-regular fa-user" />,
-    <i className="fa-solid fa-border-all" />,
-    <i className="fa-solid fa-earth-americas" />,
-    <i className="fa-solid fa-heart" />
-  ]; */
+  const dotIcons = [
+    <StyledIcon icon={faUser} />,
+    <StyledIcon icon={faChessBoard} />,
+    <StyledIcon icon={faEarthEurope} />,
+    <StyledIcon icon={faChartLine} />
+  ];
 
   useEffect(() => {
     // If the user don't have an accessToken they get directed to the login page
@@ -60,6 +62,7 @@ const Main = () => {
     dots: true,
     /* dotsClass: 'custom-dots',
     customPaging: (index) => dotIcons[index], */
+    customPaging: (index) => dotIcons[index],
     initialSlide: 1,
     infinite: true,
     speed: 500,
