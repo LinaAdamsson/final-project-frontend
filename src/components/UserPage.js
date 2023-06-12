@@ -1,9 +1,11 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import { user } from 'reducers/user';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from 'utils/urls';
 import { Avatar } from 'styles/AvatarStyle';
+import { Button } from 'styles/FormStyle';
 import { Loader } from './Loader';
 
 const UserPage = () => {
@@ -64,6 +66,11 @@ const UserPage = () => {
 
   console.log('My user data', myUser)
 
+  const onBackButtonClick = () => {
+    navigate('/')
+  }
+
+  // Ändra strukturen så att den liknar andra komponenter
   return loading ? (
     <Loader />
   ) : (
@@ -76,6 +83,7 @@ const UserPage = () => {
         <li>Hero points today: {myUser.dailyScore}</li>
         <li>Total hero score: {myUser.totalScore}</li>
       </ul>
+      <Button type="button" onClick={onBackButtonClick}>Go back</Button>
     </>
   );
 }
