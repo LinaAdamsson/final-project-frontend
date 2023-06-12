@@ -44,6 +44,7 @@ const TotalScore = () => {
         // .finally(() => setLoading(false))
     }
   }, [userId, totalScore]);
+  console.log(`This is the ${userId}`)
   // if (loading) {
   //   return <Loader />
   // }
