@@ -5,9 +5,14 @@ import { user } from 'reducers/user';
 import { missions } from 'reducers/missions';
 import { Button } from 'styles/FormStyle';
 import { MainContainer } from 'styles/MainStyle';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 import MissionBoard from './MissionBoard';
 import DailyScore from './DailyScore';
 import TotalScore from './TotalScore';
+import UserPage from './UserPage';
+import { Footer } from './Footer';
 // import DailyScore from './DailyScore';
 
 const Main = () => {
@@ -61,12 +66,22 @@ const Main = () => {
   // }, [accessToken]);
 
   return (
-    <>
-      <MainContainer>
-        <MissionBoard />
-        <DailyScore />
-        <TotalScore />
-      </MainContainer>
+    <MainContainer>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <Slider {...sliderSettings}>
+        <div>
+          <UserPage />
+        </div>
+        <div>
+          <MissionBoard />
+        </div>
+        <div>
+          <DailyScore />
+        </div>
+        <div>
+          <TotalScore />
+        </div>
+      </Slider>
       <Button type="button" onClick={onMyPageButtonClick}>Go to my page</Button>
       <Button type="button" onClick={onLogoutButtonClick}>Logout</Button>
       <Footer />

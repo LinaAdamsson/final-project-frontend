@@ -1,10 +1,10 @@
 import React from 'react'
-import { FooterContainer } from 'styles/Footer'
+import { FooterContainer, FooterText } from 'styles/FooterStyle'
 
 export const Footer = () => {
   return (
     <FooterContainer>
-      <p>¸Andrea Hedström, Frida Nordenlöw, Lina Adamsson, Emilia Saberski</p>
+      <FooterText>¸Andrea Hedström, Frida Nordenlöw, Lina Adamsson, Emilia Saberski</FooterText>
     </FooterContainer>
   )
 }
