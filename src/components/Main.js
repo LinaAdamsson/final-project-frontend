@@ -12,16 +12,21 @@ import MissionBoard from './MissionBoard';
 import DailyScore from './DailyScore';
 import TotalScore from './TotalScore';
 import UserPage from './UserPage';
-// import DailyScore from './DailyScore';
 
 const Main = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  /* const dotIcons = [
+    <i className="fa-regular fa-user" />,
+    <i className="fa-solid fa-border-all" />,
+    <i className="fa-solid fa-earth-americas" />,
+    <i className="fa-solid fa-heart" />
+  ]; */
   // const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // If the user don't have an accesstoken they get directed to the login page
+    // If the user don't have an accessToken they get directed to the login page
     if (!accessToken) {
       navigate('/login')
     }
@@ -37,9 +42,9 @@ const Main = () => {
   //   }
   // }, [dispatch, navigate]);
 
-  const onMyPageButtonClick = () => {
+  /* const onMyPageButtonClick = () => {
     navigate('/myuserpage')
-  }
+  } */
 
   const onLogoutButtonClick = () => {
     localStorage.removeItem('accessToken');
@@ -53,6 +58,8 @@ const Main = () => {
 
   const sliderSettings = {
     dots: true,
+    /* dotsClass: 'custom-dots',
+    customPaging: (index) => dotIcons[index], */
     initialSlide: 1,
     infinite: true,
     speed: 500,
