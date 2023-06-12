@@ -160,7 +160,7 @@ const MissionBoard = () => {
                 </PopupModal>
               </>
             )}
-         </Popup>
+          </Popup>
         )
       })}
       {/* <DailyScore />
