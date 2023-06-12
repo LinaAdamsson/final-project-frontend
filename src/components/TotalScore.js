@@ -36,7 +36,7 @@ const TotalScore = () => {
             dispatch(user.actions.setError(null));
             console.log('Total score:', totalScore)
           } else {
-            dispatch(user.actions.setTotalScore([]));
+            dispatch(user.actions.setTotalScore(0));
             dispatch(user.actions.setError(data));
           }
         })

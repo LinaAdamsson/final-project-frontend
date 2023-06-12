@@ -129,7 +129,6 @@ const MissionBoard = () => {
     <>
       {missionItems.map((mission) => {
         return (
-        // Tror det behövs en mission key här
           <Popup
             key={mission._id}
             trigger={
