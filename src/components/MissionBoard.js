@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import { MissionCardBack, MissionCardFront, PopupModal, CloseButton } from 'styles/MissionCard';
+import { MissionCardBack, MissionCardFront, PopupModal, CloseButton, MissionCardContainer } from 'styles/MissionCard';
 import { Button } from 'styles/FormStyle';
 // import { Loader } from './Loader';
 // import DailyScore from './DailyScore';
@@ -127,6 +127,7 @@ const MissionBoard = () => {
     //     <Loader />
     //   ) : (
     <>
+    <MissionCardContainer>
       {missionItems.map((mission) => {
         return (
           <Popup
@@ -163,11 +164,10 @@ const MissionBoard = () => {
           </Popup>
         )
       })}
-      {/* <DailyScore />
-          <TotalScore /> */}
+
+     </MissionCardContainer>
     </>
-    //   )}
-    // </>
+
   )
 }
 

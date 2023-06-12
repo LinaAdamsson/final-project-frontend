@@ -5,9 +5,11 @@ import { user } from 'reducers/user';
 import { missions } from 'reducers/missions';
 import { Button } from 'styles/FormStyle';
 import { MainContainer } from 'styles/MainStyle';
+import { Footer } from 'components/Footer';
 import MissionBoard from './MissionBoard';
 import DailyScore from './DailyScore';
 import TotalScore from './TotalScore';
+
 // import DailyScore from './DailyScore';
 
 const Main = () => {
@@ -53,15 +55,14 @@ const Main = () => {
   // }, [accessToken]);
 
   return (
-    <>
-      <MainContainer>
-        <MissionBoard />
-        <DailyScore />
-        <TotalScore />
-      </MainContainer>
+    <MainContainer>
+      <MissionBoard />
+      <DailyScore />
+      <TotalScore />
       <Button type="button" onClick={onMyPageButtonClick}>Go to my page</Button>
       <Button type="button" onClick={onLogoutButtonClick}>Logout</Button>
-    </>
+      <Footer />
+    </MainContainer>
   )
 }
 
