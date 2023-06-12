@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import { Loader } from './Loader';
+import { TotalScorePointsCircle, TotalScorePrompt, TotalScoreWrapper } from 'styles/TotalScore';
+// import { Loader } from './Loader';
 
 const TotalScore = () => {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const [loading, setLoading] = useState(true)
+  // const navigate = useNavigate()
+  // const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken)
   const totalScore = useSelector((store) => store.user.totalScore)
   const userId = useSelector((store) => store.user.userId)
 
   useEffect(() => {
-    if (!accessToken) {
-      navigate('/login');
-    } else if (accessToken) { // Check if userId is available
+    if (accessToken) {
       const options = {
         method: 'GET',
         headers: {
@@ -25,7 +25,7 @@ const TotalScore = () => {
           'Authorization': accessToken
         }
       };
-      setLoading(true)
+      // setLoading(true)
       fetch(API_URL(`users/${userId}/total-score`), options)
         .then((res) => res.json())
         .then((data) => {
@@ -41,15 +41,18 @@ const TotalScore = () => {
           }
         })
         .catch((error) => console.log(error))
-        .finally(() => setLoading(false))
+        // .finally(() => setLoading(false))
     }
-  }, [accessToken, dispatch, navigate, totalScore, userId]);
-  if (loading) {
-    return <Loader />
-  }
+  }, [userId, totalScore]);
+  // if (loading) {
+  //   return <Loader />
+  // }
   return (
     totalScore ? (
-      <div> Your total score is {totalScore}</div>
+      <TotalScoreWrapper>
+        <TotalScorePrompt>Your total score is:</TotalScorePrompt>
+        <TotalScorePointsCircle>{totalScore}</TotalScorePointsCircle>
+      </TotalScoreWrapper>
     ) : (
       <div>No total score available. Have you completed any missions yet?</div>
     )

@@ -2,28 +2,27 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Popup from 'reactjs-popup';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { MissionCardBack, MissionCardFront, PopupModal, CloseButton, MissionCardContainer } from 'styles/MissionCard';
 import { Button } from 'styles/FormStyle';
 // import { Loader } from './Loader';
-// import DailyScore from './DailyScore';
-// import TotalScore from './TotalScore';
 
 const MissionBoard = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   // const [isDisabled, setIsDisabled] = useState(false);
   const [disabledStates, setDisabledStates] = useState({})
   // const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken);
   const missionItems = useSelector((store) => store.missions.missionItems);
-  const error = useSelector((store) => store.user.error)
+  // const error = useSelector((store) => store.user.error)
 
   // Randomize the objects in the array on login
   const getRandomIndices = (max, count) => {
@@ -39,16 +38,13 @@ const MissionBoard = () => {
 
   // Fetch missions
   useEffect(() => {
-    if (!accessToken) {
-      navigate('/login');
-    } else if (accessToken) {
+    if (accessToken) {
       const options = {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           // eslint-disable-next-line quote-props, quotes
           "Authorization": accessToken
-
         }
       }
       // setLoading(true)
@@ -56,10 +52,11 @@ const MissionBoard = () => {
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
-          // Randomize and show 12 objects from the array
+          // Randomize and show 12 objects from the array - too many for the screen?
             const allItems = data.response
             const totalItems = allItems.length
-            const selectedIndices = getRandomIndices(totalItems, 12)
+            const selectedIndices = getRandomIndices(totalItems, 10)
+            // const selectedIndices = getRandomIndices(totalItems, 12)
             const selectedItems = selectedIndices.map((index) => allItems[index])
 
             dispatch(missions.actions.setMissionItems(selectedItems));
@@ -72,7 +69,7 @@ const MissionBoard = () => {
         .catch((e) => console.log(e))
         // .finally(() => setLoading(false))
     }
-  }, [accessToken, dispatch, navigate, error])
+  }, [accessToken])
 
   // Collect points from missions
   const collectPoints = (missionId) => {

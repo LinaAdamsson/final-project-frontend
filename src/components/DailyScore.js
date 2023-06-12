@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { DailyScorePointsCircle, DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScore';
-import { Loader } from './Loader';
+// import { Loader } from './Loader';
 
 const DailyScore = () => {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const [loading, setLoading] = useState(true)
+  // const navigate = useNavigate()
+  // const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken)
   const dailyScore = useSelector((store) => store.user.dailyScore)
   const userId = useSelector((store) => store.user.userId)
   const todaysDate = new Date().toISOString().split('T')[0]
 
   useEffect(() => {
-    if (!accessToken) {
-      navigate('/login');
-    } else if (accessToken) {
+    if (accessToken) {
       const options = {
         method: 'GET',
         headers: {
@@ -27,8 +26,7 @@ const DailyScore = () => {
           'Authorization': accessToken
         }
       };
-      // fetch(API_URL(`users/${userId}/score/2023-06-11`), options)
-      setLoading(true)
+      // setLoading(true)
       fetch(API_URL(`users/${userId}/score/${todaysDate}`), options)
         .then((res) => res.json())
         .then((data) => {
@@ -42,13 +40,13 @@ const DailyScore = () => {
           }
         })
         .catch((error) => console.log(error))
-        .finally(() => setLoading(false))
+        // .finally(() => setLoading(false))
     }
-  }, [accessToken, dailyScore, dispatch, navigate, todaysDate, userId]);
+  }, [todaysDate, userId, dailyScore]);
 
-  if (loading) {
-    return <Loader />
-  }
+  // if (loading) {
+  //   return <Loader />
+  // }
   return (
     dailyScore ? (
       <DailyScoreWrapper>

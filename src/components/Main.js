@@ -19,13 +19,13 @@ const Main = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  // const [loading, setLoading] = useState(true)
   /* const dotIcons = [
     <i className="fa-regular fa-user" />,
     <i className="fa-solid fa-border-all" />,
     <i className="fa-solid fa-earth-americas" />,
     <i className="fa-solid fa-heart" />
   ]; */
-  // const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     // If the user don't have an accessToken they get directed to the login page

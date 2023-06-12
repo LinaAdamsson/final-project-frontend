@@ -13,7 +13,7 @@ const LoginForm = () => {
   const navigate = useNavigate()
   const error = useSelector((store) => store.user.error)
   const accessToken = useSelector((store) => store.user.accessToken)
-  const userId = useSelector((store) => store.user.userId)
+  // const userId = useSelector((store) => store.user.userId)
 
   useEffect(() => {
     if (accessToken) {
@@ -34,14 +34,13 @@ const LoginForm = () => {
     fetch(API_URL('login'), options)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         if (data.success) {
           console.log('Data from login', data)
           dispatch(user.actions.setEmail(data.response.email));
           dispatch(user.actions.setUserId(data.response.id));
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           dispatch(user.actions.setError(null));
-          console.log('User id:', userId)
+          // console.log('User id:', data.response.id)
         } else {
           dispatch(user.actions.setEmail(null));
           dispatch(user.actions.setUserId(null));
