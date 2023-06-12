@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from 'utils/urls';
 import { Avatar } from 'styles/AvatarStyle';
-import { Button } from 'styles/FormStyle';
+// import { Button } from 'styles/FormStyle';
 import { Loader } from './Loader';
 
 const UserPage = () => {
@@ -21,6 +21,7 @@ const UserPage = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  // Någonting är fel här
   useEffect(() => {
     if (!accessToken) {
       navigate('/login')
@@ -43,13 +44,13 @@ const UserPage = () => {
         .then((data) => {
           console.log('Data from user fetch', data)
           if (data.success) {
-            // Behöver vi dispatcha allt det här?
             dispatch(user.actions.setFirstName(data.response.firstName));
             dispatch(user.actions.setLastName(data.response.lastName));
             dispatch(user.actions.setEmail(data.response.email));
             dispatch(user.actions.setUserId(data.response.id));
             dispatch(user.actions.setAccessToken(data.response.accessToken));
             dispatch(user.actions.setError(null));
+            console.log('My user id', userId)
           } else {
             dispatch(user.actions.setFirstName(null));
             dispatch(user.actions.setLastName(null));
@@ -66,9 +67,9 @@ const UserPage = () => {
 
   console.log('My user data', myUser)
 
-  /*const onBackButtonClick = () => {
+  /* const onBackButtonClick = () => {
     navigate('/')
-  }*/
+  } */
 
   // Ändra strukturen så att den liknar andra komponenter
   return loading ? (

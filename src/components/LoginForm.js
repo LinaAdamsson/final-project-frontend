@@ -36,6 +36,7 @@ const LoginForm = () => {
       .then((data) => {
         console.log(data)
         if (data.success) {
+          console.log('Data from login', data)
           dispatch(user.actions.setEmail(data.response.email));
           dispatch(user.actions.setUserId(data.response.id));
           dispatch(user.actions.setAccessToken(data.response.accessToken));
