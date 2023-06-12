@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const MissionCardContainer = styled.div`
-  height: 100vh;
+  height: 500px;
   padding: 10px;
   display: flex;
   flex-direction: row;

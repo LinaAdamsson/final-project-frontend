@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { user } from 'reducers/user';
@@ -23,11 +23,12 @@ const Main = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   // const [loading, setLoading] = useState(true)
+  const [activeIndex, setActiveIndex] = useState(1);
   const dotIcons = [
-    <StyledIcon icon={faUser} />,
-    <StyledIcon icon={faChessBoard} />,
-    <StyledIcon icon={faEarthEurope} />,
-    <StyledIcon icon={faChartLine} />
+    <StyledIcon icon={faUser} isActive={activeIndex === 0} />,
+    <StyledIcon icon={faChessBoard} isActive={activeIndex === 1} />,
+    <StyledIcon icon={faEarthEurope} isActive={activeIndex === 2} />,
+    <StyledIcon icon={faChartLine} isActive={activeIndex === 3} />
   ];
 
   // useEffect(() => {
@@ -39,6 +40,7 @@ const Main = () => {
 
   useEffect(() => {
     // Try to load access token from local storage on component mount
+    setActiveIndex(1);
     const storedAccessToken = localStorage.getItem('accessToken');
     const storedUserId = localStorage.getItem('userId');
     if (storedAccessToken) {
@@ -55,6 +57,9 @@ const Main = () => {
     localStorage.setItem('userId', userId);
   }, [accessToken, userId]);
 
+  const handleSlideChange = (index) => {
+    setActiveIndex(index);
+  };
   /* const onMyPageButtonClick = () => {
     navigate('/myuserpage')
   } */
@@ -75,6 +80,7 @@ const Main = () => {
     customPaging: (index) => dotIcons[index], */
     customPaging: (index) => dotIcons[index],
     initialSlide: 1,
+    afterChange: handleSlideChange,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
