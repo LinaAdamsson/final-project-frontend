@@ -66,9 +66,9 @@ const UserPage = () => {
 
   console.log('My user data', myUser)
 
-  const onBackButtonClick = () => {
+  /*const onBackButtonClick = () => {
     navigate('/')
-  }
+  }*/
 
   // Ändra strukturen så att den liknar andra komponenter
   return loading ? (
@@ -83,7 +83,6 @@ const UserPage = () => {
         <li>Hero points today: {myUser.dailyScore}</li>
         <li>Total hero score: {myUser.totalScore}</li>
       </ul>
-      <Button type="button" onClick={onBackButtonClick}>Go back</Button>
     </>
   );
 }
