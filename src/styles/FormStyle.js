@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 export const FormWrapper = styled.div`
 display: flex;
 justify-content: center;
-margin-top: 220px;
+margin-top: 120px;
 input {
     width: 200px;
     height: 20px;
