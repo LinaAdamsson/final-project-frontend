@@ -119,45 +119,46 @@ const MissionBoard = () => {
     //     <Loader />
     //   ) : (
     <>
-    <MissionCardContainer>
-      {missionItems.map((mission) => {
-        return (
-          <Popup
-            key={mission._id}
-            trigger={
-              <MissionCardFront
-                type="button">
-                {mission.title}
-                <br />
-                {mission.points}p
-              </MissionCardFront>
-            }
-            modal
-            nested>
+      <MissionCardContainer>
+        {missionItems.map((mission) => {
+          return (
+            <Popup
+              key={mission._id}
+              trigger={
+                <MissionCardFront
+                  type="button"
+                  disabled={disabledStates[mission._id]}>
+                  {mission.title}
+                  <br />
+                  {mission.points}p
+                </MissionCardFront>
+              }
+              modal
+              nested>
 
-            {(close) => (
-              <>
-                <PopupModal>
-                  <CloseButton type="button" className="close" onClick={close}>
-                    &times;
-                  </CloseButton>
-                  <MissionCardBack>
-                    <p>{mission.description}</p>
-                    <Button
-                      type="button"
-                      onClick={() => collectPoints(mission._id)}
-                      disabled={disabledStates[mission._id]}>
-                        I've done it!
-                    </Button>
-                  </MissionCardBack>
-                </PopupModal>
-              </>
-            )}
-          </Popup>
-        )
-      })}
+              {(close) => (
+                <>
+                  <PopupModal>
+                    <CloseButton type="button" className="close" onClick={close}>
+                      &times;
+                    </CloseButton>
+                    <MissionCardBack>
+                      <p>{mission.description}</p>
+                      <Button
+                        type="button"
+                        onClick={() => collectPoints(mission._id)}
+                        disabled={disabledStates[mission._id]}>
+                          I've done it!
+                      </Button>
+                    </MissionCardBack>
+                  </PopupModal>
+                </>
+              )}
+            </Popup>
+          )
+        })}
 
-     </MissionCardContainer>
+      </MissionCardContainer>
     </>
 
   )
