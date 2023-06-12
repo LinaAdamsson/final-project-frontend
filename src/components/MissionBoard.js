@@ -25,11 +25,6 @@ const MissionBoard = () => {
   const missionItems = useSelector((store) => store.missions.missionItems);
   const error = useSelector((store) => store.user.error)
 
-  // Test
-  // useEffect(() => {
-  //   console.log('MissionBoard re-rendered');
-  // });
-
   // Randomize the objects in the array on login
   const getRandomIndices = (max, count) => {
     const indices = [];
