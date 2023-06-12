@@ -4,7 +4,7 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-/* import Popup from 'reactjs-popup'; */
+import Popup from 'reactjs-popup';
 import { useNavigate } from 'react-router-dom';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
