@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import { user } from 'reducers/user';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from 'utils/urls';
 import { Avatar } from 'styles/AvatarStyle';
@@ -11,24 +12,16 @@ import { Loader } from './Loader';
 const UserPage = () => {
   const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken)
-  //   const myFirstName = useSelector((store) => store.user.firstName)
-  //   const myLastName = useSelector((store) => store.user.lastName)
-  //   const myEmail = useSelector((store) => store.user.email)
-  //   const myDailyScore = useSelector((store) => store.user.score)
-  //   const myTotalScore = useSelector((store) => store.user.totalScore)
   const userId = useSelector((store) => store.user.userId)
   const myUser = useSelector((store) => store.user)
   const dispatch = useDispatch()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
-  // Någonting är fel här
   useEffect(() => {
-    if (!accessToken) {
-      navigate('/login')
-    } else if (accessToken && userId) {
+    if (accessToken && userId) {
       // Fetch user
-      console.log('Access token in user page', accessToken)
-      console.log('User id user page', userId)
+    //   console.log('Access token in user page', accessToken)
+    //   console.log('User id user page', userId)
       const options = {
         method: 'GET',
         headers: {
@@ -42,15 +35,17 @@ const UserPage = () => {
       fetch(API_URL(`users/${userId}`), options)
         .then((response) => response.json())
         .then((data) => {
-          console.log('Data from user fetch', data)
           if (data.success) {
             dispatch(user.actions.setFirstName(data.response.firstName));
             dispatch(user.actions.setLastName(data.response.lastName));
             dispatch(user.actions.setEmail(data.response.email));
-            dispatch(user.actions.setUserId(data.response.id));
+            // The setting of the id from the response is different from the login form
+            // because how the responses are constructed (in login "id", here "_id")
+            dispatch(user.actions.setUserId(data.response._id));
             dispatch(user.actions.setAccessToken(data.response.accessToken));
             dispatch(user.actions.setError(null));
-            console.log('My user id', userId)
+            console.log('Data from user fetch', data)
+            // console.log('My user id', data.response._id)
           } else {
             dispatch(user.actions.setFirstName(null));
             dispatch(user.actions.setLastName(null));
@@ -63,9 +58,7 @@ const UserPage = () => {
         .catch((error) => console.log(error))
         .finally(() => setLoading(false))
     }
-  }, [accessToken, dispatch, navigate, userId])
-
-  console.log('My user data', myUser)
+  }, [userId])
 
   /* const onBackButtonClick = () => {
     navigate('/')
