@@ -9,5 +9,7 @@ export const MainContainer = styled.div`
 `
 export const StyledIcon = styled(FontAwesomeIcon)`
 font-size: 30px;
+    overflow-y: scroll;  
+    position: relative;
 
 `

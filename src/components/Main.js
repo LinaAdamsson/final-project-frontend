@@ -14,9 +14,12 @@ import MissionBoard from './MissionBoard';
 import DailyScore from './DailyScore';
 import TotalScore from './TotalScore';
 import UserPage from './UserPage';
+import { Footer } from './Footer';
+// import DailyScore from './DailyScore';
 
 const Main = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
+  const userId = useSelector((store) => store.user.userId);
   const navigate = useNavigate()
   const dispatch = useDispatch()
   // const [loading, setLoading] = useState(true)
@@ -27,22 +30,30 @@ const Main = () => {
     <StyledIcon icon={faChartLine} />
   ];
 
-  useEffect(() => {
-    // If the user don't have an accessToken they get directed to the login page
-    if (!accessToken) {
-      navigate('/login')
-    }
-  }, [accessToken, navigate]);
-
   // useEffect(() => {
-  //   // Try to load access token from local storage on component mount
-  //   const storedAccessToken = localStorage.getItem('accessToken');
-  //   if (storedAccessToken) {
-  //     dispatch(user.actions.setAccessToken(storedAccessToken));
-  //   } else {
-  //     navigate('/login');
+  //   // If the user don't have an accessToken they get directed to the login page
+  //   if (!accessToken) {
+  //     navigate('/login')
   //   }
-  // }, [dispatch, navigate]);
+  // }, [accessToken, navigate]);
+
+  useEffect(() => {
+    // Try to load access token from local storage on component mount
+    const storedAccessToken = localStorage.getItem('accessToken');
+    const storedUserId = localStorage.getItem('userId');
+    if (storedAccessToken) {
+      dispatch(user.actions.setAccessToken(storedAccessToken));
+    } else if (storedUserId) {
+      dispatch(user.actions.setUserId(storedUserId));
+    } else {
+      navigate('/login');
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('accessToken', accessToken);
+    localStorage.setItem('userId', userId);
+  }, [accessToken, userId]);
 
   /* const onMyPageButtonClick = () => {
     navigate('/myuserpage')
@@ -70,31 +81,27 @@ const Main = () => {
     slidesToScroll: 1
   };
 
-  // useEffect(() => {
-  //   localStorage.setItem('accessToken', accessToken);
-  // }, [accessToken]);
-
   return (
-    <>
-      <MainContainer>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Slider {...sliderSettings}>
-          <div>
-            <UserPage />
-          </div>
-          <div>
-            <MissionBoard />
-          </div>
-          <div>
-            <DailyScore />
-          </div>
-          <div>
-            <TotalScore />
-          </div>
-        </Slider>
-      </MainContainer>
+    <MainContainer>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <Slider {...sliderSettings}>
+        <div>
+          <UserPage />
+        </div>
+        <div>
+          <MissionBoard />
+        </div>
+        <div>
+          <DailyScore />
+        </div>
+        <div>
+          <TotalScore />
+        </div>
+      </Slider>
+      {/* <Button type="button" onClick={onMyPageButtonClick}>Go to my page</Button> */}
       <Button type="button" onClick={onLogoutButtonClick}>Logout</Button>
-    </>
+      <Footer />
+    </MainContainer>
   )
 }
 
