@@ -27,7 +27,7 @@ const DailyScore = () => {
           'Authorization': accessToken
         }
       };
-      // fetch(API_URL(`users/${userId}/score/2023-06-06`), options)
+      // fetch(API_URL(`users/${userId}/score/2023-06-11`), options)
       setLoading(true)
       fetch(API_URL(`users/${userId}/score/${todaysDate}`), options)
         .then((res) => res.json())
@@ -37,7 +37,7 @@ const DailyScore = () => {
             dispatch(user.actions.setError(null));
             console.log('Daily score:', dailyScore);
           } else {
-            dispatch(user.actions.setDailyScore([]));
+            dispatch(user.actions.setDailyScore(0));
             dispatch(user.actions.setError(data));
           }
         })
