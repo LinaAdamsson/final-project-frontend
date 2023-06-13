@@ -24,16 +24,16 @@ export const ProgressBar = () => {
       styles={buildStyles({
       // This is in units relative to the 100x100px
       // SVG viewbox.
-        textSize: '30px',
-        textColor: 'green',
+        // textSize: '30px',
+        // textColor: 'white',
         pathColor: 'orange',
         trailColor: 'transparent'
       })}>
       <img
-        style={{ width: 40, marginTop: -5 }}
+        style={{ width: 200, marginTop: 15 }}
         src="https://lh3.googleusercontent.com/U4ss0tLqB8G_bGeYhbAOewyGW25VrveeWXKsdHPzTGa_QD6rTlZcBHjQ1jH01MyvKsKn_c2YluGgLZaCsUgMWD1NaI8Zv1TV9U2mMHPvghWNljflFNu3xTqZ-4R0tawUvCpBGKTZ2A=w2400"
         alt="planet" />
-      <div style={{ fontSize: 12, marginTop: -20 }}>
+      <div style={{ fontSize: 40, marginTop: -20, color: 'white' }}>
         {dailyScore}<strong> </strong>P
       </div>
     </CircularProgressbarWithChildren>

@@ -5,7 +5,7 @@ import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScore';
 import { ProgressBar } from './ProgressBar';
-// import { Loader } from './Loader';
+import { Loader } from './Loader';
 
 const DailyScore = () => {
   const dispatch = useDispatch()
@@ -50,10 +50,10 @@ const DailyScore = () => {
   return (
     dailyScore ? (
       <DailyScoreWrapper>
-        <ProgressBar />
         <DailyScorePrompt>
           Your daily score is:
         </DailyScorePrompt>
+        <ProgressBar />
         {/* <DailyScorePointsCircle>
           <p>{dailyScore}</p>
         </DailyScorePointsCircle> */}
