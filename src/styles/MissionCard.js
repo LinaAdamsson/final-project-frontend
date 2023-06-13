@@ -18,6 +18,7 @@ export const MissionCardFront = styled.button`
     border-radius: 10px;
     margin: 10px;
     color: white;
+    font-size: 14px;
 
     :disabled{
       background-color: rgba(10, 153, 254, 0.5);
