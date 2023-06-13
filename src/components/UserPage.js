@@ -2,7 +2,6 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import { user } from 'reducers/user';
-// import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from 'utils/urls';
 import { Avatar } from 'styles/AvatarStyle';
@@ -15,13 +14,11 @@ const UserPage = () => {
   const userId = useSelector((store) => store.user.userId)
   const myUser = useSelector((store) => store.user)
   const dispatch = useDispatch()
-  // const navigate = useNavigate()
 
   useEffect(() => {
     if (accessToken && userId) {
-      // Fetch user
-    //   console.log('Access token in user page', accessToken)
-    //   console.log('User id user page', userId)
+      //   console.log('Access token in user page', accessToken)
+      //   console.log('User id user page', userId)
       const options = {
         method: 'GET',
         headers: {
@@ -58,7 +55,7 @@ const UserPage = () => {
         .catch((error) => console.log(error))
         .finally(() => setLoading(false))
     }
-  }, [userId])
+  }, [accessToken])
 
   /* const onBackButtonClick = () => {
     navigate('/')

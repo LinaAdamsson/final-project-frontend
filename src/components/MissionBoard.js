@@ -10,14 +10,13 @@ import Popup from 'reactjs-popup';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import { MissionCardBack, MissionCardFront, PopupModal, CloseButton } from 'styles/MissionCard';
+import { MissionCardBack, MissionCardFront, PopupModal, CloseButton, MissionCardContainer } from 'styles/MissionCard';
 import { Button } from 'styles/FormStyle';
 // import { Loader } from './Loader';
 
 const MissionBoard = () => {
   const dispatch = useDispatch();
   // const navigate = useNavigate()
-  // const [isDisabled, setIsDisabled] = useState(false);
   const [disabledStates, setDisabledStates] = useState({})
   // const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken);
@@ -55,7 +54,7 @@ const MissionBoard = () => {
           // Randomize and show 12 objects from the array - too many for the screen?
             const allItems = data.response
             const totalItems = allItems.length
-            const selectedIndices = getRandomIndices(totalItems, 10)
+            const selectedIndices = getRandomIndices(totalItems, 9)
             // const selectedIndices = getRandomIndices(totalItems, 12)
             const selectedItems = selectedIndices.map((index) => allItems[index])
 
@@ -109,55 +108,54 @@ const MissionBoard = () => {
     }));
   }
 
-  // Create a function that takes the missionId as an argument
-
-  // When someone clicks a mission you will have access to that specific id
-
   return (
     // <>
     //   {loading ? (
     //     <Loader />
     //   ) : (
     <>
-      {missionItems.map((mission) => {
-        return (
-          <Popup
-            key={mission._id}
-            trigger={
-              <MissionCardFront
-                type="button">
-                {mission.title}
-                <br />
-                {mission.points}p
-              </MissionCardFront>
-            }
-            modal
-            nested>
+      <MissionCardContainer>
+        {missionItems.map((mission) => {
+          return (
+            <Popup
+              key={mission._id}
+              trigger={
+                <MissionCardFront
+                  type="button"
+                  disabled={disabledStates[mission._id]}>
+                  {mission.title}
+                  <br />
+                  {mission.points}p
+                </MissionCardFront>
+              }
+              modal
+              nested>
 
-            {(close) => (
-              <>
-                <PopupModal>
-                  <CloseButton type="button" className="close" onClick={close}>
-                    &times;
-                  </CloseButton>
-                  <MissionCardBack>
-                    <p>{mission.description}</p>
-                    <Button
-                      type="button"
-                      onClick={() => collectPoints(mission._id)}
-                      disabled={disabledStates[mission._id]}>
-                        I've done it!
-                    </Button>
-                  </MissionCardBack>
-                </PopupModal>
-              </>
-            )}
-          </Popup>
-        )
-      })}
+              {(close) => (
+                <>
+                  <PopupModal>
+                    <CloseButton type="button" className="close" onClick={close}>
+                      &times;
+                    </CloseButton>
+                    <MissionCardBack>
+                      <p>{mission.description}</p>
+                      <Button
+                        type="button"
+                        onClick={() => collectPoints(mission._id)}
+                        disabled={disabledStates[mission._id]}>
+                          I've done it!
+                      </Button>
+                    </MissionCardBack>
+                  </PopupModal>
+                </>
+              )}
+            </Popup>
+          )
+        })}
+
+      </MissionCardContainer>
     </>
-    //   )}
-    // </>
+
   )
 }
 

@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScore';
@@ -10,15 +9,14 @@ import { ProgressBar } from './ProgressBar';
 
 const DailyScore = () => {
   const dispatch = useDispatch()
-  // const navigate = useNavigate()
-  // const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken)
   const dailyScore = useSelector((store) => store.user.dailyScore)
   const userId = useSelector((store) => store.user.userId)
   const todaysDate = new Date().toISOString().split('T')[0]
 
   useEffect(() => {
-    if (accessToken) {
+    if (accessToken && userId) {
       const options = {
         method: 'GET',
         headers: {
@@ -27,7 +25,7 @@ const DailyScore = () => {
           'Authorization': accessToken
         }
       };
-      // setLoading(true)
+      setLoading(true)
       fetch(API_URL(`users/${userId}/score/${todaysDate}`), options)
         .then((res) => res.json())
         .then((data) => {
@@ -41,14 +39,14 @@ const DailyScore = () => {
           }
         })
         .catch((error) => console.log(error))
-        // .finally(() => setLoading(false))
+        .finally(() => setLoading(false))
     }
   }, [todaysDate, userId, dailyScore]);
   console.log('Daily score', dailyScore)
 
-  // if (loading) {
-  //   return <Loader />
-  // }
+  if (loading) {
+    return <Loader />
+  }
   return (
     dailyScore ? (
       <DailyScoreWrapper>
