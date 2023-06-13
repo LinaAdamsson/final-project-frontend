@@ -13,4 +13,5 @@ export const StyledIcon = styled(FontAwesomeIcon)`
 margin-top: 20px;
 font-size: 30px;
 color: ${(props) => (props.isActive ? 'rgb(40, 127, 219);' : 'white')};
+}
 `
