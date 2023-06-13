@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { user } from 'reducers/user';
 import { missions } from 'reducers/missions';
 import { Button } from 'styles/FormStyle';
@@ -18,8 +19,6 @@ import { Footer } from './Footer';
 // import DailyScore from './DailyScore';
 
 const Main = () => {
-  const accessToken = useSelector((store) => store.user.accessToken);
-  const userId = useSelector((store) => store.user.userId);
   const navigate = useNavigate()
   const dispatch = useDispatch()
   // const [loading, setLoading] = useState(true)
@@ -36,33 +35,26 @@ const Main = () => {
   //   if (!accessToken) {
   //     navigate('/login')
   //   }
-  // }, [accessToken, navigate]);
+  // }, [accessToken]);
 
   useEffect(() => {
     // Try to load access token from local storage on component mount
     setActiveIndex(1);
     const storedAccessToken = localStorage.getItem('accessToken');
     const storedUserId = localStorage.getItem('userId');
-    if (storedAccessToken) {
+    if (storedAccessToken && storedUserId) {
       dispatch(user.actions.setAccessToken(storedAccessToken));
-    } else if (storedUserId) {
       dispatch(user.actions.setUserId(storedUserId));
+      console.log('Access token stored', storedAccessToken)
+      console.log('User id stored', storedUserId)
     } else {
       navigate('/login');
     }
   }, []);
 
-  // useEffect(() => {
-  //   localStorage.setItem('accessToken', accessToken);
-  //   localStorage.setItem('userId', userId);
-  // }, [accessToken, userId]);
-
   const handleSlideChange = (index) => {
     setActiveIndex(index);
   };
-  /* const onMyPageButtonClick = () => {
-    navigate('/myuserpage')
-  } */
 
   const onLogoutButtonClick = () => {
     dispatch(user.actions.setAccessToken(null));
@@ -105,7 +97,6 @@ const Main = () => {
           <TotalScore />
         </div>
       </Slider>
-      {/* <Button type="button" onClick={onMyPageButtonClick}>Go to my page</Button> */}
       <Button type="button" onClick={onLogoutButtonClick}>Logout</Button>
       <Footer />
     </MainContainer>

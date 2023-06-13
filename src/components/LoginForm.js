@@ -35,14 +35,14 @@ const LoginForm = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          console.log('Data from login', data)
+          console.log('Data from login', data.response)
           dispatch(user.actions.setEmail(data.response.email));
           dispatch(user.actions.setUserId(data.response.id));
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           dispatch(user.actions.setError(null));
           localStorage.setItem('userId', data.response.id);
           localStorage.setItem('accessToken', data.response.accessToken);
-          // console.log('User id:', data.response.id)
+          console.log('User id:', data.response.id)
         } else {
           dispatch(user.actions.setEmail(null));
           dispatch(user.actions.setUserId(null));
