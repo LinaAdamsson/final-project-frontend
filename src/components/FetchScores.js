@@ -50,7 +50,7 @@ const FetchScores = () => {
         })
         .catch((error) => console.log(error))
     }
-  }, [dailyScore]);
+  }, [dailyScore, accessToken]);
 
   return null
 }

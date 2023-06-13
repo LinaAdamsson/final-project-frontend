@@ -46,7 +46,8 @@ const FetchUserData = () => {
         })
         .catch((error) => console.log(error))
     }
-  }, []) // Fetches once when logging in, dailyScore and totalScore seems to get updated correctly
+  }, [accessToken])
+  // Fetches once when logging in, dailyScore and totalScore seems to get updated correctly
 
   return null
 }
