@@ -9,7 +9,7 @@ export const Planet = styled.img`
   width: 230px;
   mix-blend-mode: multiply;
   animation-name: loadspinner;
-  animation-duration: 100000ms;
+  animation-duration: 50000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 

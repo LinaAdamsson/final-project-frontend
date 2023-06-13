@@ -8,6 +8,7 @@ import NotFound from 'components/NotFound';
 import Main from 'components/Main';
 import RegisterForm from 'components/RegisterForm';
 import IntroPage from 'components/IntroPage'
+import { Background } from 'styles/OverallStyle';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -18,15 +19,17 @@ export const App = () => {
 
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<IntroPage />}> </Route>
-          <Route path="/register" element={<RegisterForm />}> </Route>
-          <Route path="/" element={<Main />}> </Route>
-          <Route path="/404" element={<NotFound />}> </Route>
-          <Route path="*" element={<NotFound />}> </Route>
-        </Routes>
-      </BrowserRouter>
+      <Background>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<IntroPage />}> </Route>
+            <Route path="/register" element={<RegisterForm />}> </Route>
+            <Route path="/" element={<Main />}> </Route>
+            <Route path="/404" element={<NotFound />}> </Route>
+            <Route path="*" element={<NotFound />}> </Route>
+          </Routes>
+        </BrowserRouter>
+      </Background>
     </Provider>
   )
 }
