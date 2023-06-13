@@ -19,6 +19,11 @@ export const MissionCardFront = styled.button`
     border-radius: 10px;
     margin: 10px;
     color: white;
+
+    :disabled{
+      background-color: rgba(10, 153, 254, 0.5);
+      color: rgba(255, 255, 255, 0.5)
+    }
 `
 
 export const MissionCardBack = styled.div`

@@ -43,7 +43,7 @@ const DailyScore = () => {
         .finally(() => setLoading(false))
     }
   }, [todaysDate, userId, dailyScore]);
-  console.log(`This is the ${userId}`)
+  console.log(`This is the userId ${userId}`)
 
   if (loading) {
     return <Loader />
