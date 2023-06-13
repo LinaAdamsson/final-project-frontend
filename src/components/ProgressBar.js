@@ -1,10 +1,9 @@
 import React from 'react';
-// import { AnimatedProgressProvider } from 'components/AnimatedProgressProvider';
-import ChangingProgressProvider from 'components/ChangingProgressProvider';
+// import AnimatedProgressProvider from './AnimatedProgressProvider';
+import ChangingProgressProvider from './ChangingProgressProvider';
 
 const ProgressBar = () => {
 
-<Example label="Daily score">
 <ChangingProgressProvider values={[0, 100]}>
   {percentage => (
     <CircularProgressbar
@@ -20,7 +19,6 @@ const ProgressBar = () => {
     />
   )}
 </ChangingProgressProvider>
-</Example>
 }
 
 export default ProgressBar;

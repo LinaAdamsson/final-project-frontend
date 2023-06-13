@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { DailyScorePointsCircle, DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScore';
+// import ProgressBar from 'components/ProgressBar';
 // import { Loader } from './Loader';
 
 const DailyScore = () => {
