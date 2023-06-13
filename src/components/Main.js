@@ -13,9 +13,12 @@ import { faUser, faChessBoard, faEarthEurope, faChartLine } from '@fortawesome/f
 /* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; */
 import MissionBoard from './MissionBoard';
 import DailyScore from './DailyScore';
-import TotalScore from './TotalScore';
+// import TotalScore from './TotalScore';
 import UserPage from './UserPage';
 import { Footer } from './Footer';
+import FetchTotalScore from './FetchTotalScore';
+import FetchDailyScore from './FetchDailyScore';
+import FetchUserData from './FetchUserData';
 // import DailyScore from './DailyScore';
 
 const Main = () => {
@@ -82,10 +85,13 @@ const Main = () => {
 
   return (
     <MainContainer>
+      <FetchTotalScore />
+      <FetchDailyScore />
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Slider {...sliderSettings}>
         <div>
           <UserPage />
+          <FetchUserData />
         </div>
         <div>
           <MissionBoard />
@@ -93,9 +99,9 @@ const Main = () => {
         <div>
           <DailyScore />
         </div>
-        <div>
+        {/* <div>
           <TotalScore />
-        </div>
+        </div> */}
       </Slider>
       <Button type="button" onClick={onLogoutButtonClick}>Logout</Button>
       <Footer />
