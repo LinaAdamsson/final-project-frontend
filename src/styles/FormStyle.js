@@ -5,8 +5,8 @@ display: flex;
 justify-content: center;
 margin-top: 120px;
 input {
-    width: 200px;
-    height: 20px;
+    width: 210px;
+    height: 30px;
     margin: 5px 0 5px 0;
     border-radius: 5px;
     border-style: none;
@@ -23,7 +23,7 @@ flex-direction: column;
 `
 
 export const Button = styled.button`
-width: 200px;
+width: 210px;
 height: 30px;
 border-radius: 5px;
 border-style: none;
