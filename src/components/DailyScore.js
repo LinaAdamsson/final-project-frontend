@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { DailyScorePointsCircle, DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScore';
@@ -9,7 +8,6 @@ import { Loader } from './Loader';
 
 const DailyScore = () => {
   const dispatch = useDispatch()
-  // const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken)
   const dailyScore = useSelector((store) => store.user.dailyScore)
@@ -17,7 +15,7 @@ const DailyScore = () => {
   const todaysDate = new Date().toISOString().split('T')[0]
 
   useEffect(() => {
-    if (accessToken) {
+    if (accessToken && userId) {
       const options = {
         method: 'GET',
         headers: {

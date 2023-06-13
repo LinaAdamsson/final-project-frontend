@@ -17,7 +17,6 @@ import { Button } from 'styles/FormStyle';
 const MissionBoard = () => {
   const dispatch = useDispatch();
   // const navigate = useNavigate()
-  // const [isDisabled, setIsDisabled] = useState(false);
   const [disabledStates, setDisabledStates] = useState({})
   // const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken);
@@ -108,10 +107,6 @@ const MissionBoard = () => {
       [missionId]: true
     }));
   }
-
-  // Create a function that takes the missionId as an argument
-
-  // When someone clicks a mission you will have access to that specific id
 
   return (
     // <>
