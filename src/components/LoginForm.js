@@ -40,6 +40,8 @@ const LoginForm = () => {
           dispatch(user.actions.setUserId(data.response.id));
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           dispatch(user.actions.setError(null));
+          localStorage.setItem('userId', data.response.id);
+          localStorage.setItem('accessToken', data.response.accessToken);
           // console.log('User id:', data.response.id)
         } else {
           dispatch(user.actions.setEmail(null));

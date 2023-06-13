@@ -52,10 +52,10 @@ const Main = () => {
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('accessToken', accessToken);
-    localStorage.setItem('userId', userId);
-  }, [accessToken, userId]);
+  // useEffect(() => {
+  //   localStorage.setItem('accessToken', accessToken);
+  //   localStorage.setItem('userId', userId);
+  // }, [accessToken, userId]);
 
   const handleSlideChange = (index) => {
     setActiveIndex(index);
@@ -65,12 +65,13 @@ const Main = () => {
   } */
 
   const onLogoutButtonClick = () => {
-    localStorage.removeItem('accessToken');
     dispatch(user.actions.setAccessToken(null));
     dispatch(user.actions.setEmail(null));
     dispatch(user.actions.setUserId(null));
     dispatch(user.actions.setError(null));
     dispatch(missions.actions.setMissionItems([]));
+    localStorage.removeItem('userId');
+    localStorage.removeItem('accessToken');
     navigate('/login')
   }
 
