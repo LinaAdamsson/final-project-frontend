@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import { DailyScorePointsCircle, DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScore';
-// import ProgressBar from 'components/ProgressBar';
+import { DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScore';
+import { ProgressBar } from './ProgressBar';
 // import { Loader } from './Loader';
 
 const DailyScore = () => {
@@ -44,6 +44,7 @@ const DailyScore = () => {
         // .finally(() => setLoading(false))
     }
   }, [todaysDate, userId, dailyScore]);
+  console.log('Daily score', dailyScore)
 
   // if (loading) {
   //   return <Loader />
@@ -51,19 +52,21 @@ const DailyScore = () => {
   return (
     dailyScore ? (
       <DailyScoreWrapper>
+        <ProgressBar />
         <DailyScorePrompt>
           Your daily score is:
         </DailyScorePrompt>
-        <DailyScorePointsCircle>
+        {/* <DailyScorePointsCircle>
           <p>{dailyScore}</p>
-        </DailyScorePointsCircle>
+        </DailyScorePointsCircle> */}
       </DailyScoreWrapper>
     ) : (
       <DailyScoreWrapper>
         <DailyScorePrompt>
-          <div>No daily score available</div>
-          <div>{dailyScore.message}</div>
+          No daily score available
         </DailyScorePrompt>
+        <img src="https://lh3.googleusercontent.com/U4ss0tLqB8G_bGeYhbAOewyGW25VrveeWXKsdHPzTGa_QD6rTlZcBHjQ1jH01MyvKsKn_c2YluGgLZaCsUgMWD1NaI8Zv1TV9U2mMHPvghWNljflFNu3xTqZ-4R0tawUvCpBGKTZ2A=w2400" alt="planet" />
+        {/* <div>{dailyScore.message}</div> */}
       </DailyScoreWrapper>
     )
   );
