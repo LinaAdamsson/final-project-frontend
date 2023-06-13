@@ -1,0 +1,32 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScore';
+import { ProgressBar } from './ProgressBar';
+
+const DailyScorePage = () => {
+  const dailyScore = useSelector((store) => store.user.dailyScore)
+
+  return (
+    dailyScore ? (
+      <DailyScoreWrapper>
+        <DailyScorePrompt>
+          Your daily score is:
+        </DailyScorePrompt>
+        <ProgressBar />
+        {/* <DailyScorePointsCircle>
+          <p>{dailyScore}</p>
+        </DailyScorePointsCircle> */}
+      </DailyScoreWrapper>
+    ) : (
+      <DailyScoreWrapper>
+        <DailyScorePrompt>
+          No daily score available
+        </DailyScorePrompt>
+        <img src="https://lh3.googleusercontent.com/U4ss0tLqB8G_bGeYhbAOewyGW25VrveeWXKsdHPzTGa_QD6rTlZcBHjQ1jH01MyvKsKn_c2YluGgLZaCsUgMWD1NaI8Zv1TV9U2mMHPvghWNljflFNu3xTqZ-4R0tawUvCpBGKTZ2A=w2400" alt="planet" />
+        {/* <div>{dailyScore.message}</div> */}
+      </DailyScoreWrapper>
+    )
+  );
+}
+
+export default DailyScorePage

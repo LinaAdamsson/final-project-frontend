@@ -4,11 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { FormWrapper, InputForm, InputLabel, Button } from 'styles/FormStyle';
-// import styled from 'styled-components';
-
-// const Register = styled.form`
-//   background-color: blue;
-// `
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -58,7 +53,6 @@ const RegisterForm = () => {
       })
   }
   return (
-    // <Register>
     <FormWrapper>
       <form onSubmit={onFormSubmit}>
         <InputForm>
@@ -105,7 +99,6 @@ const RegisterForm = () => {
         <p>{error}</p>
       </form>
     </FormWrapper>
-  // </Register>
   )
 }
 

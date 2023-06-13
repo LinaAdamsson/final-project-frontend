@@ -7,13 +7,12 @@ import { API_URL } from 'utils/urls';
 
 const FetchUserData = () => {
   const accessToken = useSelector((store) => store.user.accessToken)
-  const dailyScore = useSelector((store) => store.user.dailyScore)
-  const totalScore = useSelector((store) => store.user.totalScore)
+  // const dailyScore = useSelector((store) => store.user.dailyScore)
   const userId = useSelector((store) => store.user.userId)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (accessToken && userId) {
+    if (userId) {
       const options = {
         method: 'GET',
         headers: {
@@ -47,7 +46,7 @@ const FetchUserData = () => {
         })
         .catch((error) => console.log(error))
     }
-  }, [dailyScore, totalScore])
+  }, []) // Fetches once when logging in, dailyScore and totalScore seems to get updated correctly
 
   return null
 }

@@ -12,14 +12,13 @@ import Slider from 'react-slick';
 import { faUser, faChessBoard, faEarthEurope, faChartLine } from '@fortawesome/free-solid-svg-icons';
 /* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; */
 import MissionBoard from './MissionBoard';
-import DailyScore from './DailyScore';
-// import TotalScore from './TotalScore';
+import DailyScorePage from './DailyScorePage';
 import UserPage from './UserPage';
 import { Footer } from './Footer';
-import FetchTotalScore from './FetchTotalScore';
-import FetchDailyScore from './FetchDailyScore';
+// import FetchTotalScore from './FetchTotalScore';
+// import FetchDailyScore from './FetchDailyScore';
 import FetchUserData from './FetchUserData';
-// import DailyScore from './DailyScore';
+import FetchScores from './FetchScores';
 
 const Main = () => {
   const navigate = useNavigate()
@@ -27,6 +26,7 @@ const Main = () => {
   // const [loading, setLoading] = useState(true)
   const [activeIndex, setActiveIndex] = useState(1);
   const dotIcons = [
+    // react-dom.development.js:86 Warning: React does not recognize the `isActive` prop
     <StyledIcon icon={faUser} isActive={activeIndex === 0} />,
     <StyledIcon icon={faChessBoard} isActive={activeIndex === 1} />,
     <StyledIcon icon={faEarthEurope} isActive={activeIndex === 2} />,
@@ -38,7 +38,7 @@ const Main = () => {
   //   if (!accessToken) {
   //     navigate('/login')
   //   }
-  // }, [accessToken]);
+  // }, [accessToken]); Det här kan vi ta bort tror jag pga koden nedan?
 
   useEffect(() => {
     // Try to load access token from local storage on component mount
@@ -85,8 +85,7 @@ const Main = () => {
 
   return (
     <MainContainer>
-      <FetchTotalScore />
-      <FetchDailyScore />
+      <FetchScores />
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <Slider {...sliderSettings}>
         <div>
@@ -97,11 +96,8 @@ const Main = () => {
           <MissionBoard />
         </div>
         <div>
-          <DailyScore />
+          <DailyScorePage />
         </div>
-        {/* <div>
-          <TotalScore />
-        </div> */}
       </Slider>
       <Button type="button" onClick={onLogoutButtonClick}>Logout</Button>
       <Footer />

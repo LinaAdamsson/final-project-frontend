@@ -30,9 +30,9 @@ const IntroPage = () => {
     <div>
       {/* <Loader /> */}
       <IntroImage>
-      <Avatar src="/Images/Hero.png" alt="avatar" />
-      <Planet src="https://lh3.googleusercontent.com/U4ss0tLqB8G_bGeYhbAOewyGW25VrveeWXKsdHPzTGa_QD6rTlZcBHjQ1jH01MyvKsKn_c2YluGgLZaCsUgMWD1NaI8Zv1TV9U2mMHPvghWNljflFNu3xTqZ-4R0tawUvCpBGKTZ2A=w2400" alt="planet" />
-      {/* <Avatar src="https://lh3.googleusercontent.com/fd4G2VpauOVpTMbQrQPAuXDkSGSXhaFDMT3-gyAzFuJCP_sPOthfsiOUDPMWOgsbG2D764fIhCvfVPJpksHMqDLcE4BWKhPOhu8C8mTdT-PeR1y5hc3rLd4DXrgFVHXRQqpnIxrnRA=w2400" alt="avatar" /> */}
+        <Avatar src="/Images/Hero.png" alt="avatar" />
+        <Planet src="https://lh3.googleusercontent.com/U4ss0tLqB8G_bGeYhbAOewyGW25VrveeWXKsdHPzTGa_QD6rTlZcBHjQ1jH01MyvKsKn_c2YluGgLZaCsUgMWD1NaI8Zv1TV9U2mMHPvghWNljflFNu3xTqZ-4R0tawUvCpBGKTZ2A=w2400" alt="planet" />
+        {/* <Avatar src="https://lh3.googleusercontent.com/fd4G2VpauOVpTMbQrQPAuXDkSGSXhaFDMT3-gyAzFuJCP_sPOthfsiOUDPMWOgsbG2D764fIhCvfVPJpksHMqDLcE4BWKhPOhu8C8mTdT-PeR1y5hc3rLd4DXrgFVHXRQqpnIxrnRA=w2400" alt="avatar" /> */}
       </IntroImage>
       <IntroText>
         <h2>TODAYS MISSION:</h2>

@@ -3,7 +3,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 // import { user } from 'reducers/user';
 // import { API_URL } from 'utils/urls';
-import { DailyScorePointsCircle, DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScore';
+import { DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScore';
+import { ProgressBar } from './ProgressBar';
 // import { Loader } from './Loader';
 
 const DailyScore = () => {
