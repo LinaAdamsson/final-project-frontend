@@ -76,6 +76,10 @@ const Main = () => {
     slidesToScroll: 1
   };
 
+  // setLoading in the redux store, a slice for the loading
+  // dispatch in each fetch
+  // or apply loader in one view (missionboard?)
+
   return (
     <MainContainer>
       <FetchScores />
