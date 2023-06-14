@@ -10,6 +10,7 @@ export const Contact = () => {
       <MainContainer>
         <a href="/">Back to home</a>
         <p>Lina Adamsson</p>
+        {/* <img src="https://media.licdn.com/dms/image/D4D03AQFjKrqQjN529Q/profile-displayphoto-shrink_800_800/0/1682287521490?e=1692230400&v=beta&t=sO8-z4N0P48N5vzK0Ve5HJEpZ2arnOuZll2MyDONQ7E" alt="Lina Adamsson" /> */}
         <a href="https://github.com/LinaAdamsson">
           <FontAwesomeIcon icon={faGithub} />
         </a>
