@@ -7,6 +7,7 @@ export const FooterContainer = styled.div`
     align-items: center;
     bottom: 0;
     width: 100vw;
+    z-index: 0;
     /* height: 4rem; */
     /* margin-bottom: -70px; */
 
