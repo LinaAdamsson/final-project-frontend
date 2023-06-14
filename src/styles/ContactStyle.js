@@ -44,7 +44,7 @@ export const HeroImg = styled.img`
     margin: 0 20px;
 
     @media (min-width: 768px) {
-        width: 12vw;
+        width: 10vw;
     }
 `
 export const ContactTextWrapper = styled.div`

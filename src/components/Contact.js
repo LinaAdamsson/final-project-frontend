@@ -6,17 +6,13 @@ import Andrea from 'assets/Andrea.png';
 import Frida from 'assets/Frida.png';
 import Emilia from 'assets/Emilia.png';
 import { ContactContainer, ContactText, ContactWrapper, ContactTextWrapper, HeroImg, Icons, Links } from 'styles/ContactStyle';
-import { HeaderWrapper, HeaderText } from 'styles/HeaderStyle';
 import { Footer } from './Footer';
+import { HeaderContact } from './HeaderContact';
 
 export const Contact = () => {
   return (
     <>
-      <HeaderWrapper>
-        <HeaderText>
-          <h1>Contact</h1>
-        </HeaderText>
-      </HeaderWrapper>
+      <HeaderContact />
       <ContactContainer>
         <ContactWrapper>
           <HeroImg src={Lina} alt="Lina hero" />
