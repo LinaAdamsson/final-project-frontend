@@ -10,7 +10,7 @@ const DailyScorePage = () => {
     dailyScore ? (
       <DailyScoreWrapper>
         <DailyScorePrompt>
-          Your daily score is:
+          Your daily score
         </DailyScorePrompt>
         <ProgressBar />
         {/* <DailyScorePointsCircle>

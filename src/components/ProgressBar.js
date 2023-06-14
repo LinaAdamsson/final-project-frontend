@@ -19,21 +19,32 @@ export const ProgressBar = () => {
   return (
     <CircularProgressbarWithChildren
       value={dailyScore}
-      text={`${dailyScore} P`}
-      strokeWidth={5}
+      // text={`${dailyScore} P`}
+      strokeWidth={2}
       styles={buildStyles({
       // This is in units relative to the 100x100px
       // SVG viewbox.
         // textSize: '30px',
-        // textColor: 'white',
+        // textColor: 'green',
         pathColor: 'orange',
         trailColor: 'transparent'
       })}>
       <img
-        style={{ width: 200, marginTop: 15 }}
+        style={{
+          // width: '70vh',
+          // marginTop: 50
+          width: '500px',
+          // marginLeft: '-40px',
+          marginTop: '-45px'
+        }}
         src="/Images/globe.png"
         alt="planet" />
-      <div style={{ fontSize: 40, marginTop: -20, color: 'white', fontFamily: 'Bagel Fat One' }}>
+      <div style={{
+        fontSize: 30,
+        marginBottom: -100,
+        color: 'white',
+        fontFamily: 'Bagel Fat One'
+      }}>
         {dailyScore}<strong> </strong>P
       </div>
     </CircularProgressbarWithChildren>

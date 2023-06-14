@@ -7,7 +7,8 @@ const UserPage = () => {
   const myUser = useSelector((store) => store.user)
 
   return (
-    <UserPageWrapper>
+    <>
+      <UserPageWrapper>
       <Avatar src="/Images/Avatar_moln.png" alt="avatar" />
       <h2>Super-{myUser.firstName}</h2>
       <h4>Title: Environment Hero</h4>
@@ -23,6 +24,7 @@ const UserPage = () => {
         </TotalScoreCard>
       </ScoreCardWrapper>
     </UserPageWrapper>
+    </>
   );
 }
 
