@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { Button } from './FormStyle';
 
 export const MainContainer = styled.div`
@@ -11,16 +10,6 @@ export const MainContainer = styled.div`
     display: block;
     justify-content: center;
     margin-top: 1vh;
-`
-export const StyledIcon = styled(FontAwesomeIcon)`
-    margin-top: 20px;
-    font-size: 30px;
-    color: ${(props) => (props.isActive ? 'rgb(40, 127, 219);' : 'rgb(108, 153, 200);')};
-    display: block;
-    position: absolute;
-    bottom: -10px;
-    right: 20px;
-    z-index: 1;
 `
 
 export const LogoutButton = styled.button`
