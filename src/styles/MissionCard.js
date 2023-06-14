@@ -28,7 +28,7 @@ export const MissionCardFront = styled.button`
       color: rgba(255, 255, 255, 0.5)
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 668px) {
       width: 200px;
       height: 200px;
       font-size: 20px;
