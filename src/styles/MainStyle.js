@@ -2,14 +2,16 @@ import styled from 'styled-components/macro';
 // import { Button } from './FormStyle';
 
 export const MainContainer = styled.div`
-    height: 100vh;
+    /* height: 100vh; */ 
     /* width: 100vw; */
     width: 100vw;
-    overflow: hidden; 
+    /* overflow: hidden; */
     position: relative;
     display: block;
     justify-content: center;
-    margin-top: 1vh;
+    z-index: 1;
+    margin-bottom: 20px;
+    /* margin-top: 1vh; */
 `
 
 export const SignOutButton = styled.button`
