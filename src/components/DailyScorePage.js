@@ -10,7 +10,7 @@ const DailyScorePage = () => {
     dailyScore ? (
       <DailyScoreWrapper>
         <DailyScorePrompt>
-          Your daily score
+          Hero points earned today:
         </DailyScorePrompt>
         <ProgressBar />
         {/* <DailyScorePointsCircle>
@@ -20,9 +20,9 @@ const DailyScorePage = () => {
     ) : (
       <DailyScoreWrapper>
         <DailyScorePrompt>
-          No daily score available
+          No hero points available
         </DailyScorePrompt>
-        <img src="https://lh3.googleusercontent.com/U4ss0tLqB8G_bGeYhbAOewyGW25VrveeWXKsdHPzTGa_QD6rTlZcBHjQ1jH01MyvKsKn_c2YluGgLZaCsUgMWD1NaI8Zv1TV9U2mMHPvghWNljflFNu3xTqZ-4R0tawUvCpBGKTZ2A=w2400" alt="planet" />
+        {/* <img src="https://lh3.googleusercontent.com/U4ss0tLqB8G_bGeYhbAOewyGW25VrveeWXKsdHPzTGa_QD6rTlZcBHjQ1jH01MyvKsKn_c2YluGgLZaCsUgMWD1NaI8Zv1TV9U2mMHPvghWNljflFNu3xTqZ-4R0tawUvCpBGKTZ2A=w2400" alt="planet" /> */}
         {/* <div>{dailyScore.message}</div> */}
       </DailyScoreWrapper>
     )

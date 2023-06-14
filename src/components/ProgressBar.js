@@ -45,7 +45,7 @@ export const ProgressBar = () => {
         color: 'white',
         fontFamily: 'Bagel Fat One'
       }}>
-        {dailyScore}<strong> </strong>P
+        {dailyScore}P
       </div>
     </CircularProgressbarWithChildren>
   )
