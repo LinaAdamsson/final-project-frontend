@@ -3,13 +3,14 @@ import styled from 'styled-components/macro';
 export const FormWrapper = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: 120px;
+    margin-top: 50px;
 input {
     width: 210px;
     height: 30px;
     margin: 5px 0 5px 0;
     border-radius: 5px;
     border-style: none;
+    font-family: 'Gill Sans', serif;
 }
 `
 export const InputForm = styled.div`
@@ -27,9 +28,14 @@ export const Button = styled.button`
     height: 30px;
     border-radius: 5px;
     border-style: none;
-    background-color: rgb(40, 127, 219);
-    color: white;
-    margin-top: 10px;
+    // background-color: rgb(40, 127, 219);
+    // background-color: purple;
+    background-color: white;
+    // color: white;
+    color: lightblue;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    text-shadow: 1px 1px 1px lightgrey;
 
 :disabled {
     background-color: rgba(40, 127, 219, 0.5)

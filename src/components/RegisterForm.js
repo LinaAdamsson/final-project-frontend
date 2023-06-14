@@ -56,7 +56,13 @@ const RegisterForm = () => {
     <FormWrapper>
       <form onSubmit={onFormSubmit}>
         <InputForm>
-          <InputLabel htmlFor="firstName">
+          <InputLabel
+            htmlFor="firstName"
+            style={{
+              fontFamily: 'Gill Sans',
+              // color: 'purple'
+              color: 'white'
+            }}>
             First name
             <input
               type="text"
@@ -66,7 +72,13 @@ const RegisterForm = () => {
           </InputLabel>
         </InputForm>
         <InputForm>
-          <InputLabel htmlFor="lastName">
+          <InputLabel
+            htmlFor="lastName"
+            style={{
+              fontFamily: 'Gill Sans',
+              // color: 'purple'
+              color: 'white'
+            }}>
             Last name
             <input
               type="text"
@@ -76,7 +88,13 @@ const RegisterForm = () => {
           </InputLabel>
         </InputForm>
         <InputForm>
-          <InputLabel htmlFor="email">
+          <InputLabel
+            htmlFor="email"
+            style={{
+              fontFamily: 'Gill Sans',
+              // color: 'purple'
+              color: 'white'
+            }}>
             Email
             <input
               type="email"
@@ -86,7 +104,13 @@ const RegisterForm = () => {
           </InputLabel>
         </InputForm>
         <InputForm>
-          <InputLabel htmlFor="password">
+          <InputLabel
+            htmlFor="password"
+            style={{
+              fontFamily: 'Gill Sans',
+              // color: 'purple'
+              color: 'white'
+            }}>
             Password
             <input
               type="password"

@@ -16,7 +16,7 @@ export const UserAvatar = styled.img`
 export const UserTitle = styled.h2`
     font-size: 38px;
     font-family: "Bagel Fat One", cursive;
-    color: yellow;
+    color: orange;
     margin: 0px 0px 10px 0px;
 `
 

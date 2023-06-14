@@ -55,7 +55,13 @@ const LoginForm = () => {
       {/* <Avatar src="https://lh3.googleusercontent.com/_0iKG-ssXTtP7Xei8wHoAQndbKvbr9lxtWw97-6AmN6lOFJ-vUj7U3B90JTCGXWOVOxx7XUYfX2RlyHKBh-DwcFgKMFS0rk6tECTrKAmTuypssGcGwd2_XbBcNK-2C4QxLJQ8z85Xg=w2400" alt="avatar" /> */}
       <form onSubmit={onFormSubmit}>
         <InputForm>
-          <InputLabel htmlFor="lastName">
+          <InputLabel
+            htmlFor="lastName"
+            style={{
+              fontFamily: 'Gill Sans',
+              // color: 'purple'
+              color: 'white'
+            }}>
             Email
             <input
               type="email"
@@ -65,7 +71,13 @@ const LoginForm = () => {
           </InputLabel>
         </InputForm>
         <InputForm>
-          <InputLabel htmlFor="password">
+          <InputLabel
+            htmlFor="lastName"
+            style={{
+              fontFamily: 'Gill Sans',
+              // color: 'purple'
+              color: 'white'
+            }}>
             Password
             <input
               type="password"
