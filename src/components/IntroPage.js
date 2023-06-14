@@ -31,7 +31,7 @@ const IntroPage = () => {
       {/* <Loader /> */}
       <IntroImage>
         <Avatar src="/Images/Hero.png" alt="avatar" />
-        <Planet src="https://lh3.googleusercontent.com/U4ss0tLqB8G_bGeYhbAOewyGW25VrveeWXKsdHPzTGa_QD6rTlZcBHjQ1jH01MyvKsKn_c2YluGgLZaCsUgMWD1NaI8Zv1TV9U2mMHPvghWNljflFNu3xTqZ-4R0tawUvCpBGKTZ2A=w2400" alt="planet" />
+        <Planet src="/Images/globe.png" alt="planet" />
       </IntroImage>
       <IntroText>
         <h2>TODAY&apos;S MISSION:</h2>

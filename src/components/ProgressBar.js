@@ -31,9 +31,9 @@ export const ProgressBar = () => {
       })}>
       <img
         style={{ width: 200, marginTop: 15 }}
-        src="https://lh3.googleusercontent.com/U4ss0tLqB8G_bGeYhbAOewyGW25VrveeWXKsdHPzTGa_QD6rTlZcBHjQ1jH01MyvKsKn_c2YluGgLZaCsUgMWD1NaI8Zv1TV9U2mMHPvghWNljflFNu3xTqZ-4R0tawUvCpBGKTZ2A=w2400"
+        src="/Images/globe.png"
         alt="planet" />
-      <div style={{ fontSize: 40, marginTop: -20, color: 'white' }}>
+      <div style={{ fontSize: 40, marginTop: -20, color: 'white', fontFamily: 'Bagel Fat One' }}>
         {dailyScore}<strong> </strong>P
       </div>
     </CircularProgressbarWithChildren>
