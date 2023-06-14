@@ -8,6 +8,7 @@ export const MissionCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin: 20px;
+  overflow: scroll;
 `
 
 export const MissionCardFront = styled.button`
@@ -18,10 +19,16 @@ export const MissionCardFront = styled.button`
     border-radius: 10px;
     margin: 10px;
     color: white;
+    font-size: 14px;
 
     :disabled{
       background-color: rgba(10, 153, 254, 0.5);
       color: rgba(255, 255, 255, 0.5)
+    }
+
+    @media (min-width: 768px) {
+      width: 200px;
+      height: 200px;
     }
 `
 

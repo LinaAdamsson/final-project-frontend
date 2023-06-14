@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { user } from 'reducers/user';
 import { missions } from 'reducers/missions';
-import { LogoutButton, MainContainer, StyledIcon } from 'styles/MainStyle';
+import { LogoutButton, MainContainer, StyledIcon, FooterCloud, FooterImage } from 'styles/MainStyle';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
@@ -18,6 +18,7 @@ import { Footer } from './Footer';
 // import FetchDailyScore from './FetchDailyScore';
 import FetchUserData from './FetchUserData';
 import FetchScores from './FetchScores';
+import CloudsFooter from 'assets/footer.png'
 
 const Main = () => {
   const navigate = useNavigate()
@@ -94,6 +95,9 @@ const Main = () => {
         </Slider>
       </MainContainer>
       <LogoutButton type="button" onClick={onLogoutButtonClick}>Logout</LogoutButton>
+      <FooterCloud>
+        <FooterImage src={CloudsFooter} alt="clouds" />
+      </FooterCloud>
       <Footer />
     </>
   )
