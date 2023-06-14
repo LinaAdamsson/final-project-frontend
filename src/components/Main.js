@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { user } from 'reducers/user';
-import { missions } from 'reducers/missions';
-import { MainContainer, SignOutButton } from 'styles/MainStyle';
+import { MainContainer } from 'styles/MainStyle';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
@@ -44,17 +43,6 @@ const Main = () => {
     setCurrentSlideIndex(index);
   };
 
-  const onSignOutButtonClick = () => {
-    dispatch(user.actions.setAccessToken(null));
-    dispatch(user.actions.setEmail(null));
-    dispatch(user.actions.setUserId(null));
-    dispatch(user.actions.setError(null));
-    dispatch(missions.actions.setMissionItems([]));
-    localStorage.removeItem('userId');
-    localStorage.removeItem('accessToken');
-    navigate('/login')
-  }
-
   const sliderSettings = {
     dots: true,
     initialSlide: 1,
@@ -86,7 +74,6 @@ const Main = () => {
             <DailyScorePage />
           </div>
         </Slider>
-        <SignOutButton type="button" onClick={onSignOutButtonClick}>Sign out</SignOutButton>
       </MainContainer>
       <Footer />
     </>
