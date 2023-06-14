@@ -71,25 +71,27 @@ const Main = () => {
   // or apply loader in one view (missionboard?)
 
   return (
-    <MainContainer>
-      <Header currentSlideIndex={currentSlideIndex} />
-      <FetchScores />
-      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-      <Slider {...sliderSettings} afterChange={handleSlideChange}>
-        <div>
-          <UserPage />
-          <FetchUserData />
-        </div>
-        <div>
-          <MissionBoard />
-        </div>
-        <div>
-          <DailyScorePage />
-        </div>
-      </Slider>
-      <LogoutButton type="button" onClick={onLogoutButtonClick}>Logout</LogoutButton>
+    <>
+      <MainContainer>
+        <Header currentSlideIndex={currentSlideIndex} />
+        <FetchScores />
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        <Slider {...sliderSettings} afterChange={handleSlideChange}>
+          <div>
+            <UserPage />
+            <FetchUserData />
+          </div>
+          <div>
+            <MissionBoard />
+          </div>
+          <div>
+            <DailyScorePage />
+          </div>
+        </Slider>
+        <LogoutButton type="button" onClick={onLogoutButtonClick}>Logout</LogoutButton>
+      </MainContainer>
       <Footer />
-    </MainContainer>
+    </>
   )
 }
 

@@ -1,11 +1,11 @@
 import styled from 'styled-components/macro';
 
 export const FooterContainer = styled.div`
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  bottom: -1rem;
+  bottom: 0;
   width: 100vw;
   /* height: 4rem; */
   /* margin-bottom: -70px; */
@@ -13,7 +13,7 @@ export const FooterContainer = styled.div`
     bottom: -5vh;
   }
   @media (min-width: 1024px){
-    bottom: -22vh;
+    bottom: -25vh;
   }
   `
 
