@@ -7,15 +7,15 @@ export const MissionCardContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 20px;
-  overflow: scroll;
+  margin: 10px;
+  /* overflow: scroll; */
 `
 
 export const MissionCardFront = styled.button`
     /* background-color: #0A99FF; */
     background-color: #0878D4;
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     border: none;
     border-radius: 10%;
     margin: 10px;
