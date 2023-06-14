@@ -12,14 +12,15 @@ export const MissionCardContainer = styled.div`
 `
 
 export const MissionCardFront = styled.button`
-    background-color: #0A99FF;
-    width: 100px;
-    height: 100px;
+    /* background-color: #0A99FF; */
+    background-color: #0878D4;
+    width: 120px;
+    height: 120px;
     border: none;
     border-radius: 10%;
     margin: 10px;
     color: white;
-    font-family:'Bagel Fat One', cursive;
+    font-family: 'Roboto Slab', serif;    
     text-transform: uppercase;
     font-size: 14px;
 

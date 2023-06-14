@@ -21,8 +21,8 @@ export const UserTitle = styled.h2`
 `
 
 export const UserText = styled.p`
-    font-size: 24px;
-    font-family: 'Oswald', sans-serif;    
+    font-size: 22px;
+    font-family: 'Roboto Slab', serif;    
     font-weight: 500;
     color: #086695;
     margin: 5px;
@@ -30,6 +30,7 @@ export const UserText = styled.p`
 
 export const ScoreCardWrapper = styled.div`
     display: flex; 
+    margin-top: 10px;
 `
 
 export const ScoreCard = styled.div`
@@ -39,11 +40,12 @@ export const ScoreCard = styled.div`
     align-items: center;
     background-color: #FFFFFF;
     opacity: 90%;
-    width: 110px;
+    width: 120px;
     height: 120px;
     border: none;
     border-radius: 10%;
-    font-family: 'Oswald', sans-serif;
+    /* font-family: 'Oswald', sans-serif; */
+    font-family: 'Roboto Slab', serif;
     margin: 10px;
     padding: 10px;
     /* text-transform: uppercase; */

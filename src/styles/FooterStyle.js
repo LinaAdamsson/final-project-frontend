@@ -1,20 +1,21 @@
 import styled from 'styled-components/macro';
 
 export const FooterContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  bottom: 0;
-  width: 100vw;
-  /* height: 4rem; */
-  /* margin-bottom: -70px; */
-  @media (min-width: 668px){
-    bottom: -5vh;
-  }
-  @media (min-width: 1024px){
-    bottom: -25vh;
-  }
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 0;
+    width: 100vw;
+    /* height: 4rem; */
+    /* margin-bottom: -70px; */
+
+    @media (min-width: 668px){
+      bottom: -5vh;
+    }
+    @media (min-width: 1024px){
+      bottom: -25vh;
+    }
   `
 
 export const FooterText = styled.p`
@@ -24,6 +25,7 @@ export const FooterText = styled.p`
     width: 90vw;
     position: absolute;
     bottom: 2vh;
+    
     @media (min-width: 668px){
       bottom: 7vh;
       font-size: 16px;

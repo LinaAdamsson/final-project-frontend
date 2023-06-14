@@ -6,16 +6,16 @@ export const Header = ({ currentSlideIndex }) => {
 
   switch (currentSlideIndex) {
     case 0:
-      headerText = 'Hero info';
+      headerText = 'Hero Profile';
       break;
     case 1:
-      headerText = 'Missionboard';
+      headerText = 'Mission Board';
       break;
     case 2:
-      headerText = 'Daily score';
+      headerText = 'Daily Score';
       break;
     default:
-      headerText = 'Missionboard'
+      headerText = 'Mission Board'
   }
 
   return (

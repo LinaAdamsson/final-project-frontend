@@ -125,7 +125,7 @@ const MissionBoard = () => {
                   disabled={disabledStates[mission._id]}>
                   {mission.title}
                   <br />
-                  {mission.points}p
+                  {mission.points} p
                 </MissionCardFront>
               }
               modal

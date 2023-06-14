@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { user } from 'reducers/user';
 import { missions } from 'reducers/missions';
-import { MainContainer, LogoutButton } from 'styles/MainStyle';
+import { MainContainer, SignOutButton } from 'styles/MainStyle';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
@@ -14,8 +14,6 @@ import { Header } from './Header';
 import MissionBoard from './MissionBoard';
 import DailyScorePage from './DailyScorePage';
 import UserPage from './UserPage';
-// import FetchTotalScore from './FetchTotalScore';
-// import FetchDailyScore from './FetchDailyScore';
 import FetchUserData from './FetchUserData';
 import FetchScores from './FetchScores';
 
@@ -46,7 +44,7 @@ const Main = () => {
     setCurrentSlideIndex(index);
   };
 
-  const onLogoutButtonClick = () => {
+  const onSignOutButtonClick = () => {
     dispatch(user.actions.setAccessToken(null));
     dispatch(user.actions.setEmail(null));
     dispatch(user.actions.setUserId(null));
@@ -88,7 +86,7 @@ const Main = () => {
             <DailyScorePage />
           </div>
         </Slider>
-        <LogoutButton type="button" onClick={onLogoutButtonClick}>Logout</LogoutButton>
+        <SignOutButton type="button" onClick={onSignOutButtonClick}>Sign out</SignOutButton>
       </MainContainer>
       <Footer />
     </>
