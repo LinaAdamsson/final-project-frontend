@@ -9,6 +9,7 @@ export const HeaderWrapper = styled.div`
 `
 export const HeaderText = styled.h1`
     font-size: 15px;
-    font-family: 'Pacifico', cursive;
-    color: #0878D4;
+    font-family: 'Bagel Fat One', cursive;
+    color: white;
+    letter-spacing: 2px;
 `

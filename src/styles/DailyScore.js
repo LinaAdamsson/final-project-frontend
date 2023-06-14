@@ -10,8 +10,8 @@ export const DailyScoreWrapper = styled.section`
 `
 
 export const DailyScorePrompt = styled.h3`
-     font-size: 35px;
-     font-family:'Bagel Fat One', cursive;
+     font-size: 25px;
+     font-family: 'Roboto Slab', serif; 
      color: white;
 `
 
