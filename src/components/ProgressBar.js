@@ -18,7 +18,7 @@ export const ProgressBar = () => {
 
   return (
     <CircularProgressbarWithChildren
-      value={progressPercentage}
+      value={dailyScore}
       // text={`${dailyScore} P`}
       strokeWidth={2}
       styles={buildStyles({
