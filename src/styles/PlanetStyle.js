@@ -1,12 +1,9 @@
 import styled from 'styled-components/macro';
 
 export const Planet = styled.img`
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 10px;
-  margin-bottom: -50px;
-  width: 100vh;
+  margin-bottom: -130px;
+  width: 500px;
   // mix-blend-mode: multiply;
   animation-name: loadspinner;
   animation-duration: 50000ms;

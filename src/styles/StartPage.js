@@ -11,7 +11,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-margin: 50px 0 -70px 0;
+margin: 0 0 -70px 0;
 h2{
 font-size: 20px;
 margin-bottom: -20px;
