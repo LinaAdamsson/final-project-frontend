@@ -1,15 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { user } from 'reducers/user';
 import { missions } from 'reducers/missions';
-import { LogoutButton, MainContainer, StyledIcon } from 'styles/MainStyle';
+import { LogoutButton, MainContainer } from 'styles/MainStyle';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
-import { faUser, faChessBoard, faEarthEurope, faChartLine } from '@fortawesome/free-solid-svg-icons';
-/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; */
 // import CloudsFooter from 'assets/footer.png'
 import { Footer } from './Footer';
 import MissionBoard from './MissionBoard';
@@ -24,18 +22,12 @@ const Main = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   // const [loading, setLoading] = useState(true)
-  const [activeIndex, setActiveIndex] = useState(1);
-  const dotIcons = [
-    // react-dom.development.js:86 Warning: React does not recognize the `isActive` prop
-    <StyledIcon icon={faUser} isActive={activeIndex === 0} />,
-    <StyledIcon icon={faChessBoard} isActive={activeIndex === 1} />,
-    <StyledIcon icon={faEarthEurope} isActive={activeIndex === 2} />,
-    <StyledIcon icon={faChartLine} isActive={activeIndex === 3} />
-  ];
+  /* const [activeIndex, setActiveIndex] = useState(1); */
+  // react-dom.development.js:86 Warning: React does not recognize the `isActive` prop
 
   useEffect(() => {
     // Try to load access token from local storage on component mount
-    setActiveIndex(1);
+    /* setActiveIndex(1); */
     const storedAccessToken = localStorage.getItem('accessToken');
     const storedUserId = localStorage.getItem('userId');
     if (storedAccessToken && storedUserId) {
@@ -48,9 +40,9 @@ const Main = () => {
     }
   }, []);
 
-  const handleSlideChange = (index) => {
+  /* const handleSlideChange = (index) => {
     setActiveIndex(index);
-  };
+  }; */
 
   const onLogoutButtonClick = () => {
     dispatch(user.actions.setAccessToken(null));
@@ -65,11 +57,7 @@ const Main = () => {
 
   const sliderSettings = {
     dots: true,
-    /* dotsClass: 'custom-dots',
-    customPaging: (index) => dotIcons[index], */
-    customPaging: (index) => dotIcons[index],
     initialSlide: 1,
-    afterChange: handleSlideChange,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
