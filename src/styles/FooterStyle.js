@@ -2,14 +2,29 @@ import styled from 'styled-components/macro';
 
 export const FooterContainer = styled.div`
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   bottom: 0;
-  width: 100vW;
-  height: 4rem;
-  margin-bottom: -70px;
+  width: 100vw;
+  /* height: 4rem; */
+  /* margin-bottom: -70px; */
   `
 
 export const FooterText = styled.p`
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    padding: 30px;
+    width: 50vw;
+`
+
+export const FooterCloud = styled.div`
+  /* display: block; */
+`
+export const FooterImage = styled.img`
+  width: 100vw;
+  /* @media (min-width: 768px){
+    position: absolute;
+    bottom: -10%;
+    margin-bottom: -10vh;
+  } */
 `

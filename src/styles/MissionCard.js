@@ -16,9 +16,11 @@ export const MissionCardFront = styled.button`
     width: 100px;
     height: 100px;
     border: none;
-    border-radius: 10px;
+    border-radius: 10%;
     margin: 10px;
     color: white;
+    font-family:'Bagel Fat One', cursive;
+    text-transform: uppercase;
     font-size: 14px;
 
     :disabled{
@@ -29,6 +31,7 @@ export const MissionCardFront = styled.button`
     @media (min-width: 768px) {
       width: 200px;
       height: 200px;
+      font-size: 20px;
     }
 `
 
