@@ -15,11 +15,14 @@ export const MainContainer = styled.div`
 export const StyledIcon = styled(FontAwesomeIcon)`
     margin-top: 20px;
     font-size: 30px;
-    color: ${(props) => (props.isActive ? 'rgb(40, 127, 219);' : 'white')};
+    color: ${(props) => (props.isActive ? 'rgb(40, 127, 219);' : 'rgb(108, 153, 200);')};
     display: block;
     position: absolute;
     bottom: -10px;
     right: 20px;
+`
+export const CloudFooter = styled.div`
+position: absolute;
 `
 
 export const LogoutButton = styled.button`
@@ -31,6 +34,13 @@ export const LogoutButton = styled.button`
     background-color: yellow;
     top: 10px;
     right: 20px;
+`
+export const FooterCloud = styled.div`
+display: block;
+`
+export const FooterImage = styled.img`
+width: 100%;
+height: 100px;
 `
 
 /* export const LogoutButton = styled(Button)`

@@ -6,6 +6,7 @@ export const DailyScoreWrapper = styled.section`
     align-items: center;
     justify-content: center;
     height: 400px;
+    margin-top: 50px;
 `
 
 export const DailyScorePrompt = styled.h3`
