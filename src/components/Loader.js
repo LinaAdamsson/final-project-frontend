@@ -17,8 +17,9 @@ export const Loader = () => {
       <Player
         autoplay
         loop
+        src="https://assets8.lottiefiles.com/temp/lf20_R4avlk.json"
         // src="https://assets9.lottiefiles.com/private_files/lf30_rgtaqeww.json"
-        src="https://assets8.lottiefiles.com/private_files/lf30_rwpu0mow.json"
+        // src="https://assets8.lottiefiles.com/private_files/lf30_rwpu0mow.json"
         style={{ height: '200px', width: '200px' }} />
       <p className="loader-message">Hold on, page is loading</p>
     </div>
