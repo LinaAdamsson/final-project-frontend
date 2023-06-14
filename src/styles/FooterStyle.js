@@ -5,7 +5,7 @@ export const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  bottom: 0;
+  bottom: -2rem;
   width: 100vw;
   /* height: 4rem; */
   /* margin-bottom: -70px; */
@@ -15,6 +15,8 @@ export const FooterText = styled.p`
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     width: 50vw;
+    position: absolute;
+    bottom: 5vh;
 `
 
 export const FooterCloud = styled.div`
