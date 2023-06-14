@@ -5,12 +5,12 @@ export const DailyScoreWrapper = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 400px;
+    height: 300px;
     margin-top: 50px;
 `
 
 export const DailyScorePrompt = styled.h3`
-     font-size: 40px;
+     font-size: 35px;
      font-family:'Bagel Fat One', cursive;
      color: white;
 `
