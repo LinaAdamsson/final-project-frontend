@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { FormWrapper, InputForm, InputLabel, Button } from 'styles/FormStyle';
-import { UserAvatar } from 'styles/UserPage';
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -54,13 +53,7 @@ const RegisterForm = () => {
       })
   }
   return (
-    <FormWrapper
-      style={{
-        flexWrap: 'wrap',
-        flexDirection: 'column',
-        alignItems: 'center'
-      }}>
-      <UserAvatar src="/Images/Avatar_moln.png" alt="avatar" />
+    <FormWrapper>
       <form onSubmit={onFormSubmit}>
         <InputForm>
           <InputLabel htmlFor="firstName">

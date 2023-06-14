@@ -34,16 +34,18 @@ const IntroPage = () => {
         <Planet src="/Images/globe.png" alt="planet" />
       </IntroImage>
       <IntroText>
-        <h2>TODAY&apos;S MISSION:</h2>
-        <h2>Time to help the planet!</h2>
+        <h2>MISSION POSSIBLE</h2>
+        <p>JOIN HEROES ALL OVER THE GLOBE AND HELP SAVE OUR PLANET – ONE MISSION AT A TIME</p>
+        <br />
+        <p>ARE YOU READY TO ACCEPT THE CHALLENGE? </p>
       </IntroText>
       {showLoginForm ? (
         <>
           <LoginForm onSuccess={handleLogin} />
           <LoginRegisterWrapper>
-            <p>
+            {/* <p>
                 Ready to accept the challenge?{' '}
-            </p>
+            </p> */}
             <Button type="button" onClick={handleToggleForm}>Register</Button>
           </LoginRegisterWrapper>
         </>
