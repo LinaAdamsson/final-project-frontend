@@ -1,15 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { user } from 'reducers/user';
 import { missions } from 'reducers/missions';
-import { LogoutButton, MainContainer } from 'styles/MainStyle';
+import { MainContainer, LogoutButton } from 'styles/MainStyle';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 // import CloudsFooter from 'assets/footer.png'
 import { Footer } from './Footer';
+import { Header } from './Header';
 import MissionBoard from './MissionBoard';
 import DailyScorePage from './DailyScorePage';
 import UserPage from './UserPage';
@@ -21,6 +22,7 @@ import FetchScores from './FetchScores';
 const Main = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(1);
   // const [loading, setLoading] = useState(true)
   /* const [activeIndex, setActiveIndex] = useState(1); */
   // react-dom.development.js:86 Warning: React does not recognize the `isActive` prop
@@ -40,9 +42,9 @@ const Main = () => {
     }
   }, []);
 
-  /* const handleSlideChange = (index) => {
-    setActiveIndex(index);
-  }; */
+  const handleSlideChange = (index) => {
+    setCurrentSlideIndex(index);
+  };
 
   const onLogoutButtonClick = () => {
     dispatch(user.actions.setAccessToken(null));
@@ -66,9 +68,10 @@ const Main = () => {
 
   return (
     <MainContainer>
+      <Header currentSlideIndex={currentSlideIndex} />
       <FetchScores />
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-      <Slider {...sliderSettings}>
+      <Slider {...sliderSettings} afterChange={handleSlideChange}>
         <div>
           <UserPage />
           <FetchUserData />
