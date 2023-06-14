@@ -10,6 +10,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import { faUser, faChessBoard, faEarthEurope, faChartLine } from '@fortawesome/free-solid-svg-icons';
 /* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; */
+import CloudsFooter from 'assets/footer.png'
 import MissionBoard from './MissionBoard';
 import DailyScorePage from './DailyScorePage';
 import UserPage from './UserPage';
@@ -18,7 +19,6 @@ import { Footer } from './Footer';
 // import FetchDailyScore from './FetchDailyScore';
 import FetchUserData from './FetchUserData';
 import FetchScores from './FetchScores';
-import CloudsFooter from 'assets/footer.png'
 
 const Main = () => {
   const navigate = useNavigate()
