@@ -5,18 +5,32 @@ export const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  bottom: -2rem;
+  bottom: -1rem;
   width: 100vw;
   /* height: 4rem; */
   /* margin-bottom: -70px; */
+  @media (min-width: 668px){
+    bottom: -5vh;
+  }
+  @media (min-width: 1024px){
+    bottom: -22vh;
+  }
   `
 
 export const FooterText = styled.p`
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    width: 50vw;
+    font-size: 12px;
+    width: 90vw;
     position: absolute;
-    bottom: 5vh;
+    bottom: 2vh;
+    @media (min-width: 668px){
+      bottom: 7vh;
+      font-size: 16px;
+    }
+    @media (min-width: 1024px){
+      bottom: 25vh;
+  }
 `
 
 export const FooterCloud = styled.div`

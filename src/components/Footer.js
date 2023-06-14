@@ -11,5 +11,6 @@ export const Footer = () => {
       </FooterText>
       <FooterImage src={CloudsFooter} alt="clouds" />
     </FooterContainer>
+
   )
 }
