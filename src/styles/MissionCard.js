@@ -1,14 +1,13 @@
 import styled from 'styled-components/macro';
 
 export const MissionCardContainer = styled.div`
-  height: 500px;
-  padding: 10px;
+  height: 80vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
+  margin: 20px;
 `
 
 export const MissionCardFront = styled.button`

@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro';
 
 export const FormWrapper = styled.div`
-display: flex;
-justify-content: center;
-margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
 input {
     width: 210px;
     height: 30px;
@@ -13,23 +13,23 @@ input {
 }
 `
 export const InputForm = styled.div`
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
 `
 
 export const InputLabel = styled.label`
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
 `
 
 export const Button = styled.button`
-width: 210px;
-height: 30px;
-border-radius: 5px;
-border-style: none;
-background-color: rgb(40, 127, 219);
-color: white;
-margin-top: 10px;
+    width: 210px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: rgb(40, 127, 219);
+    color: white;
+    margin-top: 10px;
 
 :disabled {
     background-color: rgba(40, 127, 219, 0.5)
