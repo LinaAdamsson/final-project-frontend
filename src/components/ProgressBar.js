@@ -34,16 +34,17 @@ export const ProgressBar = () => {
           // width: '70vh',
           // marginTop: 50
           width: '500px',
+          height: '500px',
+          position: 'absolute'
           // marginLeft: '-40px',
-          marginTop: '-45px'
         }}
         src="/Images/globe.png"
         alt="planet" />
       <div style={{
-        fontSize: 30,
-        marginBottom: -100,
+        fontSize: 40,
         color: 'white',
-        fontFamily: 'Bagel Fat One'
+        fontFamily: 'Bagel Fat One',
+        position: 'absolute'
       }}>
         {dailyScore}P
       </div>
