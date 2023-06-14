@@ -27,7 +27,7 @@ export const ProgressBar = () => {
         // textSize: '30px',
         // textColor: 'green',
         pathColor: 'orange',
-        trailColor: 'yellow'
+        trailColor: 'transparent'
       })}>
       <img
         style={{
