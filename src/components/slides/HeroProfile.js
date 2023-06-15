@@ -9,7 +9,11 @@ const HeroProfile = () => {
     <UserPageWrapper>
       <UserAvatar src="/Images/Avatar_moln.png" alt="avatar" />
       <UserTitle>Super-{myUser.firstName}</UserTitle>
-      <UserText>REAL NAME: {myUser.firstName} {myUser.lastName}</UserText>
+      <UserText
+        style={{
+          textTransform: 'uppercase'
+        }}>REAL NAME: {myUser.firstName} {myUser.lastName}
+      </UserText>
       <UserText>TITLE: CLIMATE HERO</UserText>
       <UserText>STRENGTH: ENDURANCE</UserText>
       <ScoreCardWrapper>
@@ -21,7 +25,7 @@ const HeroProfile = () => {
         <ScoreCard>
           <CardText
             style={{
-              color: '#6E85B7'
+              color: '#FFB200'
             }}>TOTAL SCORE
           </CardText>
           <TotalPoints>{myUser.totalScore} p</TotalPoints>

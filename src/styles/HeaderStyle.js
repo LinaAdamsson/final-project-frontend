@@ -17,6 +17,7 @@ margin-right: -20px;
 h2 {
     font-size: 16px;
     color: white;
+    // color: #6E85B7;
     letter-spacing: 1px;
     padding-top: 15px;
     text-shadow: 1px 1px 2px lightgrey;
@@ -35,6 +36,7 @@ h1 {
     font-size: 20px;
     font-family: 'Bagel Fat One', cursive;
     color: white;
+    // color: #6E85B7;
     text-shadow: 1px 1px 2px lightgrey;
     /* text-shadow: 1px 1px 2px grey; */
     letter-spacing: 1px;

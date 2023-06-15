@@ -15,18 +15,23 @@ export const UserAvatar = styled.img`
 
 export const UserTitle = styled.h2`
     font-size: 38px;
-    font-family: 'Bagel Fat One', cursive;
+    font-family: 'Pacifico', cursive;
+    // color: white;
+    text-shadow: 1px 1px 2px lightgrey;
     color: #FFB200;
     margin: 0px 0px 10px 0px;
 `
 
 export const UserText = styled.p`
     font-size: 22px;
-    font-family: 'Gill Sans', serif;
+    // font-family: 'Gill Sans', serif;
+    font-family:'Bagel Fat One', cursive;
     font-weight: 650;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px lightgrey;
     // color: #086695;
-    color: #6E85B7;
-    // color: white;
+    // color: #6E85B7;
+    color: white;
     margin: 5px;
 `
 
@@ -45,11 +50,12 @@ export const ScoreCard = styled.div`
     // opacity: 90%;
     width: 120px;
     height: 120px;
-    border: solid #FFB200 2px;
+    border: solid #FFB200 3px;
     // border-radius: 10%;
     border-radius: 50%;
     font-family: 'Gill Sans', serif;
     font-weight: 650;
+    text-shadow: 1px 1px 2px lightgrey;
     margin: 10px;
     padding: 10px;
     /* text-transform: uppercase; */
@@ -60,8 +66,10 @@ export const CardText = styled.h3`
     font-size: 18px;
     font-family: 'Gill Sans', serif;
     font-weight: 650;
+    text-shadow: 1px 1px 2px lightgrey;
     // color: #086695;
-    color: #6E85B7;    
+    // color: #6E85B7;    
+    color: white;
     margin-top: 30px;
     margin: 0;
 `
@@ -78,7 +86,8 @@ export const DailyPoints = styled.p`
 
 export const TotalPoints = styled.p`
     // color: #F0B560;
-    color: white;
+    // color: #6E85B7;
+    color: #FFB200;
     font-size: 28px;
     font-weight: 650;
     margin: 5px;

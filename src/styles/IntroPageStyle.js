@@ -31,7 +31,7 @@ export const IntroText = styled.div`
         font-size: 20px;
         color: white;
         margin-bottom: 30px;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         font-family:'Bagel Fat One', cursive;
         text-shadow: 1px 1px 2px lightgrey;
         /* max-width: 500px;  */
@@ -54,8 +54,10 @@ export const LoginRegisterWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Gill Sans', serif;
+    letter-spacing: 1px;
+    font-family:'Bagel Fat One', cursive;
     font-weight: 650;
-    color: purple;
+    // color: #6E85B7;
+    color: white;
     font-size: 16px;
 `

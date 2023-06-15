@@ -13,7 +13,9 @@ export const MissionCardContainer = styled.div`
 
 export const MissionCardFront = styled.button`
     /* background-color: #0A99FF; */
-    background-color: #0878D4;
+    // background-color: #0878D4;
+    // background-color: #31E1F7;
+    background-color: #47B5FF;
     width: 110px;
     height: 110px;
     border: none;
@@ -27,8 +29,8 @@ export const MissionCardFront = styled.button`
 
     :disabled{
       // background-color: rgba(10, 153, 254, 0.5);
-      background-color: green;
-      opacity: 50%;
+      background-color: #68B984;
+      opacity: 60%;
       color: rgba(255, 255, 255, 0.5)
     }
 

@@ -1,5 +1,9 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components/macro';
+import { HeaderWrapper, HeaderText } from 'styles/HeaderStyle';
+import { UserText } from 'styles/HeroProfileStyle';
+import { Button } from 'styles/FormStyle.js'
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -7,17 +11,20 @@ const NotFound = () => {
     navigate('/');
   }
   return (
-    <>
-      <p>
-        <Link to="/login">GO TO LOG IN</Link>
-      </p>
-      <p>
-        <Link to="/">GO TO MAIN</Link>
-      </p>
-      <p className="notFound">SORRY, NOTHING HERE...</p>
-      <button className="homeBtn" type="button" onClick={onHomeButtonClick}>Return to Home Page</button>
-    </>
+    <HeaderWrapper>
+      <HeaderText>
+        <h2>Guardians of the Climate</h2>
+        <NotFoundText>Sorry, nothing here...</NotFoundText>
+      </HeaderText>
+      <Button className="homeBtn" type="button" onClick={onHomeButtonClick}>Return to Home Page</Button>
+    </HeaderWrapper>
   )
 }
 
 export default NotFound
+
+const NotFoundText = styled(UserText)`
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+`

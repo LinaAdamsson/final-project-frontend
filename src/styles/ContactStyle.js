@@ -30,6 +30,7 @@ export const ContactWrapper = styled.div`
     height: 100px;
     align-items: center;
     background-color: #0878D4;
+    // background-color: #47B5FF;
     padding: 10px;
     border-radius: 20px;
     margin: 10px;
@@ -59,9 +60,8 @@ export const ContactTextWrapper = styled.div`
     justify-content: flex-start;
 `
 export const ContactText = styled.p`
-    font-family: 'Gill Sans', serif; 
+    font-family: 'Pacifico', cursive;
     color: white;
-    text-transform: uppercase;
     font-size: 1em;
     
     @media (min-width: 768px){

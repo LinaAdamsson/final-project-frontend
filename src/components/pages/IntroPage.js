@@ -35,7 +35,6 @@ const IntroPage = () => {
         <h1>Guardians of the Climate</h1>
         <h2>HEROES ALL OVER THE GLOBE HELP SAVE OUR PLANET – ONE MISSION AT A TIME</h2>
         <br />
-        {/* <p>ARE YOU READY TO ACCEPT THE CHALLENGE? </p> */}
       </IntroText>
       {showLoginForm ? (
         <>
@@ -55,9 +54,6 @@ const IntroPage = () => {
         <>
           <RegisterForm onSuccess={handleLogin} />
           <LoginRegisterWrapper>
-            {/* <p>
-                Already accepted the challenge?
-            </p> */}
             <p>
                 ALREADY ONE OF OUR HEROES?
             </p>

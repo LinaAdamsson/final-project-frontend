@@ -14,7 +14,8 @@ export const DailyScorePrompt = styled.h3`
      font-family: 'Bagel Fat One', cursive;
      letter-spacing: 2px;
     //  color: #0878D4;
-     color: #6E85B7;
+    //  color: #6E85B7;
+     color: white;
 `
 
 // export const DailyScorePointsCircle = styled.div`
