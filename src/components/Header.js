@@ -44,7 +44,7 @@ export const Header = ({ currentSlideIndex }) => {
     <HeaderWrapper>
       <SignOutButton type="button" onClick={onContactButtonClick}>Contact</SignOutButton>
       <HeaderText>
-        <h2>Guardians of the climate</h2>
+        <h2>Guardians of the Climate</h2>
         <h1>{headerText}</h1>
       </HeaderText>
       <SignOutButton type="button" onClick={onSignOutButtonClick}>Sign out</SignOutButton>
