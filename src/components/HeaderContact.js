@@ -27,12 +27,12 @@ const HeaderContact = () => {
 
   return (
     <HeaderWrapper>
-      <SignOutButton type="button" onClick={onHomeButtonClick}>HOME</SignOutButton>
+      <SignOutButton type="button" onClick={onHomeButtonClick}>Home</SignOutButton>
       <HeaderText>
         <h2>Guardians of the Climate</h2>
-        <h1>Contact</h1>
+        <h1>CONTACT</h1>
       </HeaderText>
-      <SignOutButton type="button" onClick={onSignOutButtonClick}>SIGN OUT</SignOutButton>
+      <SignOutButton type="button" onClick={onSignOutButtonClick}>Sign out</SignOutButton>
     </HeaderWrapper>
   )
 }
