@@ -12,6 +12,8 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+margin-left: -20px;
+margin-right: -20px;
 h2 {
     font-size: 16px;
     color: white;

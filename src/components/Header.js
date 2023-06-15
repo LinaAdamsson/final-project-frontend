@@ -13,16 +13,16 @@ const Header = ({ currentSlideIndex }) => {
 
   switch (currentSlideIndex) {
     case 0:
-      headerText = 'Hero Profile';
+      headerText = 'HERO PROFILE';
       break;
     case 1:
-      headerText = 'Mission Board';
+      headerText = 'MISSION BOARD';
       break;
     case 2:
-      headerText = 'Daily Score';
+      headerText = 'DAILY SCORE';
       break;
     default:
-      headerText = 'Mission Board'
+      headerText = 'MISSION BOARD'
   }
 
   const onSignOutButtonClick = () => {
@@ -42,12 +42,12 @@ const Header = ({ currentSlideIndex }) => {
 
   return (
     <HeaderWrapper>
-      <SignOutButton type="button" onClick={onContactButtonClick}>CONTACT</SignOutButton>
+      <SignOutButton type="button" onClick={onContactButtonClick}>Contact</SignOutButton>
       <HeaderText>
         <h2>Guardians of the Climate</h2>
         <h1>{headerText}</h1>
       </HeaderText>
-      <SignOutButton type="button" onClick={onSignOutButtonClick}>SIGN OUT</SignOutButton>
+      <SignOutButton type="button" onClick={onSignOutButtonClick}>Sign out</SignOutButton>
     </HeaderWrapper>
   )
 }
