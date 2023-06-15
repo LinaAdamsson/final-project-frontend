@@ -42,11 +42,12 @@ export const ProgressBar = () => {
         alt="planet" />
       <div style={{
         fontSize: 40,
+        letterSpacing: '2px',
         color: 'white',
         fontFamily: 'Bagel Fat One',
         position: 'absolute'
       }}>
-        {dailyScore}P
+        {dailyScore} P
       </div>
     </CircularProgressbarWithChildren>
   )
