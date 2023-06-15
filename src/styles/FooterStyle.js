@@ -21,18 +21,21 @@ export const FooterContainer = styled.div`
 
 export const FooterText = styled.p`
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
+    font-family: 'Pacifico', cursive;
+    /* font-family: 'Courier New', Courier, monospace; */
+    color: #0878D4;
+    font-size: 14px;
     width: 90vw;
     position: absolute;
     bottom: 2vh;
-    
+
     @media (min-width: 668px){
       bottom: 7vh;
-      font-size: 16px;
+      font-size: 18px;
     }
     @media (min-width: 1024px){
       bottom: 25vh;
+      font-size: 18px;
   }
 `
 

@@ -29,6 +29,7 @@ const HeaderContact = () => {
     <HeaderWrapper>
       <SignOutButton type="button" onClick={onHomeButtonClick}>HOME</SignOutButton>
       <HeaderText>
+        <h2>Guardians of the Climate</h2>
         <h1>Contact</h1>
       </HeaderText>
       <SignOutButton type="button" onClick={onSignOutButtonClick}>SIGN OUT</SignOutButton>

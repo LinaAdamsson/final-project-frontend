@@ -11,6 +11,7 @@ input {
     border-radius: 5px;
     border-style: none;
     font-family: 'Gill Sans', serif;
+    font-size: 16px;
 }
 `
 export const InputForm = styled.div`
@@ -21,6 +22,7 @@ export const InputForm = styled.div`
 export const InputLabel = styled.label`
     display: flex;
     flex-direction: column;
+    font-weight: 600;
 `
 
 export const Button = styled.button`
@@ -32,7 +34,8 @@ export const Button = styled.button`
     color: white;
     margin-top: 20px;
     margin-bottom: 50px;
-    text-shadow: 1px 1px 1px lightgrey;
+    /* text-shadow: 1px 1px 1px lightgrey; */
+    font-weight: 600;
 
 :disabled {
     background-color: rgba(40, 127, 219, 0.5)

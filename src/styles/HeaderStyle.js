@@ -13,18 +13,20 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 h2 {
-    font-size: 15px;
+    font-size: 16px;
     color: white;
     letter-spacing: 1px;
     padding-top: 15px;
     text-shadow: 1px 1px 2px lightgrey;
-    font-family: 'Bagel Fat One', cursive;
+    font-family: 'Pacifico', cursive;
+    /* font-family: 'Bagel Fat One', cursive; */
     @media (min-width: 668px){
-      font-size: 19px;
+      font-size: 22px;
+      padding-top: 30px;
     }
     @media (min-width: 1024px){
-     font-size: 22px;
-     padding-top: 40px;
+     font-size: 24px;
+     padding-top: 50px;
     }
 }
 h1 {
@@ -32,14 +34,15 @@ h1 {
     font-family: 'Bagel Fat One', cursive;
     color: white;
     text-shadow: 1px 1px 2px lightgrey;
+    /* text-shadow: 1px 1px 2px grey; */
     letter-spacing: 1px;
     margin-top: -10px;
     @media (min-width: 668px){
-      font-size: 25px;
+      font-size: 28px;
       letter-spacing: 4px;
     }
     @media (min-width: 1024px){
-     font-size: 30px;
+     font-size: 32px;
      letter-spacing: 6px;
     }
 }

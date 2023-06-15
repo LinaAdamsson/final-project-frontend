@@ -3,7 +3,7 @@ import LoginForm from 'components/LoginForm';
 import RegisterForm from 'components/RegisterForm';
 import { Avatar } from 'styles/AvatarStyle';
 import { Planet } from 'styles/PlanetStyle';
-import { IntroText, LoginRegisterWrapper, IntroImage } from 'styles/StartPage';
+import { IntroText, LoginRegisterWrapper, IntroImage } from 'styles/IntroPageStyle';
 import { Button } from 'styles/FormStyle';
 
 const IntroPage = () => {
@@ -46,7 +46,7 @@ const IntroPage = () => {
               marginBottom: '-150px'
             }}>
             <p>
-                READY TO ACCEPT THE CHALLENGE?{' '}
+                Ready to accept the challenge?{' '}
             </p>
             <Button type="button" onClick={handleToggleForm}>Register</Button>
           </LoginRegisterWrapper>

@@ -30,7 +30,7 @@ margin: 80px auto 20px;
 
 ::after, ::before {
 content: '';
-backround: white;
+background: white;
 position: absolute;
 z-index: -1
 }

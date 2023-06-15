@@ -10,10 +10,10 @@ export const IntroImage = styled.div`
 
 export const IntroText = styled.div`   
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    flex-direction: column;
     margin: 20px 100px -20px 100px;
 
     h1 {
@@ -25,7 +25,7 @@ export const IntroText = styled.div`
     font-family: 'Pacifico', cursive;
     // text-shadow: 1px 1px 2px grey;
     text-shadow: 1px 1px 2px lightgrey;
-}
+    }
 
     h2 {
         font-size: 20px;
@@ -34,6 +34,7 @@ export const IntroText = styled.div`
         letter-spacing: 2px;
         font-family:'Bagel Fat One', cursive;
         text-shadow: 1px 1px 2px lightgrey;
+        /* max-width: 500px;  */
     }
 
     // p {
@@ -56,5 +57,5 @@ export const LoginRegisterWrapper = styled.div`
     font-family: 'Gill Sans', serif;
     font-weight: 650;
     color: purple;
-    font-size: 15px;
+    font-size: 16px;
 `
