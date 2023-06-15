@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { user } from 'reducers/user';
 import { MainContainer } from 'styles/MainStyle';
 import 'slick-carousel/slick/slick.css';
@@ -15,10 +15,12 @@ import DailyScorePage from './DailyScorePage';
 import UserPage from './UserPage';
 import FetchUserData from './FetchUserData';
 import FetchScores from './FetchScores';
+import Loader from './Loader';
 
 const Main = () => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isLoading = useSelector((store) => store.loading.setLoading);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(1);
   // const [loading, setLoading] = useState(true)
   /* const [activeIndex, setActiveIndex] = useState(1); */
@@ -54,29 +56,33 @@ const Main = () => {
 
   // setLoading in the redux store, a slice for the loading
   // dispatch in each fetch
-  // or apply loader in one view (missionboard?)
+  // or apply loader in one view (mission board?)
 
   return (
-    <>
-      <MainContainer>
-        <Header currentSlideIndex={currentSlideIndex} />
-        <FetchScores />
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Slider {...sliderSettings} afterChange={handleSlideChange}>
-          <div>
-            <UserPage />
-            <FetchUserData />
-          </div>
-          <div>
-            <MissionBoard />
-          </div>
-          <div>
-            <DailyScorePage />
-          </div>
-        </Slider>
-      </MainContainer>
-      <Footer />
-    </>
+    <div>
+      {isLoading ? (<Loader />) : (
+        <>
+          <MainContainer>
+            <Header currentSlideIndex={currentSlideIndex} />
+            <FetchScores />
+            {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+            <Slider {...sliderSettings} afterChange={handleSlideChange}>
+              <div>
+                <UserPage />
+                <FetchUserData />
+              </div>
+              <div>
+                <MissionBoard />
+              </div>
+              <div>
+                <DailyScorePage />
+              </div>
+            </Slider>
+          </MainContainer>
+          <Footer />
+        </>
+      )}
+    </div>
   )
 }
 
