@@ -23,7 +23,7 @@ export const MissionCardFront = styled.button`
     font-family: 'Gill Sans', serif;
     font-weight: 650;    
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13px;
 
     :disabled{
       // background-color: rgba(10, 153, 254, 0.5);

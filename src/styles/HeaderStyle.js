@@ -31,6 +31,7 @@ h1 {
     font-size: 20px;
     font-family: 'Bagel Fat One', cursive;
     color: white;
+    text-shadow: 1px 1px 2px lightgrey;
     letter-spacing: 1px;
     margin-top: -10px;
     @media (min-width: 668px){
