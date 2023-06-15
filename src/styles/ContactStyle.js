@@ -10,19 +10,23 @@ export const ContactContainer = styled.div`
     width: 100vw;
     height: 100vh;
     margin: 0 auto;
+    margin-top: 20px;
+
 
     @media (min-width: 768px){
         flex-wrap: wrap;
         align-items: flex-start;
         justify-content: center;
         flex-direction: row;
+        height: 70vh;
+        width: 80vw;
     }
 `
 
 export const ContactWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    width: 80vw;
+    width: 60vw;
     height: 100px;
     align-items: center;
     background-color: #0878D4;
@@ -33,14 +37,14 @@ export const ContactWrapper = styled.div`
 
     @media (min-width: 768px) {
         margin-top: 20px;
-        width: 40vw;
+        width: 30vw;
         height: 150px;
     }
 `
 
 export const HeroImg = styled.img`
     border-radius: 50%;
-    width: 20vw;
+    width: 15vw;
     margin: 0 20px;
 
     @media (min-width: 768px) {
