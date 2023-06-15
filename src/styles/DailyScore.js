@@ -6,13 +6,13 @@ export const DailyScoreWrapper = styled.section`
     align-items: center;
     justify-content: center;
     height: 300px;
-    margin-top: 50px;
+    margin-top: 100px;
 `
 
 export const DailyScorePrompt = styled.h3`
      font-size: 25px;
      font-family: 'Roboto Slab', serif; 
-     color: white;
+     color: orange;
 `
 
 // export const DailyScorePointsCircle = styled.div`
