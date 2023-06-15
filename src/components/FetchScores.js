@@ -1,13 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loading } from 'reducers/loading';
+// import { loading } from 'reducers/loading';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 
 const FetchScores = () => {
   const dispatch = useDispatch()
-  // const isLoading = useSelector((store) => store.loading.isLoading)
   const accessToken = useSelector((store) => store.user.accessToken)
   const dailyScore = useSelector((store) => store.user.dailyScore)
   const totalScore = useSelector((store) => store.user.totalScore)
@@ -24,7 +23,7 @@ const FetchScores = () => {
           'Authorization': accessToken
         }
       };
-      dispatch(loading.actions.setLoading(true))
+      // dispatch(loading.actions.setLoading(true))
       fetch(API_URL(`users/${userId}/score/${todaysDate}`), options)
         .then((res) => res.json())
         .then((data) => {
@@ -52,7 +51,7 @@ const FetchScores = () => {
           }
         })
         .catch((error) => console.log(error))
-        .finally(() => dispatch(loading.actions.setLoading(false)))
+        // .finally(() => dispatch(loading.actions.setLoading(false)))
     }
   }, [dailyScore, accessToken]);
 

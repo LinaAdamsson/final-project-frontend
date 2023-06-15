@@ -2,7 +2,7 @@ import React from 'react';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { loading } from 'reducers/loading';
+// import { loading } from 'reducers/loading';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import NotFound from 'components/NotFound';
@@ -14,7 +14,7 @@ import { Contact } from 'components/Contact';
 
 export const App = () => {
   const reducer = combineReducers({
-    loading: loading.reducer,
+    // loading: loading.reducer,
     missions: missions.reducer,
     user: user.reducer
   })

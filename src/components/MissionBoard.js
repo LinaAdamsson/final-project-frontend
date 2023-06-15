@@ -6,22 +6,20 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Popup from 'reactjs-popup';
-// import { useNavigate } from 'react-router-dom';
+// import { loading } from 'reducers/loading';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 import { MissionCardBack, MissionCardFront, PopupModal, CloseButton, MissionCardContainer } from 'styles/MissionCard';
 import { Button } from 'styles/FormStyle';
-// import { Loader } from './Loader';
+import Loader from './Loader';
 
 const MissionBoard = () => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate()
-  const [disabledStates, setDisabledStates] = useState({})
-  // const [loading, setLoading] = useState(true)
+  const [disabledStates, setDisabledStates] = useState({});
+  const [loading, setLoading] = useState(false);
   const accessToken = useSelector((store) => store.user.accessToken);
   const missionItems = useSelector((store) => store.missions.missionItems);
-  // const error = useSelector((store) => store.user.error)
 
   // Randomize the objects in the array on login
   const getRandomIndices = (max, count) => {
@@ -46,27 +44,27 @@ const MissionBoard = () => {
           "Authorization": accessToken
         }
       }
-      // setLoading(true)
+      setLoading(true)
+      // dispatch(loading.actions.setLoading(true))
       fetch(API_URL('missions'), options)
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
-          // Randomize and show 12 objects from the array - too many for the screen?
             const allItems = data.response
             const totalItems = allItems.length
             const selectedIndices = getRandomIndices(totalItems, 8)
-            // const selectedIndices = getRandomIndices(totalItems, 12)
             const selectedItems = selectedIndices.map((index) => allItems[index])
 
             dispatch(missions.actions.setMissionItems(selectedItems));
             dispatch(missions.actions.setError(null));
+            // dispatch(loading.actions.setLoading(false)) reducer loading
           } else {
             dispatch(missions.actions.setMissionItems([]));
             dispatch(missions.actions.setError(data));
           }
         })
         .catch((e) => console.log(e))
-        // .finally(() => setLoading(false))
+        .finally(() => setLoading(false))
     }
   }, [accessToken])
 
@@ -81,7 +79,6 @@ const MissionBoard = () => {
         'Authorization': accessToken
       }
     }
-    // setLoading(true)
     fetch(API_URL(`missions/collect-points/${missionId}`), options)
       .then((response) => response.json())
       .then((data) => {
@@ -100,7 +97,6 @@ const MissionBoard = () => {
         }
       })
       .catch((e) => console.log(e))
-      // .finally(() => setLoading(false))
 
     setDisabledStates((prevState) => ({
       ...prevState,
@@ -108,6 +104,9 @@ const MissionBoard = () => {
     }));
   }
 
+  if (loading) {
+    return <Loader />
+  }
   return (
     // <>
     //   {loading ? (

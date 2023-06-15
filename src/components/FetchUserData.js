@@ -1,15 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-underscore-dangle */
 import { useEffect } from 'react';
+// import { loading } from 'reducers/loading';
 import { user } from 'reducers/user';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from 'utils/urls';
 
 const FetchUserData = () => {
+  const dispatch = useDispatch()
   const accessToken = useSelector((store) => store.user.accessToken)
   // const dailyScore = useSelector((store) => store.user.dailyScore)
   const userId = useSelector((store) => store.user.userId)
-  const dispatch = useDispatch()
 
   useEffect(() => {
     if (userId) {
@@ -22,6 +23,7 @@ const FetchUserData = () => {
 
         }
       }
+      //   dispatch(loading.actions.setLoading(true))
       fetch(API_URL(`users/${userId}`), options)
         .then((response) => response.json())
         .then((data) => {
@@ -45,9 +47,9 @@ const FetchUserData = () => {
           }
         })
         .catch((error) => console.log(error))
+        // .finally(() => dispatch(loading.actions.setLoading(false)))
     }
   }, [accessToken])
-  // Fetches once when logging in, dailyScore and totalScore seems to get updated correctly
 
   return null
 }
