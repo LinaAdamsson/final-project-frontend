@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import { FormWrapper, InputForm, InputLabel, Button } from 'styles/FormStyle';
+import { FormWrapper, InputForm, InputLabel, Button, Error } from 'styles/FormStyle';
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -48,7 +48,7 @@ const RegisterForm = () => {
           dispatch(user.actions.setEmail(null));
           dispatch(user.actions.setUserId(null));
           dispatch(user.actions.setAccessToken(null));
-          dispatch(user.actions.setError(data.response))
+          dispatch(user.actions.setError(data.message))
         }
       })
   }
@@ -120,7 +120,7 @@ const RegisterForm = () => {
           </InputLabel>
         </InputForm>
         <Button type="submit">Submit</Button>
-        <p>{error}</p>
+        <Error>{error}</Error>
       </form>
     </FormWrapper>
   )
