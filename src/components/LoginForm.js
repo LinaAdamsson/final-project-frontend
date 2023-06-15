@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import { FormWrapper, Button, InputForm, InputLabel } from 'styles/FormStyle';
+import { FormWrapper, Button, InputForm, InputLabel, Error } from 'styles/FormStyle';
 // import { Avatar } from 'styles/AvatarStyle';
 
 const LoginForm = () => {
@@ -46,7 +46,7 @@ const LoginForm = () => {
           dispatch(user.actions.setEmail(null));
           dispatch(user.actions.setUserId(null));
           dispatch(user.actions.setAccessToken(null));
-          dispatch(user.actions.setError(data.response))
+          dispatch(user.actions.setError(data.message))
         }
       })
   }
@@ -87,7 +87,7 @@ const LoginForm = () => {
           </InputLabel>
         </InputForm>
         <Button type="submit">Log in</Button>
-        <p>{error}</p>
+        <Error>{error}</Error>
       </form>
     </FormWrapper>
   )

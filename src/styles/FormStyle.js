@@ -41,3 +41,10 @@ export const Button = styled.button`
     background-color: rgba(40, 127, 219, 0.5)
 }
 `
+
+export const Error = styled.p`
+    font-size: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+`
