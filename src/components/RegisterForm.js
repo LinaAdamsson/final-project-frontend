@@ -13,13 +13,14 @@ const RegisterForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const accessToken = useSelector((store) => store.user.accessToken)
+  const userId = useSelector((store) => store.user.userId)
   const error = useSelector((store) => store.user.error)
 
   useEffect(() => {
-    if (accessToken) {
+    if (accessToken && userId) {
       navigate('/')
     }
-  }, [accessToken, navigate])
+  }, [accessToken, userId, navigate])
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -42,6 +43,8 @@ const RegisterForm = () => {
           dispatch(user.actions.setUserId(data.response.id));
           dispatch(user.actions.setAccessToken(data.response.accessToken));
           dispatch(user.actions.setError(null));
+          localStorage.setItem('userId', data.response.id);
+          localStorage.setItem('accessToken', data.response.accessToken);
         } else {
           dispatch(user.actions.setFirstName(null));
           dispatch(user.actions.setLastName(null));
