@@ -56,7 +56,8 @@ export const PopupModal = styled.div`
   text-align: center;
   padding: 5%;
   border-radius: 5%;
-  background-color: #FCD19C;
+  // background-color: #FCD19C;
+  background-color: #FFB200;
   box-shadow:  0px 0px 0px 9999px rgba(255, 255, 255, 0.5);
   `
 
@@ -66,7 +67,7 @@ height: 30px;
 border-radius: 5px;
 border-style: none;
 // background-color: rgb(40, 127, 219);
-background-color: purple;
+background-color: #6E85B7;
 color: white;
 margin-top: 10px;
 `

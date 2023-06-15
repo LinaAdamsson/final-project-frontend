@@ -26,7 +26,7 @@ export const ProgressBar = () => {
       // SVG viewbox.
         // textSize: '30px',
         // textColor: 'green',
-        pathColor: 'orange',
+        pathColor: '#FFB200',
         trailColor: 'transparent'
       })}>
       <img

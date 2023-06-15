@@ -46,7 +46,7 @@ const IntroPage = () => {
               marginBottom: '-150px'
             }}>
             <p>
-                Ready to accept the challenge?{' '}
+                READY TO ACCEPT THE CHALLENGE?{' '}
             </p>
             <Button type="button" onClick={handleToggleForm}>Register</Button>
           </LoginRegisterWrapper>
@@ -59,7 +59,7 @@ const IntroPage = () => {
                 Already accepted the challenge?
             </p> */}
             <p>
-                Already one of our heroes?
+                ALREADY ONE OF OUR HEROES?
             </p>
             <Button type="button" onClick={handleToggleForm}>Log in here</Button>
           </LoginRegisterWrapper>

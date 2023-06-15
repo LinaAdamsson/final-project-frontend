@@ -132,7 +132,7 @@ const MissionBoard = () => {
                         onClick={() => collectPoints(mission._id)}
                         disabled={disabledStates[mission._id]}
                         style={{
-                          backgroundColor: 'purple'
+                          backgroundColor: '#6E85B7'
                         }}>
                           Mission accomplished
                       </Button>

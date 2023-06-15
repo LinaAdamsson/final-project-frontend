@@ -21,7 +21,7 @@ const HeroProfile = () => {
         <ScoreCard>
           <CardText
             style={{
-              color: 'purple'
+              color: '#6E85B7'
             }}>TOTAL SCORE
           </CardText>
           <TotalPoints>{myUser.totalScore} p</TotalPoints>
