@@ -6,13 +6,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Popup from 'reactjs-popup';
-// import { loading } from 'reducers/loading';
 import { missions } from 'reducers/missions';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
-import { MissionCardBack, MissionCardFront, PopupModal, CloseButton, MissionCardContainer } from 'styles/MissionCard';
+import { MissionCardBack, MissionCardFront, PopupModal, CloseButton, MissionCardContainer } from 'styles/MissionBoardStyle';
 import { Button } from 'styles/FormStyle';
-import Loader from './Loader';
+import Loader from '../Loader';
 
 const MissionBoard = () => {
   const dispatch = useDispatch();
@@ -45,7 +44,6 @@ const MissionBoard = () => {
         }
       }
       setLoading(true)
-      // dispatch(loading.actions.setLoading(true))
       fetch(API_URL('missions'), options)
         .then((response) => response.json())
         .then((data) => {
@@ -57,7 +55,6 @@ const MissionBoard = () => {
 
             dispatch(missions.actions.setMissionItems(selectedItems));
             dispatch(missions.actions.setError(null));
-            // dispatch(loading.actions.setLoading(false)) reducer loading
           } else {
             dispatch(missions.actions.setMissionItems([]));
             dispatch(missions.actions.setError(data));
@@ -70,7 +67,6 @@ const MissionBoard = () => {
 
   // Collect points from missions
   const collectPoints = (missionId) => {
-    // missionId.preventDefault()
     const options = {
       method: 'PATCH',
       headers: {
@@ -85,14 +81,11 @@ const MissionBoard = () => {
         if (data.success) {
           dispatch(user.actions.setDailyScore(data.response.points));
           dispatch(user.actions.setTotalScore(data.response.points));
-          // Antingen väljer vi att alla dispatches till dailyScore och totalScore är data.response = bara points
-          // eller bara data för hela objekt
           dispatch(missions.actions.setError(null));
           console.log('Collected points', data.response.points)
         } else {
           dispatch(user.actions.setDailyScore(0));
           dispatch(user.actions.setTotalScore(0));
-          // ska vi sätta error till data.message för att se felmeddelandet från backenden?
           dispatch(missions.actions.setError(data));
         }
       })
@@ -108,10 +101,6 @@ const MissionBoard = () => {
     return <Loader />
   }
   return (
-    // <>
-    //   {loading ? (
-    //     <Loader />
-    //   ) : (
     <>
       <MissionCardContainer>
         {missionItems.map((mission) => {

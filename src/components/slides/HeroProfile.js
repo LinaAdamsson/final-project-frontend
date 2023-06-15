@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { CardText, DailyPoints, ScoreCard, ScoreCardWrapper, TotalPoints, UserAvatar, UserPageWrapper, UserText, UserTitle } from 'styles/UserPage';
+import { CardText, DailyPoints, ScoreCard, ScoreCardWrapper, TotalPoints, UserAvatar, UserPageWrapper, UserText, UserTitle } from 'styles/HeroProfileStyle';
 
-const UserPage = () => {
+const HeroProfile = () => {
   const myUser = useSelector((store) => store.user)
 
   return (
@@ -28,4 +28,4 @@ const UserPage = () => {
   );
 }
 
-export default UserPage
+export default HeroProfile;

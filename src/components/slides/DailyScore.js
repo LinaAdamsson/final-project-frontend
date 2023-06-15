@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScore';
-import { ProgressBar } from './ProgressBar';
+import { DailyScorePrompt, DailyScoreWrapper } from 'styles/DailyScoreStyle';
+import { ProgressBar } from '../ProgressBar';
 
-const DailyScorePage = () => {
+const DailyScore = () => {
   const dailyScore = useSelector((store) => store.user.dailyScore)
 
   return (
@@ -29,4 +29,4 @@ const DailyScorePage = () => {
   );
 }
 
-export default DailyScorePage
+export default DailyScore;

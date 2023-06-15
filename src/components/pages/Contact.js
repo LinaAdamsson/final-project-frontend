@@ -1,15 +1,14 @@
 import React from 'react'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import Lina from 'assets/Lina.png';
 import Andrea from 'assets/Andrea.png';
 import Frida from 'assets/Frida.png';
 import Emilia from 'assets/Emilia.png';
 import { ContactContainer, ContactText, ContactWrapper, ContactTextWrapper, HeroImg, Icons, Links } from 'styles/ContactStyle';
-import { Footer } from './Footer';
-import { HeaderContact } from './HeaderContact';
+import Footer from '../Footer';
+import HeaderContact from '../HeaderContact';
 
-export const Contact = () => {
+const Contact = () => {
   return (
     <>
       <HeaderContact />
@@ -76,3 +75,5 @@ export const Contact = () => {
     </>
   )
 }
+
+export default Contact;

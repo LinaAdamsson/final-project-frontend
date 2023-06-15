@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { user } from 'reducers/user';
 import { API_URL } from 'utils/urls';
 
-const FetchTotalScore = () => {
+const FetchScores = () => {
   const dispatch = useDispatch()
-  // const [loading, setLoading] = useState(true)
   const accessToken = useSelector((store) => store.user.accessToken)
+  const dailyScore = useSelector((store) => store.user.dailyScore)
   const totalScore = useSelector((store) => store.user.totalScore)
   const userId = useSelector((store) => store.user.userId)
+  const todaysDate = new Date().toISOString().split('T')[0]
 
   useEffect(() => {
     if (accessToken) {
@@ -21,7 +22,20 @@ const FetchTotalScore = () => {
           'Authorization': accessToken
         }
       };
-      // setLoading(true)
+      fetch(API_URL(`users/${userId}/score/${todaysDate}`), options)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            dispatch(user.actions.setDailyScore(data.response));
+            dispatch(user.actions.setError(null));
+            console.log('Fetched daily score:', dailyScore);
+          } else {
+            dispatch(user.actions.setDailyScore(0));
+            dispatch(user.actions.setError(data));
+          }
+        })
+        .catch((error) => console.log(error));
+
       fetch(API_URL(`users/${userId}/total-score`), options)
         .then((res) => res.json())
         .then((data) => {
@@ -35,11 +49,10 @@ const FetchTotalScore = () => {
           }
         })
         .catch((error) => console.log(error))
-        // .finally(() => setLoading(false))
     }
-  }, [totalScore]);
+  }, [dailyScore, accessToken]);
 
   return null
 }
 
-export default FetchTotalScore
+export default FetchScores

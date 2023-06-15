@@ -3,7 +3,6 @@ import LoginForm from 'components/LoginForm';
 import RegisterForm from 'components/RegisterForm';
 import { Avatar } from 'styles/AvatarStyle';
 import { Planet } from 'styles/PlanetStyle';
-// import Loader from 'components/Loader';
 import { IntroText, LoginRegisterWrapper, IntroImage } from 'styles/StartPage';
 import { Button } from 'styles/FormStyle';
 
@@ -28,7 +27,6 @@ const IntroPage = () => {
 
   return (
     <div>
-      {/* <Loader /> */}
       <IntroImage>
         <Avatar src="/Images/Hero.png" alt="avatar" />
         <Planet src="/Images/globe.png" alt="planet" />

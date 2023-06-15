@@ -6,7 +6,7 @@ import { missions } from 'reducers/missions';
 import { HeaderWrapper, HeaderText } from 'styles/HeaderStyle';
 import { SignOutButton } from 'styles/MainStyle';
 
-export const HeaderContact = () => {
+const HeaderContact = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -35,3 +35,5 @@ export const HeaderContact = () => {
     </HeaderWrapper>
   )
 }
+
+export default HeaderContact;

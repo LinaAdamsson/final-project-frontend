@@ -6,7 +6,7 @@ import { missions } from 'reducers/missions';
 import { HeaderWrapper, HeaderText } from 'styles/HeaderStyle';
 import { SignOutButton } from 'styles/MainStyle';
 
-export const Header = ({ currentSlideIndex }) => {
+const Header = ({ currentSlideIndex }) => {
   let headerText = '';
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -42,12 +42,14 @@ export const Header = ({ currentSlideIndex }) => {
 
   return (
     <HeaderWrapper>
-      <SignOutButton type="button" onClick={onContactButtonClick}>Contact</SignOutButton>
+      <SignOutButton type="button" onClick={onContactButtonClick}>CONTACT</SignOutButton>
       <HeaderText>
         <h2>Guardians of the Climate</h2>
         <h1>{headerText}</h1>
       </HeaderText>
-      <SignOutButton type="button" onClick={onSignOutButtonClick}>Sign out</SignOutButton>
+      <SignOutButton type="button" onClick={onSignOutButtonClick}>SIGN OUT</SignOutButton>
     </HeaderWrapper>
   )
 }
+
+export default Header;

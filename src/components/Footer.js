@@ -2,7 +2,7 @@ import React from 'react'
 import { FooterContainer, FooterText, FooterImage } from 'styles/FooterStyle'
 import CloudsFooter from 'assets/footer.png'
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <FooterContainer>
       <FooterText>
@@ -14,3 +14,5 @@ export const Footer = () => {
 
   )
 }
+
+export default Footer;
