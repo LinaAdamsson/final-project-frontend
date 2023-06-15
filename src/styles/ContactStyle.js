@@ -59,7 +59,7 @@ export const ContactTextWrapper = styled.div`
     justify-content: flex-start;
 `
 export const ContactText = styled.p`
-    font-family: 'Roboto Slab', serif; 
+    font-family: 'Gill Sans', serif; 
     color: white;
     text-transform: uppercase;
     font-size: 1em;

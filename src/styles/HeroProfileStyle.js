@@ -15,16 +15,17 @@ export const UserAvatar = styled.img`
 
 export const UserTitle = styled.h2`
     font-size: 38px;
-    font-family: "Bagel Fat One", cursive;
-    color: orange;
+    font-family: 'Bagel Fat One', cursive;
+    color: purple;
     margin: 0px 0px 10px 0px;
 `
 
 export const UserText = styled.p`
     font-size: 22px;
-    font-family: 'Roboto Slab', serif;    
-    font-weight: 500;
-    color: #086695;
+    font-family: 'Gill Sans', serif;
+    font-weight: 650;
+    // color: #086695;
+    color: white;
     margin: 5px;
 `
 
@@ -37,15 +38,17 @@ export const ScoreCard = styled.div`
     display: flex; 
     flex-direction: column;
     justify-content: center;
+    text-align: center;
     align-items: center;
-    background-color: #FFFFFF;
-    opacity: 90%;
+    // background-color: #FFFFFF;
+    // opacity: 90%;
     width: 120px;
     height: 120px;
-    border: none;
-    border-radius: 10%;
-    /* font-family: 'Oswald', sans-serif; */
-    font-family: 'Roboto Slab', serif;
+    border: solid orange 2px;
+    // border-radius: 10%;
+    border-radius: 50%;
+    font-family: 'Gill Sans', serif;
+    font-weight: 650;
     margin: 10px;
     padding: 10px;
     /* text-transform: uppercase; */
@@ -54,24 +57,32 @@ export const ScoreCard = styled.div`
 
 export const CardText = styled.h3`
     font-size: 18px;
-    color: #086695;    
+    font-family: 'Gill Sans', serif;
+    font-weight: 650;
+    // color: #086695;
+    color: white;    
     margin-top: 30px;
     margin: 0;
 `
 export const DailyPoints = styled.p`
-    color: #2EAB6F;
+    // color: #2EAB6F;
+    color: white;
     font-size: 28px;
-    font-weight: 600;
+    font-weight: 650;
     margin: 5px;
     text-align: center;
+    text-transform: uppercase;
+    font-family: 'Gill Sans', serif;
 `
 
 export const TotalPoints = styled.p`
-    color: #F0B560;
+    // color: #F0B560;
+    color: purple;
     font-size: 28px;
-    font-weight: 600;
+    font-weight: 650;
     margin: 5px;
     text-align: center;
+    text-transform: uppercase;
 `
 
 // export const CardPoints = styled.p`

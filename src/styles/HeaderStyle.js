@@ -15,8 +15,10 @@ align-items: center;
 h2 {
     font-size: 15px;
     color: white;
+    letter-spacing: 1px;
     padding-top: 15px;
-    font-family: 'Roboto Slab', serif;
+    text-shadow: 1px 1px 2px lightgrey;
+    font-family: 'Bagel Fat One', cursive;
     @media (min-width: 668px){
       font-size: 19px;
     }
@@ -29,8 +31,7 @@ h1 {
     font-size: 20px;
     font-family: 'Bagel Fat One', cursive;
     color: white;
-    letter-spacing: 2px;
-    text-shadow: 1px 1px 2px grey;
+    letter-spacing: 1px;
     margin-top: -10px;
     @media (min-width: 668px){
       font-size: 25px;

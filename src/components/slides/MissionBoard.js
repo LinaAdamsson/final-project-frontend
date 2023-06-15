@@ -126,12 +126,15 @@ const MissionBoard = () => {
                       &times;
                     </CloseButton>
                     <MissionCardBack>
-                      <p>{mission.description}</p>
+                      <p>{mission.description}.</p>
                       <Button
                         type="button"
                         onClick={() => collectPoints(mission._id)}
-                        disabled={disabledStates[mission._id]}>
-                          I've done it!
+                        disabled={disabledStates[mission._id]}
+                        style={{
+                          backgroundColor: 'purple'
+                        }}>
+                          Mission accomplished
                       </Button>
                     </MissionCardBack>
                   </PopupModal>

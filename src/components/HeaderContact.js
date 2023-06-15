@@ -27,11 +27,11 @@ const HeaderContact = () => {
 
   return (
     <HeaderWrapper>
-      <SignOutButton type="button" onClick={onHomeButtonClick}>Home</SignOutButton>
+      <SignOutButton type="button" onClick={onHomeButtonClick}>HOME</SignOutButton>
       <HeaderText>
         <h1>Contact</h1>
       </HeaderText>
-      <SignOutButton type="button" onClick={onSignOutButtonClick}>Sign out</SignOutButton>
+      <SignOutButton type="button" onClick={onSignOutButtonClick}>SIGN OUT</SignOutButton>
     </HeaderWrapper>
   )
 }

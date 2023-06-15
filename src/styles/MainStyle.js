@@ -18,7 +18,7 @@ export const SignOutButton = styled.button`
 width: 90px; height: 40px;
 background: white;
 opacity: 80%;
-font-family: 'Roboto Slab', serif;
+font-family: 'Gill Sans', serif;
 color: rgb(161, 191, 206);
 font-size: 15px;
 border-radius: 100px;

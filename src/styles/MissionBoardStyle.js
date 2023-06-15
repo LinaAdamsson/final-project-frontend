@@ -20,12 +20,15 @@ export const MissionCardFront = styled.button`
     border-radius: 10%;
     margin: 10px;
     color: white;
-    font-family: 'Roboto Slab', serif;    
+    font-family: 'Gill Sans', serif;
+    font-weight: 650;    
     text-transform: uppercase;
     font-size: 14px;
 
     :disabled{
-      background-color: rgba(10, 153, 254, 0.5);
+      // background-color: rgba(10, 153, 254, 0.5);
+      background-color: green;
+      opacity: 50%;
       color: rgba(255, 255, 255, 0.5)
     }
 
@@ -43,6 +46,9 @@ export const MissionCardBack = styled.div`
 
 export const PopupModal = styled.div`
   display: flex;
+  font-family: 'Gill Sans', serif;   
+  font-size: 20px;
+  color: white;
   flex-direction: column;
   align-items: flex-end;
   width: 300px;
@@ -59,7 +65,8 @@ width: 30px;
 height: 30px;
 border-radius: 5px;
 border-style: none;
-background-color: rgb(40, 127, 219);
+// background-color: rgb(40, 127, 219);
+background-color: purple;
 color: white;
 margin-top: 10px;
 `

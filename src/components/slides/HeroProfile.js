@@ -9,17 +9,21 @@ const HeroProfile = () => {
     <UserPageWrapper>
       <UserAvatar src="/Images/Avatar_moln.png" alt="avatar" />
       <UserTitle>Super-{myUser.firstName}</UserTitle>
-      <UserText>Real name: {myUser.firstName} {myUser.lastName}</UserText>
-      <UserText>Title: Environment Hero</UserText>
-      <UserText>Strength: Endurance</UserText>
+      <UserText>REAL NAME: {myUser.firstName} {myUser.lastName}</UserText>
+      <UserText>TITLE: CLIMATE HERO</UserText>
+      <UserText>STRENGTH: ENDURANCE</UserText>
       <ScoreCardWrapper>
         <ScoreCard>
-          <CardText>Today&apos;s score:</CardText>
-          <DailyPoints>{myUser.dailyScore} p</DailyPoints>
+          <CardText>DAILY SCORE</CardText>
+          <DailyPoints>{myUser.dailyScore} P</DailyPoints>
           {/* <CardPoints>{myUser.dailyScore}</CardPoints> */}
         </ScoreCard>
         <ScoreCard>
-          <CardText>Total score:</CardText>
+          <CardText
+            style={{
+              color: 'purple'
+            }}>TOTAL SCORE
+          </CardText>
           <TotalPoints>{myUser.totalScore} p</TotalPoints>
           {/* <CardPoints>{myUser.totalScore}</CardPoints> */}
         </ScoreCard>

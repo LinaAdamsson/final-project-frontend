@@ -11,8 +11,9 @@ export const DailyScoreWrapper = styled.section`
 
 export const DailyScorePrompt = styled.h3`
      font-size: 25px;
-     font-family: 'Roboto Slab', serif; 
-     color: white;
+     font-family: 'Gill Sans', serif; 
+     font-weight: 650;
+     color: purple;
 `
 
 // export const DailyScorePointsCircle = styled.div`

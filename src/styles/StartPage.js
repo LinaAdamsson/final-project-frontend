@@ -19,24 +19,21 @@ export const IntroText = styled.div`
     h1 {
     font-size: 45px;
     margin-bottom: 20px;
-    color: orange;
+    color: white;
     letter-spacing: 6px;
     // font-family:'Bagel Fat One', cursive;
     font-family: 'Pacifico', cursive;
     // text-shadow: 1px 1px 2px grey;
-    text-shadow: 1px 1px 1px grey;
+    text-shadow: 1px 1px 2px lightgrey;
 }
 
     h2 {
         font-size: 20px;
-        color: orange;
+        color: white;
         margin-bottom: 30px;
         letter-spacing: 2px;
-        // font-family:'Bagel Fat One', cursive;
-        // font-family: 'Roboto Slab', serif;    
-        font-family: 'Gill Sans', serif;
-        // font-family: 'Roboto Slab', serif;    
-        text-shadow: 1px 1px 1px lightgrey;
+        font-family:'Bagel Fat One', cursive;
+        text-shadow: 1px 1px 2px lightgrey;
     }
 
     // p {
@@ -57,6 +54,7 @@ export const LoginRegisterWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     font-family: 'Gill Sans', serif;
-    color: orange;
-    font-size: 20px;
+    font-weight: 650;
+    color: purple;
+    font-size: 15px;
 `

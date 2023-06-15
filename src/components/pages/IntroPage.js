@@ -32,7 +32,7 @@ const IntroPage = () => {
         <Planet src="/Images/globe.png" alt="planet" />
       </IntroImage>
       <IntroText>
-        <h1>Mission Possible</h1>
+        <h1>Guardians of the Climate</h1>
         <h2>HEROES ALL OVER THE GLOBE HELP SAVE OUR PLANET – ONE MISSION AT A TIME</h2>
         <br />
         {/* <p>ARE YOU READY TO ACCEPT THE CHALLENGE? </p> */}
@@ -46,7 +46,7 @@ const IntroPage = () => {
               marginBottom: '-150px'
             }}>
             <p>
-                Ready to accept the challenge?{' '}
+                READY TO ACCEPT THE CHALLENGE?{' '}
             </p>
             <Button type="button" onClick={handleToggleForm}>Register</Button>
           </LoginRegisterWrapper>

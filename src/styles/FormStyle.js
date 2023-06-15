@@ -28,11 +28,8 @@ export const Button = styled.button`
     height: 30px;
     border-radius: 5px;
     border-style: none;
-    // background-color: rgb(40, 127, 219);
-    // background-color: purple;
-    background-color: white;
-    // color: white;
-    color: lightblue;
+    background-color: rgb(40, 127, 219);
+    color: white;
     margin-top: 20px;
     margin-bottom: 50px;
     text-shadow: 1px 1px 1px lightgrey;
