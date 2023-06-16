@@ -13,6 +13,9 @@ export const DailyScorePrompt = styled.h3`
      font-size: 25px;
      font-family: 'Bagel Fat One', cursive;
      letter-spacing: 2px;
+     align-self: center;
+     text-align: center;
+     justify-content: center;
     //  color: #0878D4;
     //  color: #6E85B7;
      color: white;

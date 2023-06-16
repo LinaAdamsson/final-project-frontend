@@ -4,6 +4,7 @@ export const FormWrapper = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    text-shadow: 1px 1px 2px lightgrey;
 input {
     width: 210px;
     height: 30px;

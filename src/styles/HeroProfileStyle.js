@@ -23,7 +23,7 @@ export const UserTitle = styled.h2`
 `
 
 export const UserText = styled.p`
-    font-size: 22px;
+    font-size: 20px;
     // font-family: 'Gill Sans', serif;
     font-family:'Bagel Fat One', cursive;
     font-weight: 650;
@@ -32,6 +32,7 @@ export const UserText = styled.p`
     // color: #086695;
     // color: #6E85B7;
     color: white;
+    text-align: center;
     margin: 5px;
 `
 
