@@ -16,6 +16,7 @@ export const DailyScorePrompt = styled.h3`
      align-self: center;
      text-align: center;
      justify-content: center;
+     text-shadow: 1px 1px 2px lightgrey;
     //  color: #0878D4;
     //  color: #6E85B7;
      color: white;
